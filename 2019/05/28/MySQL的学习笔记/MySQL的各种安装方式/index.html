@@ -100,16 +100,16 @@
 <meta name="keywords" content="MySQL,安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL的各种安装方式">
-<meta property="og:url" content="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/index.html">
+<meta property="og:url" content="https://chenxl18.github.io/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/index.html">
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="MySQL是什么？ 123456MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是一个软件，用来存放数据。用它来存放数据，特别方便，查找和存储数据都非常方便。MySQL 是一个中小型数据库。MySQL是开源数据库。不是免费的数据库软件。有开源版本的数据库，这个是不要钱。MySQL 的开源版本不要钱。企业版都是需要购买。  哪些地方">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
 <meta property="og:updated_time" content="2019-05-29T15:03:53.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL的各种安装方式">
 <meta name="twitter:description" content="MySQL是什么？ 123456MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是一个软件，用来存放数据。用它来存放数据，特别方便，查找和存储数据都非常方便。MySQL 是一个中小型数据库。MySQL是开源数据库。不是免费的数据库软件。有开源版本的数据库，这个是不要钱。MySQL 的开源版本不要钱。企业版都是需要购买。  哪些地方">
-<meta name="twitter:image" content="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
+<meta name="twitter:image" content="https://chenxl18.github.io/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
 
 
 
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/">
+  <link rel="canonical" href="https://chenxl18.github.io/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/">
 
 
 
@@ -169,6 +169,10 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
 
   
   
@@ -190,6 +194,10 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
+      
+        <p class="site-subtitle">得之我幸，失之我命</p>
+      
     
     
   </div>
@@ -224,6 +232,23 @@
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/music/" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i> <br>音乐</a>
 
   </li>
         
@@ -292,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxl">
@@ -385,6 +410,13 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -531,7 +563,7 @@
 
 <h6 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a><strong>关闭selinux</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@changsha-tianlong-db-2 mysql]# getenforce </span><br><span class="line">Enforcing</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# setenforce 0       #临时关闭selinux</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# getenforce </span><br><span class="line">Permissive</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# vi /etc/selinux/config </span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# cat /etc/selinux/config</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png" alt></p>
+<p><img src="/2019/05/28/MySQL的学习笔记/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png" alt></p>
 <h6 id="考虑设置mysql服务开机启动"><a href="#考虑设置mysql服务开机启动" class="headerlink" title="考虑设置mysql服务开机启动"></a><strong>考虑设置mysql服务开机启动</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@changsha-tianlong-db-2 mysql]# systemctl  enable  mysqld  #使用新式方式设置开机启动，提醒不能使用，建议我们使用老式的chkconfig方式</span><br><span class="line">mysqld.service is not a native service, redirecting to /sbin/chkconfig.</span><br><span class="line">Executing /sbin/chkconfig mysqld on</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# chkconfig mysqld on  设#置mysqld服务开机启动</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# chkconfig --list </span><br><span class="line">注：该输出结果只显示 SysV 服务，并不包含原生 systemd 服务。SysV 配置数据可能被原生 systemd 配置覆盖。 </span><br><span class="line">要列出 systemd 服务，请执行 &apos;systemctl list-unit-files&apos;。</span><br><span class="line">查看在具体 target 启用的服务请执行</span><br><span class="line">&apos;systemctl list-dependencies [target]&apos;。</span><br><span class="line">mysqld         	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line">netconsole     	0:关	1:关	2:关	3:关	4:关	5:关	6:关</span><br><span class="line">network        	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br></pre></td></tr></table></figure>
 
 <p><strong>重新启动服务器</strong><br>reboot 重启—-init 6<br>poweroff关机<br>进入linux系统</p>
@@ -594,7 +626,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/28/MySQL的使用/" rel="prev" title="MySQL的使用">
+              <a href="/2019/05/28/uncategorized/MySQL的使用/" rel="prev" title="MySQL的使用">
                 MySQL的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -710,11 +742,38 @@
           
 
           
-
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenxl18/chenxl18.github.io" title="GitHub &rarr; https://github.com/chenxl18/chenxl18.github.io" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1210972564@qq.com" title="E-Mail &rarr; 1210972564@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
           
 
           
+
           
+          
+          <embed src="//music.163.com/style/swf/widget.swf?sid=1347468523&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">
 
           
             
@@ -758,7 +817,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chenxl</span>
 
@@ -776,6 +835,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
