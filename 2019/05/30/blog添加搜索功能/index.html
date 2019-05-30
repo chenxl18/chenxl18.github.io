@@ -24,6 +24,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
+
 
 
 
@@ -97,20 +104,17 @@
 
 
   <meta name="description" content="添加搜索功能插件安装直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save">
-<meta name="keywords" content="搜索,hexo">
+<meta name="keywords" content="搜索功能,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blog添加搜索功能">
-<meta property="og:url" content="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/index.html">
+<meta property="og:url" content="https://chenxl18.github.io/2019/05/30/blog添加搜索功能/index.html">
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="添加搜索功能插件安装直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/D:%5Chexo%5Cmyblog%5Csource_posts%5Cblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.assets%5C1559197914174.png">
-<meta property="og:image" content="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/D:%5Chexo%5Cmyblog%5Csource_posts%5Cblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.assets%5C1559197950656.png">
-<meta property="og:updated_time" content="2019-05-30T06:34:25.714Z">
+<meta property="og:updated_time" content="2019-05-30T07:41:06.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blog添加搜索功能">
 <meta name="twitter:description" content="添加搜索功能插件安装直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save">
-<meta name="twitter:image" content="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/D:%5Chexo%5Cmyblog%5Csource_posts%5Cblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.assets%5C1559197914174.png">
 
 
 
@@ -118,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/">
+  <link rel="canonical" href="https://chenxl18.github.io/2019/05/30/blog添加搜索功能/">
 
 
 
@@ -398,10 +402,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/05/30/blog添加搜索功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chenxl">
+      <meta itemprop="name" content="xll">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -441,7 +445,7 @@
                 
               
 
-              <time title="创建时间：2019-05-30 14:19:33 / 修改时间：14:34:25" itemprop="dateCreated datePublished" datetime="2019-05-30T14:19:33+08:00">2019-05-30</time>
+              <time title="创建时间：2019-05-30 14:19:33 / 修改时间：15:41:06" itemprop="dateCreated datePublished" datetime="2019-05-30T14:19:33+08:00">2019-05-30</time>
             
 
             
@@ -517,9 +521,11 @@
 <p>注：每个冒号后面都有一个空格</p>
 <p>修改主题配置文件</p>
 <p>路径：blog/themes/next/_config.yml，找到local_search，把false改为ture</p>
-<p><img src="//chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/D:%5Chexo%5Cmyblog%5Csource_posts%5Cblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.assets%5C1559197914174.png" alt="1559197914174"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">	enable: false</span><br></pre></td></tr></table></figure>
+
 <p>改为：</p>
-<p><img src="//chenxl18.github.io/2019/05/30/Hexo-Next-GitPages个人博客/blog添加搜索功能/D:%5Chexo%5Cmyblog%5Csource_posts%5Cblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.assets%5C1559197950656.png" alt="1559197950656"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">	enable: true</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -542,7 +548,7 @@
         
         <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
     
 </div>
         
@@ -552,7 +558,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/搜索/" rel="tag"># 搜索</a>
+            <a href="/tags/搜索功能/" rel="tag"># 搜索功能</a>
           
             <a href="/tags/hexo/" rel="tag"># hexo</a>
           
@@ -567,7 +573,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/28/MySQL的学习笔记/MySQL的使用/" rel="next" title="MySQL的使用">
+              <a href="/2019/05/28/MySQL的使用/" rel="next" title="MySQL的使用">
                 <i class="fa fa-chevron-left"></i> MySQL的使用
               </a>
             
@@ -633,7 +639,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">chenxl</p>
+              <p class="site-author-name" itemprop="name">xll</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
@@ -656,6 +662,10 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
@@ -663,7 +673,7 @@
                     
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -671,6 +681,10 @@
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -684,7 +698,7 @@
                     
                     <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -772,7 +786,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">chenxl</span>
+  <span class="author" itemprop="copyrightHolder">xll</span>
 
   
 
@@ -829,6 +843,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
