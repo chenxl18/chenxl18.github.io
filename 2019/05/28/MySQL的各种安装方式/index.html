@@ -111,12 +111,10 @@
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="MySQL是什么？ 123456MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是一个软件，用来存放数据。用它来存放数据，特别方便，查找和存储数据都非常方便。MySQL 是一个中小型数据库。MySQL是开源数据库。不是免费的数据库软件。有开源版本的数据库，这个是不要钱。MySQL 的开源版本不要钱。企业版都是需要购买。  哪些地方">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
-<meta property="og:updated_time" content="2019-05-30T07:41:37.014Z">
+<meta property="og:updated_time" content="2019-06-02T05:38:36.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL的各种安装方式">
 <meta name="twitter:description" content="MySQL是什么？ 123456MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是一个软件，用来存放数据。用它来存放数据，特别方便，查找和存储数据都非常方便。MySQL 是一个中小型数据库。MySQL是开源数据库。不是免费的数据库软件。有开源版本的数据库，这个是不要钱。MySQL 的开源版本不要钱。企业版都是需要购买。  哪些地方">
-<meta name="twitter:image" content="https://chenxl18.github.io/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png">
 
 
 
@@ -468,7 +466,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-30 15:41:37" itemprop="dateModified" datetime="2019-05-30T15:41:37+08:00">2019-05-30</time>
+                <time title="修改时间：2019-06-02 13:38:36" itemprop="dateModified" datetime="2019-06-02T13:38:36+08:00">2019-06-02</time>
               
             
           </span>
@@ -654,7 +652,7 @@
 
 <h6 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a><strong>关闭selinux</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@changsha-tianlong-db-2 mysql]# getenforce </span><br><span class="line">Enforcing</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# setenforce 0       #临时关闭selinux</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# getenforce </span><br><span class="line">Permissive</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# vi /etc/selinux/config </span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# cat /etc/selinux/config</span><br></pre></td></tr></table></figure>
 
-<p><img src="//chenxl18.github.io/2019/05/28/MySQL的各种安装方式/D:%5Chexo%5Cmyblog%5Csource_posts%5CMySQL%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F.assets%5CImage.png" alt></p>
+<p><a href="https://wx3.sinaimg.cn/mw690/006BsDmEgy1g3mr7h2stpj30i00cvq3m.jpg" target="_blank" rel="noopener">https://wx3.sinaimg.cn/mw690/006BsDmEgy1g3mr7h2stpj30i00cvq3m.jpg</a></p>
 <h6 id="考虑设置mysql服务开机启动"><a href="#考虑设置mysql服务开机启动" class="headerlink" title="考虑设置mysql服务开机启动"></a><strong>考虑设置mysql服务开机启动</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@changsha-tianlong-db-2 mysql]# systemctl  enable  mysqld  #使用新式方式设置开机启动，提醒不能使用，建议我们使用老式的chkconfig方式</span><br><span class="line">mysqld.service is not a native service, redirecting to /sbin/chkconfig.</span><br><span class="line">Executing /sbin/chkconfig mysqld on</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# chkconfig mysqld on  设#置mysqld服务开机启动</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]# chkconfig --list </span><br><span class="line">注：该输出结果只显示 SysV 服务，并不包含原生 systemd 服务。SysV 配置数据可能被原生 systemd 配置覆盖。 </span><br><span class="line">要列出 systemd 服务，请执行 &apos;systemctl list-unit-files&apos;。</span><br><span class="line">查看在具体 target 启用的服务请执行</span><br><span class="line">&apos;systemctl list-dependencies [target]&apos;。</span><br><span class="line">mysqld         	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line">netconsole     	0:关	1:关	2:关	3:关	4:关	5:关	6:关</span><br><span class="line">network        	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line">[root@changsha-tianlong-db-2 mysql]#</span><br></pre></td></tr></table></figure>
 
 <p><strong>重新启动服务器</strong><br>reboot 重启—-init 6<br>poweroff关机<br>进入linux系统</p>
@@ -797,7 +795,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -818,7 +816,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -843,7 +843,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
