@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[计算机体系结构考点]]></title>
-    <url>%2F2019%2F06%2F01%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%80%83%E7%82%B9%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>计算机体系结构</category>
-      </categories>
-      <tags>
-        <tag>考点</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[blog添加搜索功能]]></title>
     <url>%2F2019%2F05%2F30%2Fblog%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%2F</url>
     <content type="text"><![CDATA[添加搜索功能插件安装直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save 修改站点配置文件 路径：blog/_config.yml，找到Extensions，在下面插入如下代码 12345search: path: search.xml field: post format: html limit: 10000 注：每个冒号后面都有一个空格 修改主题配置文件 路径：blog/themes/next/_config.yml，找到local_search，把false改为ture https://wx4.sinaimg.cn/mw690/006BsDmEgy1g3mr7gtxylj30bp00z3ya.jpg 12local_search: enable: false 改为： https://wx2.sinaimg.cn/mw690/006BsDmEgy1g3mr7gtzrmj308w0133ya.jpg 12local_search: enable: true]]></content>
