@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linux中IP地址的配置]]></title>
+    <url>%2F2019%2F06%2F14%2Flinux%E4%B8%ADIP%E5%9C%B0%E5%9D%80%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[进入ip地址配置目录1cd /etc/sysconfig/network-scripts 打开配置文件1vim ifcfg-ens33 修改配置文件12345678BOOTPROTO=noneNAME=ens33DEVICE=ens33ONBOOT=yesIPADDR=192.168.0.156NETMASK=255.255.255.0GATEWAY=192.168.0.1DNS1=114.114.114.114 重启网络服务1service network restart 测试配置ip地址1ping www.baidu.com 如下面的差不多就代表配置成功12345[root@chenxianle ~]# ping www.baidu.comPING www.a.shifen.com (14.215.177.38) 56(84) bytes of data.64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=1 ttl=55 time=29.6 ms64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=2 ttl=55 time=30.4 ms64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=3 ttl=55 time=30.2 ms]]></content>
+      <categories>
+        <category>linux</category>
+        <category>IP地址配置</category>
+      </categories>
+      <tags>
+        <tag>ip基本配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[tmux的基本操作]]></title>
     <url>%2F2019%2F06%2F12%2Ftmux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[如何在linux机器中使用tmux(分屏工具)tmux（介绍）tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了 更新epel源1yum install epel-release -y 下载tmux工具1yum install tmux -y 开启tmux终端1tmux tmux基本操作打开一个新窗口1ctrl b + &quot; 光标上下切换1ctrl b + 上下方向键 退出tmux1ctrl b + d 删除光标所在一个tmux窗口1ctrl b + x 列出所有命令1tmux list-command Tmux的快捷键使用说明： Ctrl+b 激活控制台；此时以下按键生效 系统操作 ? 列出所有快捷键；按q返回 d 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话 D 选择要脱离的会话；在同时开启了多个会话时使用 Ctrl+z 挂起当前会话 r 强制重绘未脱离的会话 s 选择并切换会话；在同时开启了多个会话时使用 : 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器 [ 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出 ~ 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息 窗口操作 c 创建新窗口 &amp; 关闭当前窗口 数字键 切换至指定窗口 p 切换至上一窗口 n 切换至下一窗口 l 在前后两个窗口间互相切换 w 通过窗口列表切换窗口 , 重命名当前窗口；这样便于识别 . 修改当前窗口编号；相当于窗口重新排序 f 在所有窗口中查找指定文本 面板操作 ” 将当前面板平分为上下两块 % 将当前面板平分为左右两块 x 关闭当前面板 ! 将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板 Ctrl+方向键 以1个单元格为单位移动边缘以调整当前面板大小 Alt+方向键 以5个单元格为单位移动边缘以调整当前面板大小 Space 在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled q 显示面板编号 o 在当前窗口中选择下一面板 方向键 移动光标以选择面板 { 向前置换当前面板 } 向后置换当前面板 Alt+o 逆时针旋转当前窗口的面板 Ctrl+o 顺时针旋转当前窗口的面板 注：详细的请查看参考资料 参考资料https://www.cnblogs.com/kevingrace/p/6496899.html]]></content>
