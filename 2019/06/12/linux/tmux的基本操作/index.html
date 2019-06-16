@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="31. filter、map、reduce的作用？filter：对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）。 filter(function or None, sequence) -&amp;gt; list, tuple, or string：入参为函数和列表/元组/字符串，">
-<meta name="keywords" content="python,面试题,31-45">
+  <meta name="description" content="如何在linux机器中使用tmux(分屏工具)tmux（介绍）tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了 更新epel源1yum install epel-rele">
+<meta name="keywords" content="linux分屏工具,tmux的基本操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python面试题31-45">
-<meta property="og:url" content="https://chenxl18.github.io/2019/06/11/python面试题31-45/index.html">
+<meta property="og:title" content="tmux的基本操作">
+<meta property="og:url" content="https://chenxl18.github.io/2019/06/12/linux/tmux的基本操作/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="31. filter、map、reduce的作用？filter：对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）。 filter(function or None, sequence) -&amp;gt; list, tuple, or string：入参为函数和列表/元组/字符串，">
+<meta property="og:description" content="如何在linux机器中使用tmux(分屏工具)tmux（介绍）tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了 更新epel源1yum install epel-rele">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-11T07:40:43.609Z">
+<meta property="og:updated_time" content="2019-06-13T05:27:14.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python面试题31-45">
-<meta name="twitter:description" content="31. filter、map、reduce的作用？filter：对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）。 filter(function or None, sequence) -&amp;gt; list, tuple, or string：入参为函数和列表/元组/字符串，">
+<meta name="twitter:title" content="tmux的基本操作">
+<meta name="twitter:description" content="如何在linux机器中使用tmux(分屏工具)tmux（介绍）tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了 更新epel源1yum install epel-rele">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="https://chenxl18.github.io/2019/06/11/python面试题31-45/">
+  <link rel="canonical" href="https://chenxl18.github.io/2019/06/12/linux/tmux的基本操作/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>python面试题31-45 | xll的个人网站</title>
+  <title>tmux的基本操作 | xll的个人网站</title>
   
 
 
@@ -406,7 +406,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/06/11/python面试题31-45/">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/06/12/linux/tmux的基本操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xll">
@@ -423,7 +423,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python面试题31-45
+          <h1 class="post-title" itemprop="name headline">tmux的基本操作
 
               
             
@@ -449,12 +449,24 @@
                 
               
 
-              <time title="创建时间：2019-06-11 15:25:01 / 修改时间：15:40:43" itemprop="dateCreated datePublished" datetime="2019-06-11T15:25:01+08:00">2019-06-11</time>
+              <time title="创建时间：2019-06-12 21:08:46" itemprop="dateCreated datePublished" datetime="2019-06-12T21:08:46+08:00">2019-06-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-13 13:27:14" itemprop="dateModified" datetime="2019-06-13T13:27:14+08:00">2019-06-13</time>
               
             
           </span>
@@ -471,7 +483,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python面试题/" itemprop="url" rel="index"><span itemprop="name">python面试题</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/linux分屏工具/" itemprop="url" rel="index"><span itemprop="name">linux分屏工具</span></a></span>
 
                 
                 
@@ -513,80 +532,178 @@
       
 
       
-        <h3 id="31-filter、map、reduce的作用？"><a href="#31-filter、map、reduce的作用？" class="headerlink" title="31. filter、map、reduce的作用？"></a><strong>31. filter、map、reduce的作用？</strong></h3><pre><code>filter：对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）。
-filter(function or None, sequence) -&gt; list, tuple, or string：入参为函数和列表/元组/字符串，返回值为item列表/元组/字符串。
+        <h1 id="如何在linux机器中使用tmux-分屏工具"><a href="#如何在linux机器中使用tmux-分屏工具" class="headerlink" title="如何在linux机器中使用tmux(分屏工具)"></a>如何在linux机器中使用tmux(分屏工具)</h1><h3 id="tmux（介绍）"><a href="#tmux（介绍）" class="headerlink" title="tmux（介绍）"></a>tmux（介绍）</h3><p>tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了</p>
+<h3 id="更新epel源"><a href="#更新epel源" class="headerlink" title="更新epel源"></a>更新epel源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br></pre></td></tr></table></figure>
 
-map:对sequence中的item依次执行function(item)，将执行结果function(item)组成一个List返回。
-map(function, sequence[, sequence, …]) -&gt; list：入参是为函数和列表/元组/字符串，返回值为function(item)列表。
+<h3 id="下载tmux工具"><a href="#下载tmux工具" class="headerlink" title="下载tmux工具"></a>下载tmux工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install tmux -y</span><br></pre></td></tr></table></figure>
 
-reduce:对sequence中的item顺序迭代调用function，如果有starting_value，还可以作为初始值调用。function接收的参数个数只能为2，先把sequence中第一个值和第二个值当参数传给function，再把function的返回值和第三个值当参数传给function，然后只返回一个结果。
-reduce(function, sequence[, initial]) -&gt; value：入参是为函数和列表/元组/字符串和初始值，返回值为数值。</code></pre><h3 id="32-常用的-Python-标准库都有哪些"><a href="#32-常用的-Python-标准库都有哪些" class="headerlink" title="32. 常用的 Python 标准库都有哪些?"></a><strong>32. 常用的 Python 标准库都有哪些?</strong></h3><p>​        </p>
-<pre><code>os、time、random、pymysql、threading、multiprocess、queue</code></pre><h3 id="33-至少列举8个常用模块都有那些"><a href="#33-至少列举8个常用模块都有那些" class="headerlink" title="33. 至少列举8个常用模块都有那些?"></a><strong>33. 至少列举8个常用模块都有那些?</strong></h3><p>​    </p>
-<pre><code>requests、re、md5、hashlib、django、sys、math、random、time </code></pre><h3 id="34-re的match和search区别？"><a href="#34-re的match和search区别？" class="headerlink" title="34. re的match和search区别？"></a><strong>34. re的match和search区别？</strong></h3><p>​    </p>
-<pre><code>match:只匹配一个，从字符串开头进行匹配，如果字符串开始不符合正则表达式，则匹配失败，函数返回None
+<h3 id="开启tmux终端"><a href="#开启tmux终端" class="headerlink" title="开启tmux终端"></a>开启tmux终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
 
-search:只匹配一次，在字符串中进行匹配，直到找到一个匹配，否则也返回None</code></pre><h3 id="35-什么是正则的贪婪匹配？"><a href="#35-什么是正则的贪婪匹配？" class="headerlink" title="35. 什么是正则的贪婪匹配？"></a><strong>35. 什么是正则的贪婪匹配？</strong></h3><pre><code>重复运算符在默认条件下是贪婪的，匹配尽可能多的字符</code></pre><h3 id="36-介绍一下-except-的作用和用法"><a href="#36-介绍一下-except-的作用和用法" class="headerlink" title="36. 介绍一下 except 的作用和用法?"></a><strong>36. 介绍一下 except 的作用和用法?</strong></h3><pre><code>Python的except用来捕获所有异常， 因为Python里面的每次错误都会抛出 一个异常，所以每个程序的错误都被当作一个运行时错误。</code></pre><h3 id="37-在-except-中-return-后还会不会执行-finally-中的代码-怎么抛出自定义异常"><a href="#37-在-except-中-return-后还会不会执行-finally-中的代码-怎么抛出自定义异常" class="headerlink" title="37.  在 except 中 return 后还会不会执行 finally 中的代码?怎么抛出自定义异常?"></a><strong>37.  在 except 中 return 后还会不会执行 finally 中的代码?怎么抛出自定义异常?</strong></h3><pre><code>（1）不管有木有出现异常，finally块中代码都会执行；
+<h3 id="tmux基本操作"><a href="#tmux基本操作" class="headerlink" title="tmux基本操作"></a>tmux基本操作</h3><h4 id="打开一个新窗口"><a href="#打开一个新窗口" class="headerlink" title="打开一个新窗口"></a>打开一个新窗口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + &quot;</span><br></pre></td></tr></table></figure>
 
-（2）当try和catch中有return时，finally仍然会执行；
+<h4 id="光标上下切换"><a href="#光标上下切换" class="headerlink" title="光标上下切换"></a>光标上下切换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + 上下方向键</span><br></pre></td></tr></table></figure>
 
-（3）finally是在return语句执行之后，返回之前执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，不管finally中的代码怎么样，返回的值都不会改变，仍然是之前保存的值），所以函数返回值是在finally执行前就已经确定了；
+<h4 id="退出tmux"><a href="#退出tmux" class="headerlink" title="退出tmux"></a>退出tmux</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + d</span><br></pre></td></tr></table></figure>
 
-（4）finally中如果包含return，那么程序将在这里返回，而不是try或catch中的return返回，返回值就不是try或catch中保存的返回值了</code></pre><h3 id="38-Python-的魔法方法"><a href="#38-Python-的魔法方法" class="headerlink" title="38.  Python 的魔法方法?"></a><strong>38.  Python 的魔法方法?</strong></h3><p>​    </p>
-<pre><code>__init__：通过此方法我们可以定义一个对象的初始操作
+<h4 id="删除光标所在一个tmux窗口"><a href="#删除光标所在一个tmux窗口" class="headerlink" title="删除光标所在一个tmux窗口"></a>删除光标所在一个tmux窗口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + x</span><br></pre></td></tr></table></figure>
 
-__new__：是用来创建类并返回这个类的实例
+<h4 id="列出所有命令"><a href="#列出所有命令" class="headerlink" title="列出所有命令"></a>列出所有命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-command</span><br></pre></td></tr></table></figure>
 
-__del__ ：在对象生命周期调用结束时，__del__ 方法会被调用，</code></pre><h3 id="39-init和new的区别"><a href="#39-init和new的区别" class="headerlink" title="39. init和new的区别?"></a><strong>39. <strong>init</strong>和<strong>new</strong>的区别?</strong></h3><pre><code> __init__: __init__方法通常用在初始化一个类实例的时候
+<h3 id="Tmux的快捷键使用说明："><a href="#Tmux的快捷键使用说明：" class="headerlink" title="Tmux的快捷键使用说明："></a>Tmux的快捷键使用说明：</h3><table>
+<thead>
+<tr>
+<th align="center">Ctrl+b</th>
+<th align="left">激活控制台；此时以下按键生效</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">系统操作</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="left">列出所有快捷键；按q返回</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="left">脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="left">选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td align="center">Ctrl+z</td>
+<td align="left">挂起当前会话</td>
+</tr>
+<tr>
+<td align="center">r</td>
+<td align="left">强制重绘未脱离的会话</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td align="left">选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td align="center">:</td>
+<td align="left">进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器</td>
+</tr>
+<tr>
+<td align="center">[</td>
+<td align="left">进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="left">列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
+</tr>
+<tr>
+<td align="center">窗口操作</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="left">创建新窗口</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="left">关闭当前窗口</td>
+</tr>
+<tr>
+<td align="center">数字键</td>
+<td align="left">切换至指定窗口</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="left">切换至上一窗口</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="left">切换至下一窗口</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="left">在前后两个窗口间互相切换</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="left">通过窗口列表切换窗口</td>
+</tr>
+<tr>
+<td align="center">,</td>
+<td align="left">重命名当前窗口；这样便于识别</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="left">修改当前窗口编号；相当于窗口重新排序</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="left">在所有窗口中查找指定文本</td>
+</tr>
+<tr>
+<td align="center">面板操作</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">”</td>
+<td align="left">将当前面板平分为上下两块</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="left">将当前面板平分为左右两块</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="left">关闭当前面板</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="left">将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板</td>
+</tr>
+<tr>
+<td align="center">Ctrl+方向键</td>
+<td align="left">以1个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td align="center">Alt+方向键</td>
+<td align="left">以5个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td align="center">Space</td>
+<td align="left">在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled</td>
+</tr>
+<tr>
+<td align="center">q</td>
+<td align="left">显示面板编号</td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="left">在当前窗口中选择下一面板</td>
+</tr>
+<tr>
+<td align="center">方向键</td>
+<td align="left">移动光标以选择面板</td>
+</tr>
+<tr>
+<td align="center">{</td>
+<td align="left">向前置换当前面板</td>
+</tr>
+<tr>
+<td align="center">}</td>
+<td align="left">向后置换当前面板</td>
+</tr>
+<tr>
+<td align="center">Alt+o</td>
+<td align="left">逆时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td align="center">Ctrl+o</td>
+<td align="left">顺时针旋转当前窗口的面板</td>
+</tr>
+</tbody></table>
+<p><strong>注：详细的请查看参考资料</strong></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.cnblogs.com/kevingrace/p/6496899.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/6496899.html</a></p>
 
-__new__:__new__方法接受的参数虽然也是和 __init__一样，但 __init__是在类实例创建之后调用，而 __new__方法正是创建这个类实例的方法。
-
-__init__和__new__最主要的区别在于：__init__通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。__new__通常用于控制生成一个新实例的过程。它是类级别的方法。 </code></pre><h3 id="40-说明一下-os-path-和-sys-path-分别代表什么"><a href="#40-说明一下-os-path-和-sys-path-分别代表什么" class="headerlink" title="40. 说明一下 os.path 和 sys.path 分别代表什么?"></a><strong>40. 说明一下 os.path 和 sys.path 分别代表什么?</strong></h3><pre><code>(1)os.path 主要是用于对系统路径文件的操作。
-(2)sys.path 主要是对Python解释器的系统环境参数的操作（动态的改变Python解释器搜索路径）。</code></pre><h3 id="41-Python-的-sys-模块常用方法"><a href="#41-Python-的-sys-模块常用方法" class="headerlink" title="41. Python 的 sys 模块常用方法?"></a><strong>41. Python 的 sys 模块常用方法?</strong></h3><pre><code>sys.argv#命令行参数List，第一个元素是程序本身路径
-
-sys.path#返回模块的搜索路径，初始化时使用PYTHONPATH环境变里的值
-sys.modules.keys（）#返回所有已经导入的模块列表
-
-sys.modules#返回系统导入的模块字段，key是模块名，value是模块
-sys.exc_info（）#获取当前正在处理的异常类，exc_type、exc_value、exc_traceback当前处理的异常详细信息
-sys.exit（n）#退出程序，正常退出时exit（e)
-sys.hexversion#获取Python解释程序的版本值，16进制格式如：0x020403F0
-sys.version#获取Python解释程序的版本信息
-sys.platform#返回操作系统平台名称
-sys.maxint#最大的Int值
-sys.stdout#标准输出
-sys.stdout.write（“aaa&apos;）#标准输出内容
-sys.stdout.writelines（）#无换行输出
-sys.stdin#标准输入
-sys.stdin.read（）#输入一行
-sys.stderr#错误输出
-sys.exc_clear（）#用来清除当前线程所出现的当前的或最近的错误信息
-sys.exec_prefix#返回平台独立的python文件安装的位置
-sys.byteorder#本地字节规则的指示器，big-endian平台的值是‘big’，little-endian平台的值是little
-sys.copyright#记录python版权相关的东西
-sys.api_version#解释器的c的API版本
-sys.version_info#’final表示最终，也有‘candidate’表示候选，表示版本级别，是否有后继的发行
-sys.getdefaultencoding（）#返回当前你所用的默认的字符编码格式
-sys.getfilesystemencoding（）#返回将Unicode文件名转换成系统文件名的编码的名字
-sys.builtin_module_names#Python解释器导入的内建模块列表
-sys.executable#Python解释程序路径
-sys.getwindowsversion（）#获取indows的版本
-sys.stdin.readline（）#从标准输入读一行，
-sys.stdout.write（a）屏幕输出a 
-sys.setdefaultencoding（name）#用来设置当前默认的字符编码（详细使用参考文档）
-sys.displayhook（value）#如果value非空，这个函数会把他输出到sys.stdout（详细使用参考文档）</code></pre><h3 id="42-os和sys模块的作用？"><a href="#42-os和sys模块的作用？" class="headerlink" title="42. os和sys模块的作用？"></a><strong>42. os和sys模块的作用？</strong></h3><p>​    </p>
-<pre><code>os模块负责程序与操作系统的交互，提供了访问操作系统底层的接口;sys模块负责程序与python解释器的交互，提供了一系列的函数和变量，用于操控python的运行时环境。</code></pre><h3 id="43-读取文件的几种方法的区别"><a href="#43-读取文件的几种方法的区别" class="headerlink" title="43. 读取文件的几种方法的区别?"></a><strong>43. 读取文件的几种方法的区别?</strong></h3><pre><code>（1）直接打开就读：虽然f是一个文件实例，但可以通过以上方式对每一行进行循环处理了，处理时每一行是一个字符串str,而且这个是速度最快最简洁的方法    
-
-（2）用read（）打开：这个函数把文件全部内容一次性读到一个字符串中。就是一坨的那种，如果把ff用循环读取的方式输出，会是一个一个字符，因为ff是字符串，本质上是tuple
-
-（3）用readlines():这个函数将文件所用内容以行为区分读到一个列表中 ，列表中的每一个元素是一行；lines是list，line 是str    
-
-（4）用readline():这种方式是一行一行的读，非常的省内存，当文件巨大的情况下是有好处的</code></pre><h3 id="44-谈谈你对面向对象的理解？"><a href="#44-谈谈你对面向对象的理解？" class="headerlink" title="44. 谈谈你对面向对象的理解？"></a><strong>44. 谈谈你对面向对象的理解？</strong></h3><p>​     </p>
-<pre><code>面向对象编程是种具有对象概念的程序编程范型，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的可重用性、灵活性和可扩展性，对象里的程序可以访问及修改对象相关联的数据。在面向对象编程里，计算机程序会被设计成彼此相关的对象。
-
-面向对象程序设计可以看作一种在程序中包含各种独立而又互相调用的对象的思想，这与传统的思想刚好相反：传统的程序设计主张将程序看作一系列函数的集合，或者直接就是一系列对计算机下达的指令。面向对象程序设计中的每一个对象都应该能够接受数据、处理数据并将数据传达给其它对象，因此它们都可以被看作一个小型的“机器”，即对象</code></pre><h3 id="45-Python面向对象中的继承有什么特点？"><a href="#45-Python面向对象中的继承有什么特点？" class="headerlink" title="45. Python面向对象中的继承有什么特点？"></a><strong>45. Python面向对象中的继承有什么特点？</strong></h3><pre><code>继承更多了是为了多态，也可提升代码的复用程度。
-特点：
-在继承中基类的构造（init()方法）不会被自动调用，它需要在其派生类的构造中亲自专门调用；
-Python总是首先查找对应类型的方法，如果它不能在派生类中找到对应的方法，它才开始到基类中逐个查找。（先在本类中查找调用的方法，找不到才去基类中找）；</code></pre>
       
     </div>
 
@@ -618,11 +735,9 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/linux分屏工具/" rel="tag"># linux分屏工具</a>
           
-            <a href="/tags/面试题/" rel="tag"># 面试题</a>
-          
-            <a href="/tags/31-45/" rel="tag"># 31-45</a>
+            <a href="/tags/tmux的基本操作/" rel="tag"># tmux的基本操作</a>
           
         </div>
       
@@ -635,8 +750,8 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/11/python面试题16-30/" rel="next" title="python面试题16-30">
-                <i class="fa fa-chevron-left"></i> python面试题16-30
+              <a href="/2019/06/11/python/python面试题31-45/" rel="next" title="python面试题31-45">
+                <i class="fa fa-chevron-left"></i> python面试题31-45
               </a>
             
           </div>
@@ -645,8 +760,8 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/12/tmux的基本操作/" rel="prev" title="tmux的基本操作">
-                tmux的基本操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/14/计算机网络/linux中IP地址的配置/" rel="prev" title="linux中IP地址的配置">
+                linux中IP地址的配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -716,7 +831,7 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -747,7 +862,9 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -790,7 +907,9 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -855,7 +974,7 @@ Python总是首先查找对应类型的方法，如果它不能在派生类中�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-filter、map、reduce的作用？"><span class="nav-number">1.</span> <span class="nav-text">31. filter、map、reduce的作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-常用的-Python-标准库都有哪些"><span class="nav-number">2.</span> <span class="nav-text">32. 常用的 Python 标准库都有哪些?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-至少列举8个常用模块都有那些"><span class="nav-number">3.</span> <span class="nav-text">33. 至少列举8个常用模块都有那些?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-re的match和search区别？"><span class="nav-number">4.</span> <span class="nav-text">34. re的match和search区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-什么是正则的贪婪匹配？"><span class="nav-number">5.</span> <span class="nav-text">35. 什么是正则的贪婪匹配？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36-介绍一下-except-的作用和用法"><span class="nav-number">6.</span> <span class="nav-text">36. 介绍一下 except 的作用和用法?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37-在-except-中-return-后还会不会执行-finally-中的代码-怎么抛出自定义异常"><span class="nav-number">7.</span> <span class="nav-text">37.  在 except 中 return 后还会不会执行 finally 中的代码?怎么抛出自定义异常?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#38-Python-的魔法方法"><span class="nav-number">8.</span> <span class="nav-text">38.  Python 的魔法方法?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39-init和new的区别"><span class="nav-number">9.</span> <span class="nav-text">39. init和new的区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#40-说明一下-os-path-和-sys-path-分别代表什么"><span class="nav-number">10.</span> <span class="nav-text">40. 说明一下 os.path 和 sys.path 分别代表什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41-Python-的-sys-模块常用方法"><span class="nav-number">11.</span> <span class="nav-text">41. Python 的 sys 模块常用方法?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42-os和sys模块的作用？"><span class="nav-number">12.</span> <span class="nav-text">42. os和sys模块的作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43-读取文件的几种方法的区别"><span class="nav-number">13.</span> <span class="nav-text">43. 读取文件的几种方法的区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44-谈谈你对面向对象的理解？"><span class="nav-number">14.</span> <span class="nav-text">44. 谈谈你对面向对象的理解？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#45-Python面向对象中的继承有什么特点？"><span class="nav-number">15.</span> <span class="nav-text">45. Python面向对象中的继承有什么特点？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何在linux机器中使用tmux-分屏工具"><span class="nav-number">1.</span> <span class="nav-text">如何在linux机器中使用tmux(分屏工具)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux（介绍）"><span class="nav-number">1.0.1.</span> <span class="nav-text">tmux（介绍）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新epel源"><span class="nav-number">1.0.2.</span> <span class="nav-text">更新epel源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载tmux工具"><span class="nav-number">1.0.3.</span> <span class="nav-text">下载tmux工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启tmux终端"><span class="nav-number">1.0.4.</span> <span class="nav-text">开启tmux终端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux基本操作"><span class="nav-number">1.0.5.</span> <span class="nav-text">tmux基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打开一个新窗口"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">打开一个新窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光标上下切换"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">光标上下切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出tmux"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">退出tmux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除光标所在一个tmux窗口"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">删除光标所在一个tmux窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列出所有命令"><span class="nav-number">1.0.5.5.</span> <span class="nav-text">列出所有命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tmux的快捷键使用说明："><span class="nav-number">1.0.6.</span> <span class="nav-text">Tmux的快捷键使用说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.0.7.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
