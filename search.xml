@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[迭代器和生成器]]></title>
+    <url>%2F2019%2F06%2F24%2Fpython%2F%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[如何判断一个对象是可迭代对象，迭代器对象或生成器 如何确认一个对象是不是可迭代对象 用Iterable判断 123456789101112131415161718&gt;&gt;&gt; from collections import Iterable&gt;&gt;&gt; a = &apos;abc&apos;&gt;&gt;&gt;&gt;&gt;&gt; b = [1,2,3]&gt;&gt;&gt; c = (4,5,6)&gt;&gt;&gt; d = &#123;&quot;name&quot;:&quot;tom&quot;,&quot;age&quot;:22&#125;&gt;&gt;&gt; if isinstance(a,Iterable):... print(&quot;a是可迭代对象&quot;)...a是可迭代对象&gt;&gt;&gt; if isinstance(b,Iterable):... print(&quot;b是可迭代对象&quot;)...b是可迭代对象&gt;&gt;&gt; if isinstance(c,Iterable):... print(&quot;c是可迭代对象&quot;)...c是可迭代 判断迭代器 Iterator判断 12345678from collections import Iterable, Iteratorran = range(3)if isinstance(ran,Iterator): print(&quot;ran是迭代器&quot;)else: print(&quot;ran不是迭代器“)输出：ran不是迭代器 ------ - 1234567891011121314是否实现了__iter__和__next__方法from collections import Iterable, Iteratorran = range(3)if isinstance(ran,Iterator): print(&quot;ran是迭代器&quot;)else: print(&quot;ran不是迭代器&quot;)print(ran,dir(ran))ran = iter(ran)print(ran,dir(ran))输出：ran不是迭代器range(0, 3) [&apos;__bool__&apos;, &apos;__class__&apos;, &apos;__contains__&apos;, &apos;__delattr__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__getitem__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__iter__&apos;, &apos;__le__&apos;, &apos;__len__&apos;, &apos;__lt__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__reversed__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;count&apos;, &apos;index&apos;, &apos;start&apos;, &apos;step&apos;, &apos;stop&apos;]&lt;range_iterator object at 0x000001AF8A8585F0&gt; [__iter__&apos;, &apos;__next__&apos;, ] 如何判断迭代器 12345678可以使用 isinstance 函数来判断def _(): yield Nonegenerator=type(_())x =( k for k in range(10))print(isinstance(x,generator))输出：true 迭代器与生成器的区别 迭代器 通过iter()方法获得了list的迭代器对象，然后就可以通过next()方法来访问list中的元素了。当容器中没有可访问的元素后，next()方法将会抛出一个StopIteration异常终止迭代器。 生成器 如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？这样就不必创建完整的list，从而节省大量的空间。在Python中，这种一边循环一边计算的机制，称为生成器（Generator） 生成器属于一种特殊的迭代器，而且因为自动创建了iter()和next()，生成器显得特别简洁，而且生成器也是高效的，使用生成器表达式取代列表解析可以同时节省内存。 yield 通常和生成器一起使用 异同 通过实现迭代器协议对应的iter()和next()方法，可以自定义迭代器类型。对于可迭代对象，for语句可以通过iter()方法获取迭代器，并且通过next()方法获得容器的下一个元素。 生成器是一种特殊的迭代器，内部支持了生成器协议，不需要明确定义iter()和next()方法。 生成器通过生成器函数产生，生成器函数可以通过常规的def语句来定义，但是不用return返回，而是用yield一次返回一个结果。 如何获取可迭代对象、迭代器与生成器中的数据 可迭代对象 用for循环 迭代器 用next()方法 生成器 用next()方法 用yield from 扩展阅读https://docs.python.org/3/library/stdtypes.html#iterator-typeshttps://anandology.com/python-practice-book/iterators.htmlhttps://docs.python.org/3/reference/expressions.html#yieldexpryield from ： http://blog.theerrorlog.com/yield-from-in-python-3.htmlhttp://blog.csdn.net/mingc0758/article/details/53783001Python中生成器和迭代器的区别 http://blog.csdn.net/u014745194/article/details/70176117]]></content>
+      <categories>
+        <category>python高阶</category>
+        <category>迭代器和生成器</category>
+      </categories>
+      <tags>
+        <tag>集合、元组、列表推导式</tag>
+        <tag>可迭代对象</tag>
+        <tag>迭代器</tag>
+        <tag>生成器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[raid-廉价磁盘冗余阵列]]></title>
+    <url>%2F2019%2F06%2F23%2Flinux%2Fraid-%E5%BB%89%E4%BB%B7%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97%2F</url>
+    <content type="text"><![CDATA[raid-廉价磁盘冗余阵列 raid 磁盘阵列（独立冗余磁盘阵列） 硬raid（推荐）：会有一个raid卡，用来控制这个raid，是正raid的大脑 容错功能 专门有数据处理的芯片 软raid：通过软件来实现raid控制功能，不需要需要硬件。 需要使用电脑的cpu里来处理数据 磁盘阵列（Redundant Arrays of Independent Drives，RAID），有“独立磁盘构成的具有冗余能力的阵列”之意。 磁盘阵列是由很多块独立的磁盘，组合成一个容量巨大的磁盘组，利用个别磁盘提供数据所产生加成效果提升整个磁盘系统效能。利用这项技术，将数据切割成许多区段，分别存放在各个磁盘上 磁盘会坏，坏了就意味着数据丢失 RAID0、RAID1、RAID5、RAID6、RAID10、RAID01 功能： 1.数据冗余 2.容错 3.存取数据速度快 raid0：读写速度快，但是没有容错功能。2块以上磁盘组成。磁盘利用率100%–》条带卷 raid1：镜像卷：2块磁盘组成，有容错功能。磁盘利用率50% raid5：背后的原理是分布校验+条带：可以容错，至少3块磁盘，最多坏一块。 磁盘利用率：（n-1）/n raid6：背后的原理是分布校验+分布校验+条带：可以容错，至少4块磁盘，最多坏2块。 磁盘利用率：（n-2）/n RAID配置总结 级别 RAID0 RAID1 RAID5 RAID6 磁盘数 &gt;=2 2 &gt;=3 &gt;=4 容错功能 无 有 有 较强 读写速度 最快 写入慢 较快较快 较快 磁盘空间利用 100% 50% n-1 n-2 如何知道磁盘坏了？ 1.看磁盘的灯是否亮–》需要人去现场看–》很傻 2.查看raid的数据，里面有显示那些是好的，那些是坏的。–》监控脚本或者程序 软件raid：只能通过Linux系统本身来查看 1cat /proc/mdstat #可以看到raid级别，状态等信息。 硬件raid：最佳的办法是通过已安装的raid厂商的管理工具来查看，有cmdline，也有图形界面 如Adaptec公司的硬件卡就可以通过下面的命令进行查看： 1/usr/dpt/raidutil-L all #可以看到非常详细的信息。 raid的配置是在安装系统之前就配置好了的 裸机–》系统做raid1，数据磁盘做raid5–》安装系统—》存放数据 能自己购买服务器的公司—》有钱的行为 只有真实的服务器需要做raid 购买云服务器的公司不做raid 云服务产商会提供数据不丢失的保障 99.9999% LVM(Logical Volume Manager),逻辑卷管理 动态扩容 分区结构不需要修改]]></content>
+      <categories>
+        <category>linux高级</category>
+        <category>文件系统</category>
+        <category>raid</category>
+      </categories>
+      <tags>
+        <tag>raid廉价磁盘冗余阵列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络层]]></title>
+    <url>%2F2019%2F06%2F21%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F%E7%BD%91%E7%BB%9C%E5%B1%82%2F</url>
+    <content type="text"><![CDATA[计算机网络之网络层 TCP/IP五层协议： 应用层、传输层、网络层、数据链路层、物理层 网络层：ip、arp、icmp3个协议 传输层：tcp、udp ip协议—-internet protocol互联网协议 现在的互联网协议：ipv4 下一代互联网协议：ipv6 IP数据包格式（只记住重点） TTL–&gt;time to live=生命周期 广播与广播域 广播：将广播地址做为目的地址的数据帧 广播域：网络中能接收到同一个广播所有节点的集合 MAC ARP协议：Address Resolution Protocol 地址解析协议 1.request 请求包 源ip：自己的 目的ip：别人的 源mac：自己的 目的mac：000000000000 2.response 响应包 数据链路层里的帧的封装格式 源mac：自己的 目的mac：ffffffffffff 为什么交换机收到arp包会转发？ 为什么叫arp广播？ 如果是arp request包会转发到所有的接口 arp缓存表里的内容是可以更新的。 arp缓存表是在内存里存放的. linux系统中的ARP命令 arp-a：查看ARP缓存表·arp-n 查看ARP缓存表 arp-d：清除ARP缓存 arp-s：绑定ip地址和mac地址。 ICMP协议：是一个“错误侦测与回馈机制”，是通过IP数据包封装的，用来发送错误和控制消息]]></content>
+      <categories>
+        <category>计算机网络</category>
+        <category>网络层笔记</category>
+      </categories>
+      <tags>
+        <tag>网络层</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python的多进程和多线程]]></title>
+    <url>%2F2019%2F06%2F18%2Fpython%2Fpython%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[python的多进程和多线程 进程和进程之间通信，有哪些方式？ 管道 共享内存 信号 kill 是linux中杀死进程的命令 9) SIGKILL 信号类型 –&gt;被强制杀死（都来不及保存数据） 为什么kill进程的时候需要接-9？ 强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的 15) SIGTERM 告诉进程自我终结 signal terminate—&gt;15这种信号是可以被屏蔽的 1) SIGHUP signal HUP—-&gt; 挂起 父进程开启了一堆的子进程，如果把父进程杀死，父会给子进程发HUP信号，操作系统会将所有收到HUP信号的子进程全部杀死 2) SIGINT 中断信号 signal inerrupt—-&gt;按ctrl+c其实就是发中断信号 队列 信号量 socket（槽） 网络socket = ip : port 文件socket 12345678910111213141516from multiprocessing import Processimport timedef foo(i): print(&apos;chlid , arg i is &#123;&#125;&apos;.format(i)) time.sleep(1) print(&apos;child , arg i is &#123;&#125;&apos;.format(i))if __name__ == &apos;__main__&apos;: p_lst = [] for i in range(4): p = Process(target=foo, args=(i,)) p.start() p_lst.append(p) p.join() #[p.join() for p in p_lst] 进程里包含线程，一个进程里可以包含很多线程 进程 ：pcb（process控制块） + 代码 + 数据 线程 ：tcb （thread控制块） + 代码 + 数据 进程消耗资源多（cpu、内存、磁盘、网络等） 线程可以共享进程里的一些公共资源，更加节约系统的资源。 为什么线程在cpu里运行会比进程快？ 线程在上下文切换的时候，因为有公共部分，所以节约很多的时间，有很多的数据不需要切换，直接使用。 为什么线程更加节省资源（cpu、内存）？ 内存空间上：因为线程有公共部分，所以更加节约空间。 多进程更加稳定、但消耗资源多 多线程速度快，但是一个进程被杀死，进程里的线程都杀死，不够稳定]]></content>
+      <categories>
+        <category>python</category>
+        <category>多进程和多线程</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>进程间通信方式</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git的20个面试题]]></title>
+    <url>%2F2019%2F06%2F18%2Fgit%E7%9A%8420%E4%B8%AA%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[GIT和SVN有什么区别？ Git SVN 1. Git是一个分布式的版本控制工具 1. SVN 是集中版本控制工具 2.它属于第3代版本控制工具 2.它属于第2代版本控制工具 3.客户端可以在其本地系统上克隆整个存储库 3.版本历史记录存储在服务器端存储库中 4.即使离线也可以提交 4.只允许在线提交 5.Push/pull 操作更快 5.Push/pull 操作较慢 6.工程可以用 commit 自动共享 6.没有任何东西自动共享 什么是GIT? Git 是分布式版本控制系统（DVCS）。它可以跟踪文件的更改，并允许你恢复到任何特定版本的更改。 与 SVN 等其他版本控制系统（VCS）相比，其分布式架构具有许多优势，一个主要优点是它不依赖于中央服务器来存储项目文件的所有版本。 每个开发人员都可以“克隆”我在图中用“Local repository”标注的存储库的副本，并且在他的硬盘驱动器上具有项目的完整历史记录，因此当服务器中断时，你需要的所有恢复数据都在你队友的本地 Git 存储库中。 还有一个中央云存储库，开发人员可以向其提交更改，并与其他团队成员进行共享，如图所示，所有协作者都在提交更改“远程存储库”。 在GIT中提交的命令是什么？ git commit -a/-m -a：是指git提交已修改的所有被跟踪文件的新内容。 -m：指备注信息 什么是GIT中的“裸存储库”？ Git 中的 “裸” 存储库只包含版本控制信息而没有工作文件（没有工作树），并且它不包含特殊的 .git 子目录。相反，它直接在主目录本身包含 .git 子目录中的所有内容，其中工作目录包括： 一个 .git 子目录，其中包含你的仓库所有相关的 Git 修订历史记录。 工作树，或签出的项目文件的副本。 GIT是用什么语言编写的？ Git使用 C 语言编写。 GIT 很快，C 语言通过减少运行时的开销来做到这一点。 在GIT中，你如何还原已经push并公开的提交？ 删除或修复新提交中的错误文件，并将其推送到远程存储库。这是修复错误的最自然方式。对文件进行必要的修改后，将其提交到我将使用的远程存储库 1git commit -m &quot;commit message&quot; 创建一个新的提交，撤消在错误提交中所做的所有更改。可以使用命令 1git revert &lt;name of bad commit&gt; git pull 和git fetch 有什么区别？ git pull 命令从中央存储库中提取特定分支的新更改或提交，并更新本地存储库中的目标分支。 git fetch 也用于相同的目的，但它的工作方式略有不同。当你执行 git fetch 时，它会从所需的分支中提取所有新提交，并将其存储在本地存储库中的新分支中。如果要在目标分支中反映这些更改，必须在 git fetch 之后执行git merge。只有在对目标分支和获取的分支进行合并后才会更新目标分支。为了方便起见，请记住以下等式： git pull = git fetch + git merge git 中的“staging area” 或“index”是什么？ 在完成提交之前，可以在称为“staging area”或“index”的中间区域中对其进行格式化和审查；从图中可以看出，每个更改首先在暂存区域中进行验证，称为“stage file”，然后将更改提交到存储库。 https://segmentfault.com/img/bVbtc0c?w=655&amp;h=645 什么是git stash? 通常情况下，一直在处理项目的某一部分时，如果想要在某个时候切换分支去处理其他事情，事情会处于混乱的状态。问题是，不想把完成了一半的工作的提交，以便以后就可以回到当前的工作。解决这个问题的答案是 git stash。 stash 会将你的工作目录，即修改后的跟踪文件和暂存的更改保存在一堆未完成的更改中，可以随时重新应用这些更改。 什么是git stash drop? git stash drop命令用于删除隐藏的项目。 默认情况下，它将删除最后添加的存储项，如果提供参数的话，它还可以删除特定项。 如何找到特定提交中已更改的文件列表？ 要获取特定提交中已更改的列表文件，请使用以下命令： git diff-tree -r {hash} 给定提交哈希，这将列出在该提交中更改或添加的所有文件。 -r 标志使命令列出单个文件，而不是仅将它们折叠到根目录名称中。 你还可以包括下面提到的内容，虽然它是可选的，但有助于给面试官留下深刻印象。 输出还将包含一些额外信息，可以通过包含两个标志把它们轻松的屏蔽掉： git diff-tree –no-commit-id –name-only -r {hash} 这里 -no-commit-id 将禁止提交哈希值出现在输出中，而 -name-only 只会打印文件名而不是它们的路径。 git config 的功能是什么？ 用来查看或修改你的git配置，包括用户名 提交对象包含什么？ 一组文件，表示给定时间点的项目状态 引用父提交对象 SHAI 名称，一个40个字符的字符串，提交对象的唯一标识。 如何在GIT中创建存储库？ 要创建存储库，先为项目创建一个目录（如果该目录不存在），然后运行命令 git init。通过运行此命令，将在项目的目录中创建 .git 目录。 怎样将N次提交压缩成一次提交? 如果要从头开始编写新的提交消息，请使用以下命令： 12git reset –soft HEAD~N &amp;&amp;git commit 如果你想在新的提交消息中串联现有的提交消息，那么需要提取这些消息并将它们传给 git commit，可以这样： 12git reset –soft HEAD~N &amp;&amp;git commit –edit -m&quot;$(git log –format=%B –reverse .HEAD@&#123;N&#125;)&quot; 什么是GIT bisect?如何使用它来确定（回归）错误的来源？ Git bisect 用于查找使用二进制搜索引入错误的提交。 1git bisect &lt;subcommand&gt; &lt;options&gt; 此命令用了二进制搜索算法来查找项目历史记录中的哪个提交引入了错误。你可以通过告诉它已知包含该错误的“错误”提交以及在引入错误之前已知的“良好”提交来使用它。然后 git bisect 在这两个端点之间选择一个提交，并询问你所选的提交是“好”还是“坏”。它继续缩小范围，直到找到引入更改的确切提交。 如果想要在提交之前运行代码性检查工具，并在测试失败时阻止提交，该怎么配置GIT存储库？ 这可以通过与存储库的 pre-commit hook 相关的简单脚本来完成。git 会在提交之前触发 pre-commit hook。你可以在这个脚本中运行其他工具，例如 linters，并对提交到存储库中的更改执行完整性检查。 描述一下你所使用的分支策略？ 功能分支（Feature branching） 要素分支模型将特定要素的所有更改保留在分支内。当通过自动化测试对功能进行全面测试和验证时，该分支将合并到主服务器中。 任务分支（Task branching） 在此模型中，每个任务都在其自己的分支上实现，任务键包含在分支名称中。很容易看出哪个代码实现了哪个任务，只需在分支名称中查找任务键。 发布分支（Release branching） 一旦开发分支获得了足够的发布功能，你就可以克隆该分支来形成发布分支。创建该分支将会启动下一个发布周期，所以在此之后不能再添加任何新功能，只有错误修复，文档生成和其他面向发布的任务应该包含在此分支中。一旦准备好发布，该版本将合并到主服务器并标记版本号。此外，它还应该再将自发布以来已经取得的进展合并回开发分支。 如果分支是否已合并为master，你可以通过什么手段知道？ git branch –merged 它列出了已合并到当前分支的分支。 git branch –no-merged 它列出了尚未合并的分支。 什么是SubGit？ SubGit 是将 SVN 到 Git迁移的工具。它创建了一个可写的本地或远程 Subversion 存储库的 Git 镜像，并且只要你愿意，可以随意使用 Subversion 和 Git。 这样做有很多优点，比如你可以从 Subversion 快速一次性导入到 Git 或者在 Atlassian Bitbucket Server 中使用SubGit。我们可以用 SubGit 创建现有 Subversion 存储库的双向 Git-SVN 镜像。你可以在方便时 push 到 Git 或提交 Subversion。同步由 SubGit 完成。 https://segmentfault.com/a/1190000019315509]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>分布式版本控制系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git]]></title>
     <url>%2F2019%2F06%2F16%2FGit%2F</url>
     <content type="text"><![CDATA[Git .gitignore仓库log目录，不希望同步到仓库中去，写到.gitignore文件 /log/ 凡是写到这个文件中了，那么git add.的时候就不会被添加到仓库中去 .pyc 常用命令 git log：查看历史 git add：标记文件添加到仓库 git add . =&gt;标记当前目录及子目录文件（.gitignore文件指定的内容是不添加的） 不能同步空目录 git clone：克隆仓库 12git clone https://github.com/chenxl18/chenxl18.github.io.git#=&gt; 当前目录 12/d/hexo/myblog/source/_posts (master)# master =&gt;master 分支 web页面（服务器）修改-&gt;同步-&gt;本地 1.在web页面修改 2.在本地仓库中执行：git pull origin master 3.git pull [&lt;远程仓库名&gt; &lt;分支名&gt;] 本地修改-&gt;同步-&gt;web页面（服务器） 1.本地修改：vim，右击创建 2.标记待添加到仓库： 1git add liu.txt 配置邮箱、用户名(必须配置此项才能提交数据到仓库) 1(master)$ git config user.name &apos;yourname&apos; (master)$ git config user.email &apos;youremail@163.com&apos; 提交文件到本地仓库： 1git commit #一定要写备注信息，否则此次提交会被忽略 提交到远程仓库： 1git push origin master 注意：当进行push/commit之前，最好先pull一下 注意： 不要在仓库下进行克隆 当web页面有更新，本地也有更新的时候，注意可能会产生冲突 如果能自动合并的，它会自动合并，不能自动合并的，需要手动合并 Web页面上修改 本地修改、add、commit 提交到远程仓库 本地在push的时候，跟服务器版本有不一致的地方，所以有以上提示，需要先pull pull时，因为本地和远程都修改了同一个文件，无法自动合并，所以进入了merge模式 pull的时候，如果能自动合并的，它会自动合并，不能自动合并的，手动合并 MERGING模式 12345&lt;&lt;&lt;&lt;HEAD 你的修改 ====== 远程仓库的修改 &gt;&gt;&gt;&gt;&gt; 版本号 把自己需要的部分保留，不需要的删除。修改完成后再次add/commit即可退出merge模式 （&gt;&gt;&gt;&gt; ==== &lt;&lt;&lt;&lt;&lt;这些行一定删除） 再次git push到远程仓库 可查看git log日志 在仓库中把califeng文件删除，是否能找回 可以找回 注意： 不要仓库下进行克隆 gitee_python_study (master) master =&gt; master分支 遇到的问题 第一次 push时都需要输入密码 .git/conﬁg [remote “origin”] url = http://git.sanchuangedu.cn:3000/chenxl/python_study.git fetch = +refs/heads/:refs/remotes/origin/ .gitignore 本地-&gt; Web commit 修改文件: vim, touch, mkdir。。。。 标记为暂存状态: git add 提交到本地仓库：git commit 提交到远程仓库：git push 为开源的项目提交代码、只读的项目 写权限=&gt; 删除修改文件 =&gt; push 克隆项目：你自己帐户下的python_study 写代码：根目录下创建以自己名字命名的文件 配置：git config 同步到远程仓库 添加远程仓库 git remote add 名字 仓库地址 git remote add source http://git.sanchuangedu.cn:3000/cali/python_study.git 从远程仓库拉取最新的信息 git pull source master 测试：尝试向source push一点东西 403错误 bigbusiness =》 开发者权限 （读、写）读 fork -&gt; 可以 pull -&gt; 可以 clone -&gt; 可以 开发者 push -&gt; 可以 git clone 克隆 git add 标记 git commit 提交 git pull 拉文件 git push 推文件 git log 查看日志 git status 查看当前状态 git remote (add / remove / -v) 查看远程源 git rm 删除 git mv ﬁle newﬁle 更改文件名 git branch -a 查看所有分支 git checkout 切换分支 git reset git conﬁg 配置 git branch dev 创建新分支 基于当前分支来创建git branch init ca752793c1b6e957636b192777da3ba72da8e35c 基于某一个提交点创建分支 git checkout -b init02 创建init02并切换到分支 git branch -d init 删除分支 注：git的官方文档 https://git-scm.com/book/zh/v2/]]></content>
