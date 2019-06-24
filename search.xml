@@ -63,6 +63,7 @@
       </categories>
       <tags>
         <tag>分布式版本控制系统</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -70,7 +71,7 @@
     <url>%2F2019%2F06%2F16%2FGit%2F</url>
     <content type="text"><![CDATA[Git .gitignore仓库log目录，不希望同步到仓库中去，写到.gitignore文件 /log/ 凡是写到这个文件中了，那么git add.的时候就不会被添加到仓库中去 .pyc 常用命令 git log：查看历史 git add：标记文件添加到仓库 git add . =&gt;标记当前目录及子目录文件（.gitignore文件指定的内容是不添加的） 不能同步空目录 git clone：克隆仓库 12git clone https://github.com/chenxl18/chenxl18.github.io.git#=&gt; 当前目录 12/d/hexo/myblog/source/_posts (master)# master =&gt;master 分支 web页面（服务器）修改-&gt;同步-&gt;本地 1.在web页面修改 2.在本地仓库中执行：git pull origin master 3.git pull [&lt;远程仓库名&gt; &lt;分支名&gt;] 本地修改-&gt;同步-&gt;web页面（服务器） 1.本地修改：vim，右击创建 2.标记待添加到仓库： 1git add liu.txt 配置邮箱、用户名(必须配置此项才能提交数据到仓库) 1(master)$ git config user.name &apos;yourname&apos; (master)$ git config user.email &apos;youremail@163.com&apos; 提交文件到本地仓库： 1git commit #一定要写备注信息，否则此次提交会被忽略 提交到远程仓库： 1git push origin master 注意：当进行push/commit之前，最好先pull一下 注意： 不要在仓库下进行克隆 当web页面有更新，本地也有更新的时候，注意可能会产生冲突 如果能自动合并的，它会自动合并，不能自动合并的，需要手动合并 Web页面上修改 本地修改、add、commit 提交到远程仓库 本地在push的时候，跟服务器版本有不一致的地方，所以有以上提示，需要先pull pull时，因为本地和远程都修改了同一个文件，无法自动合并，所以进入了merge模式 pull的时候，如果能自动合并的，它会自动合并，不能自动合并的，手动合并 MERGING模式 12345&lt;&lt;&lt;&lt;HEAD 你的修改 ====== 远程仓库的修改 &gt;&gt;&gt;&gt;&gt; 版本号 把自己需要的部分保留，不需要的删除。修改完成后再次add/commit即可退出merge模式 （&gt;&gt;&gt;&gt; ==== &lt;&lt;&lt;&lt;&lt;这些行一定删除） 再次git push到远程仓库 可查看git log日志 在仓库中把califeng文件删除，是否能找回 可以找回 注意： 不要仓库下进行克隆 gitee_python_study (master) master =&gt; master分支 遇到的问题 第一次 push时都需要输入密码 .git/conﬁg [remote “origin”] url = http://git.sanchuangedu.cn:3000/chenxl/python_study.git fetch = +refs/heads/:refs/remotes/origin/ .gitignore 本地-&gt; Web commit 修改文件: vim, touch, mkdir。。。。 标记为暂存状态: git add 提交到本地仓库：git commit 提交到远程仓库：git push 为开源的项目提交代码、只读的项目 写权限=&gt; 删除修改文件 =&gt; push 克隆项目：你自己帐户下的python_study 写代码：根目录下创建以自己名字命名的文件 配置：git config 同步到远程仓库 添加远程仓库 git remote add 名字 仓库地址 git remote add source http://git.sanchuangedu.cn:3000/cali/python_study.git 从远程仓库拉取最新的信息 git pull source master 测试：尝试向source push一点东西 403错误 bigbusiness =》 开发者权限 （读、写）读 fork -&gt; 可以 pull -&gt; 可以 clone -&gt; 可以 开发者 push -&gt; 可以 git clone 克隆 git add 标记 git commit 提交 git pull 拉文件 git push 推文件 git log 查看日志 git status 查看当前状态 git remote (add / remove / -v) 查看远程源 git rm 删除 git mv ﬁle newﬁle 更改文件名 git branch -a 查看所有分支 git checkout 切换分支 git reset git conﬁg 配置 git branch dev 创建新分支 基于当前分支来创建git branch init ca752793c1b6e957636b192777da3ba72da8e35c 基于某一个提交点创建分支 git checkout -b init02 创建init02并切换到分支 git branch -d init 删除分支 注：git的官方文档 https://git-scm.com/book/zh/v2/]]></content>
       <categories>
-        <category>git工具</category>
+        <category>git</category>
       </categories>
       <tags>
         <tag>git的使用</tag>
@@ -109,8 +110,8 @@
         <category>python面试题</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>面试题</tag>
+        <tag>python</tag>
         <tag>31-45</tag>
       </tags>
   </entry>
@@ -122,8 +123,8 @@
         <category>python面试题</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>面试题</tag>
+        <tag>python</tag>
         <tag>16-30</tag>
       </tags>
   </entry>
@@ -135,8 +136,8 @@
         <category>python面试题</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>面试题</tag>
+        <tag>python</tag>
         <tag>1-15</tag>
       </tags>
   </entry>
