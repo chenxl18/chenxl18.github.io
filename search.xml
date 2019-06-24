@@ -45,7 +45,7 @@
     <url>%2F2019%2F06%2F18%2Fpython%2Fpython%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[python的多进程和多线程 进程和进程之间通信，有哪些方式？ 管道 共享内存 信号 kill 是linux中杀死进程的命令 9) SIGKILL 信号类型 –&gt;被强制杀死（都来不及保存数据） 为什么kill进程的时候需要接-9？ 强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的 15) SIGTERM 告诉进程自我终结 signal terminate—&gt;15这种信号是可以被屏蔽的 1) SIGHUP signal HUP—-&gt; 挂起 父进程开启了一堆的子进程，如果把父进程杀死，父会给子进程发HUP信号，操作系统会将所有收到HUP信号的子进程全部杀死 2) SIGINT 中断信号 signal inerrupt—-&gt;按ctrl+c其实就是发中断信号 队列 信号量 socket（槽） 网络socket = ip : port 文件socket 12345678910111213141516from multiprocessing import Processimport timedef foo(i): print(&apos;chlid , arg i is &#123;&#125;&apos;.format(i)) time.sleep(1) print(&apos;child , arg i is &#123;&#125;&apos;.format(i))if __name__ == &apos;__main__&apos;: p_lst = [] for i in range(4): p = Process(target=foo, args=(i,)) p.start() p_lst.append(p) p.join() #[p.join() for p in p_lst] 进程里包含线程，一个进程里可以包含很多线程 进程 ：pcb（process控制块） + 代码 + 数据 线程 ：tcb （thread控制块） + 代码 + 数据 进程消耗资源多（cpu、内存、磁盘、网络等） 线程可以共享进程里的一些公共资源，更加节约系统的资源。 为什么线程在cpu里运行会比进程快？ 线程在上下文切换的时候，因为有公共部分，所以节约很多的时间，有很多的数据不需要切换，直接使用。 为什么线程更加节省资源（cpu、内存）？ 内存空间上：因为线程有公共部分，所以更加节约空间。 多进程更加稳定、但消耗资源多 多线程速度快，但是一个进程被杀死，进程里的线程都杀死，不够稳定]]></content>
       <categories>
-        <category>python</category>
+        <category>python高阶</category>
         <category>多进程和多线程</category>
       </categories>
       <tags>
