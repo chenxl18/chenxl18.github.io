@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTML的学习]]></title>
+    <url>%2F2019%2F06%2F26%2Fweb%E5%BC%80%E5%8F%91%2FHTML%E7%9A%84%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[网页前端三剑客 HTML 超文本标记语言 标记页面中有哪些元素 CSS 层叠样式表 我不生产元素，我只让元素变个样子 JavaScript 动态脚本语言 我来决定什么时候使用CSS，更重要的是，我可以创建和修改元素 HTML：要展现的信息 CSS：美化要展示的信息 JS：技能(更好的实现交互) 一个标准的HTML的格式 12345678910&lt;!DOCTYPE html&gt; #声明文档类型&lt;html lang=&quot;en&quot;&gt; #页面的根元素，html的语言，en-&gt;英语&lt;head&gt; #头部信息，head标签包含了文档的元(meta)数据 &lt;meta charset=&quot;UTF-8&quot;&gt; #编码为utf-8 &lt;title&gt;Title&lt;/title&gt; #标题：浏览器上看到的标题栏&lt;/head&gt;&lt;body&gt; #文档的主体：网页可见的内容&lt;/body&gt;&lt;/html&gt; HTML的标签 HTML的标签是由尖括号包围的关键词，比如&lt;html&gt;&lt;/html&gt; HTML的标签通常是成对出现的，比如&lt;b&gt;和&lt;/b&gt; 标签对中的的第一个标签是开始标签，第二个标签是结束标签 开始和结束标签也被称为开放标签和闭合标签 HTML的属性 HTML标签可以拥有属性。属性提供了有关HTML元素的更多的信息。 属性总是以名称/值对的形式出现，比如：name=”value”. 属性总是在HTML元素的开始标签中规定。 属性 值 描述 class classname 规定元素的类名（classname） id id 规定元素的唯一id style style_definition 规定元素的行内样式（inline style） title text 规定元素的额外信息（可在工具提示中显示） HTML元素 HTML 元素指的是从开始标签（start tag）到结束标签（end tag）的所有代码。 开始标签 元素内容 结束标签 &lt;p&gt; This is a paragraph &lt;/p&gt; &lt;a href=”default.html”&gt; This is a link &lt;/a&gt; &lt;br/&gt; hr标签：水平线 p标签：段落 h1标签：标题 标签:这是一个注释 &lt;br&gt;标签：换行 列表：无序和有序 1234567891011121314151617181920212223&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;列表&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;列表&lt;/h1&gt;&lt;h2&gt;无序列表&lt;/h2&gt;&lt;ul&gt; &lt;li&gt;第一项&lt;/li&gt; &lt;li&gt;第二项&lt;/li&gt; &lt;li&gt;第三项&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;有序列表&lt;/h2&gt;&lt;ol&gt; &lt;li&gt;第一项&lt;/li&gt; &lt;li&gt;第二项&lt;/li&gt; &lt;li&gt;第三项&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;]]></content>
+      <categories>
+        <category>python</category>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Web的学习]]></title>
     <url>%2F2019%2F06%2F26%2Fweb%E5%BC%80%E5%8F%91%2FWeb%E7%9A%84%E5%AD%A6%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[什么是web开发？ 基于Web技术开发的使用浏览器访问的项目 web开发技术栈 前端 浏览器：Chrome、firefox、IE、Opera、Linux命令客户端、python-request/urllib 网页三剑客：html、css、js 后端 开发语言：Python、java、GO、PHP、Node.js Web框架：接受请求、生成响应、框架的特性、针对业务进行扩展 Django Flask Tornado 服务器操作系统： Linux：CentOS、RedHat、Ubuntu windows server 中间件 负载均衡 WAF(web应用防护) 缓存 运维监控 全文搜索 数据库(备份、容灾、调优) 关系型数据库：MySQL、Sqlite、SqlServer、Oracle 非关系型数据库：NoSQL、MongoDB（key:value） 技术方案 Nginx Restful API OAuth2.0 Docker 消息队列 单面应用与多页应用 单页面应用（SinglePage Web Application，SPA） 多页面应用（MultiPage Application，MPA） 组成 一个外壳页面和多个页面片段组成 多个完整页面构成 资源共用(css.js) 共用，只需在外壳部分加载 不共用，每个页面都需要加载 刷新方式 页面局部刷新或更改 整页刷新 url模式 a.com/#/pageone；a.com/#/pagetwo a.com/pageone.html；a.com/pagetwo.html 拓展： 从MVC到前后端分离 https://blog.csdn.net/shaobingj126/article/details/49420145 前端：你要懂的单页面应用和多页面应用 https://juejin.im/post/5a0ea4ec6fb9a0450407725c 17素材网 http://www.17sucai.com/]]></content>
