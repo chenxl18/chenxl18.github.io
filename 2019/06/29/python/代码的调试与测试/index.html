@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
+<meta name="keywords" content="logging模块,pdb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码的调试与测试">
+<meta property="og:url" content="https://chenxl18.github.io/2019/06/29/python/代码的调试与测试/index.html">
+<meta property="og:site_name" content="xll的个人网站">
+<meta property="og:description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-29T10:37:05.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码的调试与测试">
+<meta name="twitter:description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenxl18.github.io/2019/06/29/python/代码的调试与测试/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>代码的调试与测试 | xll的个人网站</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xll的个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">得之我幸，失之我命</p>
+      
+    
+    
+      <a>
+        <img class="custom-logo-image" src="/images/xl.jpg" alt="xll的个人网站">
+      </a>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/music/" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i> <br>音乐</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/06/29/python/代码的调试与测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xll">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xll的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">代码的调试与测试
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-29 15:15:19 / 修改时间：18:37:05" itemprop="dateCreated datePublished" datetime="2019-06-29T15:15:19+08:00">2019-06-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python高阶/" itemprop="url" rel="index"><span itemprop="name">python高阶</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python高阶/python代码的调试和测试/" itemprop="url" rel="index"><span itemprop="name">python代码的调试和测试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="代码调试与测试"><a href="#代码调试与测试" class="headerlink" title="代码调试与测试"></a>代码调试与测试</h1><ul>
+<li><p>什么是代码调试与测试？</p>
+<ul>
+<li>测试是为了发现错误而执行程序的过程。</li>
+<li>调试是定位错误，修改程序以修正错误，为了程序可运行。</li>
+<li>测试从一个已知的条件开始,有预知的结局。</li>
+<li>调试从未知的条件开始,其结局不可预知。</li>
+</ul>
+</li>
+<li><p>为什么要做代码调试与测试？</p>
+<ul>
+<li>代码测试是为了增强代码的健杜倒</li>
+<li>代码调试是为了解决已知问题</li>
+</ul>
+</li>
+<li><p>代码调试方法</p>
+<ul>
+<li>print<ul>
+<li>简单直接粗暴有效</li>
+<li>适合开发中</li>
+</ul>
+</li>
+<li>IDE Debuger Pycharm<ul>
+<li>开发中出错了</li>
+</ul>
+</li>
+<li>pdb<ul>
+<li>交互的源代码调试功能</li>
+<li>命令行中使用</li>
+</ul>
+</li>
+<li>Logging<ul>
+<li>日志定位问题济记录程序运行情况</li>
+<li>发布上线后，记日志</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代码测试</p>
+<ul>
+<li><p>assert：断言方便开关</p>
+</li>
+<li><p>单元测试</p>
+<ul>
+<li><p>什么是单元测试：</p>
+<p>  1.单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作</p>
+<p>  2.把上面这些测试用例放到一个测试模块里，就是一个完整的单元测试</p>
+</li>
+<li><p>测试需要一定时间，而我们完全可以用这些时间去编写代码，为什么要测试而不是去做那些最有生产效率的事？</p>
+<p> 1.测试可以保证你的代码在一系列给定条件下正常工作<br> 2.测试允许人们确保对代码的改动不会破坏现有的功能<br> 3.测试自使人们在不寻常条件的情况下思考代码，这可能会揭示出逻辑错误<br> 4.良好的测试要求模块化，解耦代码，这是一个良好的系统设计的标志</p>
+</li>
+<li><p>unittest单元测试：unittest是Python自带的单元测试框，可以用来作自动化测试框架的用例组织执行框架</p>
+<ul>
+<li>优点：提供用例组织与执行方法<pre><code>提供比较方法
+提供丰富的日志、清晰的报告</code></pre></li>
+<li>方法：</li>
+</ul>
+</li>
+</ul>
+<p>assertEqual(a,b)<br>a == b</p>
+<p>assertNotEqual(a,b)<br>a != b</p>
+<p>assertTrue(x)<br>bool(x) is True</p>
+<p>assertFalse(x)<br>bool(x) is False</p>
+<p>assertIs(a,b)<br>a is b</p>
+<p>assertIsNot(a,b)<br>a is not b</p>
+<p>assertIn(a,b)<br>a in b</p>
+<p>assertNotIn(a,b)<br>a not in b</p>
+</li>
+</ul>
+</li>
+<li><p>单元测试注意事项</p>
+<ul>
+<li>在写测试用例的时候尽量代码简单</li>
+<li>如果测试用例逻辑比较复杂，那么也可能会出现错误</li>
+<li>单元测试即使通过了，也不代表程序本身一点问题都没有</li>
+<li>如果单元测试没有通过那程序本身肯定是存在bug的</li>
+</ul>
+</li>
+<li><p>常用调试方法</p>
+<ul>
+<li><p>print函数</p>
+<ul>
+<li><p>优点：使用简单，直接锁定定位的变量查看结果</p>
+</li>
+<li><p>缺点：如果程序代码很大，会出现大量的print，运行结果也会包括很多不必要的垃圾信息，等到项目正式发布的时候对于这些print代码还要都删除掉</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def fun():</span><br><span class="line">    r = input(&apos;请输入一个数字&apos;)</span><br><span class="line">    print(type(r))</span><br><span class="line">    n = int(r)</span><br><span class="line">    print(&apos;s的值为：%s&apos; % n)</span><br><span class="line">    result = 100/n</span><br><span class="line">    return result</span><br><span class="line">print(fun())</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>assert断言</p>
+<ul>
+<li><p>在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时渍，不如在出现错误条件时就崩渍，这时候就需要assert断言的帮助。</p>
+</li>
+<li><p>断言可以简简单单的想象为raise-if 语句（更准确的说是raise-if-not 语句）。</p>
+</li>
+<li><p>测试一个表达式，如果返回值是假，触发异常。</p>
+</li>
+<li><p>文档：<a href="https://docs.python.org/3/reference/simple_stmts.html#assert" target="_blank" rel="noopener">https://docs.python.org/3/reference/simple_stmts.html#assert</a></p>
+</li>
+<li><p><strong>格式</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assert expression[, arguments]</span><br><span class="line">assert 表达式[, 参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等价语句</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __debug__:</span><br><span class="line">	if not expression1:raise AssertionError(expression2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>断言需要开启dubug模式</p>
+<ul>
+<li><p>查看：<strong>debug</strong> 的值</p>
+</li>
+<li><p>查看：help(“assert”)</p>
+</li>
+<li><p>开启非Debug模式：python -O</p>
+</li>
+<li><p>小案例</p>
+<pre><code>检查列表长度必须大于2</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertlen(mylist) &gt;= 1</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>    ​    检查成绩必须在0~100之间
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">score = 101</span><br><span class="line">assert score &gt;= 0 and score &lt;=100, &apos;score is error&apos;</span><br></pre></td></tr></table></figure>
+
+- 应用情况
+    - 防御性的编程：子程序应该不因传入错误数据而被破坏，哪怕是由其他子程序产生的错误数据。
+    - 合约性检查
+                    比如前置条件，后置条件
+                    如成绩方位、数据类型等
+    - 运行时对程序逻辑的检测</code></pre><ul>
+<li><p>logging模块</p>
+<ul>
+<li><p>介绍：</p>
+<ul>
+<li>logging模块是Python内置的标准模块，主要用于输出运行日志，可以设百输出日志的等级、日志保存路径、日志文件轮转</li>
+<li>logging模块是标准库之一</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>可以通过设置不同的日志等级，在release版本中只输出重要信息，而不必显示大呈的调试信息；</li>
+<li>print将所有信息都输出到标准输出中，严重影响开发者从标准输出中查看其它数据；logging则可以由开发者决定将信息输出到什么地方，以及怎么输出；</li>
+</ul>
+</li>
+<li><p>logging.basicConfig函数各参数</p>
+<ul>
+<li>filename：指定日志文件名</li>
+<li>filemode：和file函数意义相同，指定日志文件的打开模式，’w’或者’a’</li>
+<li>stream：指定将日志的输出流<pre><code>可以指定输出到sys.stderr，sys.stdout或者文件
+默认输出到sys.stderr
+当stream和filename同时指定时，stream被忽</code></pre></li>
+<li>level：设置日志级别，默认为logging.WARNNING<pre><code>FATAL：致命错误
+CRITICAL：特别糟糕的事情，如内存耗尽、磁盘空间为空，一般很少使用
+ERROR：发生错误时，如IO操作失败或者连接问题
+WARNING：发生很重要的事件，但是并不是错误时，如用户登录密码错误
+INFO：处理请求或者状态变化等日常事务
+DEBUG：调试过程中使用DEBUG等级，如算法中每个循环的中间状态</code></pre></li>
+<li>format：指定输出的格式和内容，format可以输出很多有用的信息<pre><code>%（levelno）s：打印日志级别的数值
+%（levelname）s：打印日志级别的名称
+%（pathname）s：打印当前执行程序的路径，其实就是sys.argv[0]
+%（filename）s：打印当前执行程序名
+%（funcName）s：打印日志的当前函数
+%（lineno）d：打印日志的当前行号
+%（asctime）s：打印日志的时间
+%（thread）d：打印线程ID
+%（threadName）s：打印线程名称
+%（process）d：打印进程ID%（message）s：打印日志信息
+datefmt：指定时间格式，同time.strftime）；</code></pre></li>
+<li>handler名称：位置；作用 <pre><code>StreamHandler:logging.StreamHandler</code></pre> 日志输出到流，可以是sys.stderr，sys.stdout或者文件<pre><code>FileHandler:logging.FileHandler</code></pre> 日志输出到文件<pre><code>SysLogHandler:logging.handlers.SysLogHandler</code></pre> 日志输出到syslog <pre><code>BaseRotatingHandler:logging.handlers.BaseRotatingHandler</code></pre> 基本的日志回滚方式<pre><code>RotatingHandler:logging.handlers.RotatingFileHandler</code></pre> 日志回滚方式，支持日志文件最大数量和日志文件回滚<pre><code>TimeRotatingHandler:logging.handlers.TimeRotatingHandler</code></pre> 日志回滚方式，在一定时间区域内回滚日志文件<pre><code>SocketHandler:logging.handlers.SocketHandler</code></pre> 远程输出日志到TCP/IP sockets <pre><code>DatagramHandler:logging.handlers.DatagramHandler</code></pre> 远程输出日志到UDP sockets <pre><code>SMTPHandler:logging，.handlers.SMTPHandler</code></pre> 远程输出日志到邮件地址<pre><code>NTEventLogHandler:logging，.handlers.NTEventLogHandler</code></pre> 远程输出日志到Windows NT/2000/XP的事件日志<pre><code>MemoryHandler:logging.handlers.MemoryHandler</code></pre> 日志输出到内存中的指定buffer <pre><code>HTTPHandler:logging.handlers.HTTPHandler</code></pre> 通过”GET”或者”POST”远程输出到HTTP服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​     
+​<br>​        
+​<br>​    日志级别<br>​        logging中可以选择很多消息级别<br>​            debug<br>​                看不到<br>​            info<br>​                </p>
+<p>​        warning<br>​            
+​        error<br>​            
+​        critical<br>​            程序要崩溃了<br>​    通过赋予logger或者handler不同级别，开发者就可以只输入错误信息到特定的记录文件，或者在调试时只记录调试信息<br>案例<br>​    配置logging基本的设置，然后在控制台输出日志<br>记日志<br>​    logging是线程安全不是进程安全<br>​    线程安全<br>​        多线程编程时的计算机程序代码中的一个概念。在拥有共享数据的多条线程并行执行的程序中，线程安全的代码会通过同步机制保证各个线程都可以正常且正确的执行，不会出现数据污染等意外情况。<br>​    官方logging线程安全<br>​         <a href="https://docs.python.org/3/library/logging.html#thread-safety" target="_blank" rel="noopener">https://docs.python.org/3/library/logging.html#thread-safety</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/logging模块/" rel="tag"># logging模块</a>
+          
+            <a href="/tags/pdb/" rel="tag"># pdb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/26/web开发/HTML的学习/" rel="next" title="HTML的学习">
+                <i class="fa fa-chevron-left"></i> HTML的学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/linux/计划任务/" rel="prev" title="计划任务">
+                计划任务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xll</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenxl18/chenxl18.github.io" title="GitHub &rarr; https://github.com/chenxl18/chenxl18.github.io" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/#/user/home?id=594731641" title="CloudMusic &rarr; https://music.163.com/#/user/home?id=594731641" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>CloudMusic</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+          <embed src="//music.163.com/style/swf/widget.swf?sid=1347468523&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码调试与测试"><span class="nav-number">1.</span> <span class="nav-text">代码调试与测试</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xll</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

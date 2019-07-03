@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="python的多进程和多线程 进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal termi">
+  <meta name="description" content="python的多进程和多线程  进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal term">
 <meta name="keywords" content="笔记,进程间通信方式,操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python的多进程和多线程">
 <meta property="og:url" content="https://chenxl18.github.io/2019/06/18/python/python的多进程和多线程/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="python的多进程和多线程 进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal termi">
+<meta property="og:description" content="python的多进程和多线程  进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal term">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-25T13:28:28.341Z">
+<meta property="og:updated_time" content="2019-06-26T13:17:40.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python的多进程和多线程">
-<meta name="twitter:description" content="python的多进程和多线程 进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal termi">
+<meta name="twitter:description" content="python的多进程和多线程  进程和进程之间通信，有哪些方式？ 管道  共享内存  信号  kill 是linux中杀死进程的命令  9) SIGKILL 信号类型 –&amp;gt;被强制杀死（都来不及保存数据）   为什么kill进程的时候需要接-9？   强制杀死，因为-9的信号类型是不能被屏蔽的，所以可以达到强制杀死进程的目的  15) SIGTERM 告诉进程自我终结  signal term">
 
 
 
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-25 21:28:28" itemprop="dateModified" datetime="2019-06-25T21:28:28+08:00">2019-06-25</time>
+                <time title="修改时间：2019-06-26 21:17:40" itemprop="dateModified" datetime="2019-06-26T21:17:40+08:00">2019-06-26</time>
               
             
           </span>
@@ -533,6 +533,7 @@
 
       
         <h1 id="python的多进程和多线程"><a href="#python的多进程和多线程" class="headerlink" title="python的多进程和多线程"></a>python的多进程和多线程</h1><hr>
+<hr>
 <h4 id="进程和进程之间通信，有哪些方式？"><a href="#进程和进程之间通信，有哪些方式？" class="headerlink" title="进程和进程之间通信，有哪些方式？"></a>进程和进程之间通信，有哪些方式？</h4><ul>
 <li><p>管道</p>
 </li>
@@ -560,6 +561,9 @@
 <li><p>队列</p>
 </li>
 <li><p>信号量</p>
+<ul>
+<li></li>
+</ul>
 </li>
 <li><p>socket（槽）</p>
 <ul>
@@ -685,6 +689,29 @@
 <ul>
 <li>io密集型计算用多线程</li>
 <li>cpu密集型计算用多进程</li>
+</ul>
+</li>
+<li><p>多线程：（）</p>
+</li>
+<li><p>Gil全局解释锁和线程互斥锁的关系</p>
+<p>  <a href="https://www.cnblogs.com/Keep-Ambition/p/7596098.html" target="_blank" rel="noopener">https://www.cnblogs.com/Keep-Ambition/p/7596098.html</a></p>
+</li>
+<li><p>协程和线程的区别？协程是否有上下文切换的概念？多线程是否上下文切换？</p>
+</li>
+<li><p>总结：</p>
+<ul>
+<li><p>不一致读</p>
+</li>
+<li><p>互斥锁：控制多线程执行的顺序</p>
+</li>
+<li><p>GIL锁</p>
+</li>
+</ul>
+</li>
+<li><p>threading线程模块</p>
+<ul>
+<li>创建线程的类—-&gt;Thread</li>
+<li>创建锁的类—-&gt;Lock</li>
 </ul>
 </li>
 </ul>
@@ -818,7 +845,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -871,7 +898,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -940,7 +973,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
