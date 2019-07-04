@@ -104,14 +104,14 @@
 
 
   <meta name="description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
-<meta name="keywords" content="logging模块,pdb">
+<meta name="keywords" content="logging模块,pdb模块,单元测试,unittest模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代码的调试与测试">
 <meta property="og:url" content="https://chenxl18.github.io/2019/06/29/python/代码的调试与测试/index.html">
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-29T10:37:05.823Z">
+<meta property="og:updated_time" content="2019-07-04T11:32:31.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码的调试与测试">
 <meta name="twitter:description" content="代码调试与测试 什么是代码调试与测试？  测试是为了发现错误而执行程序的过程。 调试是定位错误，修改程序以修正错误，为了程序可运行。 测试从一个已知的条件开始,有预知的结局。 调试从未知的条件开始,其结局不可预知。   为什么要做代码调试与测试？  代码测试是为了增强代码的健杜倒 代码调试是为了解决已知问题   代码调试方法  print 简单直接粗暴有效 适合开发中   IDE Debuger">
@@ -449,12 +449,24 @@
                 
               
 
-              <time title="创建时间：2019-06-29 15:15:19 / 修改时间：18:37:05" itemprop="dateCreated datePublished" datetime="2019-06-29T15:15:19+08:00">2019-06-29</time>
+              <time title="创建时间：2019-06-29 15:15:19" itemprop="dateCreated datePublished" datetime="2019-06-29T15:15:19+08:00">2019-06-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-04 19:32:31" itemprop="dateModified" datetime="2019-07-04T19:32:31+08:00">2019-07-04</time>
               
             
           </span>
@@ -704,13 +716,259 @@ datefmt：指定时间格式，同time.strftime）；</code></pre></li>
 </li>
 </ul>
 </li>
+<li><p>日志级别l</p>
+<ul>
+<li>ogging中可以选择很多消息级别</li>
+<li>debug：看不到    </li>
+<li>info</li>
+<li>warning</li>
+<li>error</li>
+<li>critical：程序要崩溃了</li>
 </ul>
-<p>​     
-​<br>​        
-​<br>​    日志级别<br>​        logging中可以选择很多消息级别<br>​            debug<br>​                看不到<br>​            info<br>​                </p>
-<p>​        warning<br>​            
-​        error<br>​            
-​        critical<br>​            程序要崩溃了<br>​    通过赋予logger或者handler不同级别，开发者就可以只输入错误信息到特定的记录文件，或者在调试时只记录调试信息<br>案例<br>​    配置logging基本的设置，然后在控制台输出日志<br>记日志<br>​    logging是线程安全不是进程安全<br>​    线程安全<br>​        多线程编程时的计算机程序代码中的一个概念。在拥有共享数据的多条线程并行执行的程序中，线程安全的代码会通过同步机制保证各个线程都可以正常且正确的执行，不会出现数据污染等意外情况。<br>​    官方logging线程安全<br>​         <a href="https://docs.python.org/3/library/logging.html#thread-safety" target="_blank" rel="noopener">https://docs.python.org/3/library/logging.html#thread-safety</a></p>
+</li>
+<li><p>logging是线程安全不是进程安全</p>
+</li>
+</ul>
+<ul>
+<li><p>线程安全：</p>
+<pre><code>多线程编程时的计算机程序代码中的一个概念。在拥有共享数据的多条线程并行执行的程序中，线程安全的代码会通过同步机制保证各个线程都可以正常且正确的执行，不会出现数据污染等意外情况。</code></pre></li>
+<li><p>官方logging线程安全</p>
+<p>   <a href="https://docs.python.org/3/library/logging.html#thread-safety" target="_blank" rel="noopener">https://docs.python.org/3/library/logging.html#thread-safety</a></p>
+</li>
+<li><p>pdb-python调试器</p>
+<ul>
+<li><p>使用pdb在代码中设置断点（硬编码）</p>
+</li>
+<li><p>创建模块mypdb_base.py</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line">a = <span class="number">2</span></span><br><span class="line">b = a * <span class="number">2</span></span><br><span class="line">c = a + b</span><br><span class="line"><span class="comment"># 设置断点</span></span><br><span class="line">pdb.set_trace()</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动调试器</p>
+<p>  <code>python mypdb_base.py</code></p>
+</li>
+<li><p>pdb指令</p>
+<ul>
+<li>下一条语句：n，next</li>
+<li>打印变量信息：p变量名</li>
+<li>打印脚本信息：l</li>
+<li>退出pdb:q</li>
+<li>查看帮助：h</li>
+</ul>
+</li>
+<li><p>单步调试：每次执行一行</p>
+</li>
+<li><p>适合场景：短小的脚本</p>
+</li>
+<li><p>创建模块mypdb_base.py</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动调试器</p>
+</li>
+<li><p>注意：</p>
+<p>  远程调试、多线程，pdb搞不定</p>
+</li>
+<li><p>pdb指令</p>
+<table>
+<thead>
+<tr>
+<th>完整命令</th>
+<th>简写命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>args</td>
+<td>a</td>
+<td>打印当前函数的参数</td>
+</tr>
+<tr>
+<td>break</td>
+<td>b</td>
+<td>设置断点</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>d</td>
+<td>清除断点</td>
+</tr>
+<tr>
+<td>condition</td>
+<td>无</td>
+<td>设置条件断点</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>c或者cont</td>
+<td>继续运行，知道遇到断点或者脚本结束</td>
+</tr>
+<tr>
+<td>disable</td>
+<td>无</td>
+<td>禁用断点</td>
+</tr>
+<tr>
+<td>enable</td>
+<td>无</td>
+<td>启用断点</td>
+</tr>
+<tr>
+<td>help</td>
+<td>h</td>
+<td>查看pdb帮助</td>
+</tr>
+<tr>
+<td>ignore</td>
+<td>无</td>
+<td>忽略断点</td>
+</tr>
+<tr>
+<td>jump</td>
+<td>j</td>
+<td>跳转到指定行数运行</td>
+</tr>
+<tr>
+<td>list</td>
+<td>l</td>
+<td>列出脚本清单</td>
+</tr>
+<tr>
+<td>next</td>
+<td>n</td>
+<td>执行下条语句，遇到函数不进入其内部</td>
+</tr>
+<tr>
+<td>p</td>
+<td>p</td>
+<td>打印变量值，也可以用print</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>q</td>
+<td>退出pdb</td>
+</tr>
+<tr>
+<td>return</td>
+<td>r</td>
+<td>一直运行到函数返回</td>
+</tr>
+<tr>
+<td>tbreak</td>
+<td>无</td>
+<td>设置临时断点，断点只中断一次</td>
+</tr>
+<tr>
+<td>step</td>
+<td>s</td>
+<td>执行下一条语句，遇到函数进入其内部</td>
+</tr>
+<tr>
+<td>where</td>
+<td>w</td>
+<td>查看所在的位置</td>
+</tr>
+<tr>
+<td>！</td>
+<td>无</td>
+<td>在pdb中执行语句</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>IDE Debuger Pycharm</p>
+<ul>
+<li>断点设置：遇到断点，程序会停下来，保留所有当前状态数据</li>
+</ul>
+</li>
+<li><p>启动调试器</p>
+<ul>
+<li>常用快捷键<ul>
+<li>搜索变量：Alt +F8 /Debug行的最后一个按钮（小方形）</li>
+<li>下一个断点：F9</li>
+<li>下一条语句：F8</li>
+<li>进入当前语句的执行：F7</li>
+<li>拓展文档： <a href="https://blog.csdn.net/u013088062/article/details/50216015" target="_blank" rel="noopener">https://blog.csdn.net/u013088062/article/details/50216015</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单元测试：单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">比如对于函数abs0，我们可以编写的测试用例为：</span><br><span class="line">①输入正数，比如1、1.2、0.99，期待返回值与输入相同</span><br><span class="line">②输入复数，比如-1、-1.2、-0.99，期待返回值与输入相反</span><br><span class="line">③输入0，期待返回0</span><br><span class="line">④输入非数值类型，比如None、、0、期待抛出TypeError</span><br></pre></td></tr></table></figure>
+
+<p>把上面这些测试用例放到一个测试模块里，就是一个完整的单元测试</p>
+<ul>
+<li><p>测试的目的（测试需要一定的时间，而我们完全可以用这些时间去编代码，为什么要测试而不是去做那些最有生产效率的事？）</p>
+<ul>
+<li>测试可以保证你的代码在一系列给定条件下正常工作</li>
+<li>测试允许人们确保对代码的改动不会破坏现有的功能</li>
+<li>测试迫使人们在不寻常条件的情况下思考代码，这可能会揭示出逻辑错误</li>
+<li>良好的测试要求模块化，解耦代码，这是一个良好的系统设计的标志</li>
+</ul>
+</li>
+<li><p>unittest单元测试：unittest是Python自带的单元测试框，可以用来作自动化测试框架的用例组织执行框架。</p>
+<ul>
+<li><p>优点：</p>
+<ul>
+<li>提供用例组织与执行方法；</li>
+<li>提供比较方法；</li>
+<li>提供丰富的日志、清晰的报告。</li>
+</ul>
+</li>
+<li><p>unittest单元测试方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>检查</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assertEqual（a，b）</td>
+<td>a==b</td>
+</tr>
+<tr>
+<td>assertNotEqual（a，b）</td>
+<td>a!=b</td>
+</tr>
+<tr>
+<td>assertTrue（x）</td>
+<td>bool（x）is True</td>
+</tr>
+<tr>
+<td>assertFalse（x）</td>
+<td>bool（x）is False</td>
+</tr>
+<tr>
+<td>assertls（a，b）</td>
+<td>a is b</td>
+</tr>
+<tr>
+<td>assertlsNot（a，b）</td>
+<td>a is not b</td>
+</tr>
+<tr>
+<td>assertin（a，b）</td>
+<td>a in b</td>
+</tr>
+<tr>
+<td>assertNotiln（a，b）</td>
+<td>a not in b</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>注意事项<ul>
+<li>在写测试用例的时候尽量代码简单。</li>
+<li>如果测试用例逻辑比较复杂，那么也可能会出现错误。</li>
+<li>单元测试即使通过了，也不代表程序本身一点问题都没有</li>
+<li>如果单元测试没有通过那程序本身肯定是存在bug的</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -745,7 +1003,11 @@ datefmt：指定时间格式，同time.strftime）；</code></pre></li>
           
             <a href="/tags/logging模块/" rel="tag"># logging模块</a>
           
-            <a href="/tags/pdb/" rel="tag"># pdb</a>
+            <a href="/tags/pdb模块/" rel="tag"># pdb模块</a>
+          
+            <a href="/tags/单元测试/" rel="tag"># 单元测试</a>
+          
+            <a href="/tags/unittest模块/" rel="tag"># unittest模块</a>
           
         </div>
       
@@ -839,7 +1101,7 @@ datefmt：指定时间格式，同time.strftime）；</code></pre></li>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -898,7 +1160,11 @@ datefmt：指定时间格式，同time.strftime）；</code></pre></li>
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -977,7 +1243,21 @@ datefmt：指定时间格式，同time.strftime）；</code></pre></li>
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
