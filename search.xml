@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[shell种类及bash的产生]]></title>
+    <url>%2F2019%2F07%2F05%2Flinux%2Fshell%E7%A7%8D%E7%B1%BB%E5%8F%8Abash%E7%9A%84%E4%BA%A7%E7%94%9F%2F</url>
+    <content type="text"><![CDATA[shell脚本的基本组成 声明和注释（注释以#开头） 1#! /bin/bash #是声明这个脚本是使用bash来执行的 系统命令 文本处理工具（grep、cut、sed、awk） 各种变量 各种条件判断 循环结构语句 各种函数 shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行 用户进程和系统进程 用户进程：用来实现具体的某个功能应用的程序，为用户提供服务的程序。mysq1、lkdir等 系统进程：其实就是操作系统本身内部的代码运行的进程。 0.0%us：用户进程所消耗的cpu资源 0.3%sy：系统进程所消耗的cpu资源 10.0 us, 0.3 sy, 0.0 ni, 99.7 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st 用户态：一般都是普通的应用程序的状态 内核态：就是操作系统内核代码运行的程序的状态 编译型语言：编写-编译-链接-运行（edit-complie-link-run） C\C++、Ada、Java、C# 脚本语言：解释器读入脚本程序代码，将其装换成内部的形式，解释器本身则是编译型程序 Shell脚本编程的优势 语法和结构通常比较简单 学习和使用通常比较简单 通常以容易修改程序的“解释”作为运行方式，而不要“编译” 登录Shell：指用户每次登录系统后自动加载的Shell程序，大多数Linux系统采用/bin/bash作为默认登录Shell /etc/shells 文件记录了系统支持的有效登录Shell 1234567[root@chenxl ~]# cat /etc/shells/bin/sh/bin/bash/sbin/nologin/usr/bin/sh/usr/bin/bash/usr/sbin/nologin 如何切换Shell环境 临时切换：直接执行其他shell程序 返回到原来的shell环境时可以执行“exit”命令或者按ctrl+D快捷键 更换用户登录Shell： 需要修改/etc/passwd文件中用户记录的最后一个字段 或执行：usermod -s Shell程序路径 用户名 bash初始化：用户登录后到linux系统里，linux系统就会启动一个进程叫bash，然后我们在bash里输入命令，让bash帮我们去查找并执行 直接登录 远程登录：xshell软件、secureCRT bash初始化：启动bash这个程序的时候，需要去执行一些操作，加载某些参数或者函数 w命令 show who is logged on and what they are doing. 123456[root@chenxl ~]# w 20:12:22 up 2:49, 3 users, load average: 0.15, 0.05, 0.06USER TTY FROM LOGIN@ IDLE JCPU PCPU WHATroot tty1 256月19 25:18 0.11s 0.11s -bashroot pts/0 192.168.0.48 276月19 8days 0.01s 0.01s -bashroot pts/1 192.168.0.58 19:48 6.00s 0.04s 0.00s w ps aux静态的查看进程 pstree 查看进程树 top命令 动态的查看进程的信息每隔2秒刷新一次 大写的P：根据cpu的使用率来排序 processor 大写M：根据内存的使用率来排序 memory 按q：退出quit shift+&gt;：下一页的进程信息 shift+&lt;：上一页的进程信息]]></content>
+      <categories>
+        <category>linux</category>
+        <category>shell脚本</category>
+      </categories>
+      <tags>
+        <tag>shell种类</tag>
+        <tag>bash的产生</tag>
+        <tag>w命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[函数式编程练习题]]></title>
     <url>%2F2019%2F07%2F04%2F%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0%E9%A2%98%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920"""@file:homework.py@date:2019/07/04"""# list1 = [7,-8,5,4,0,-2,-5]# 正数在前负数在后# 整数从小到大# 负数从大到小list1 = [7, -8, 5, 4, 0, -2, -5]def sort1(x): if x &lt; 0: return x ** 4 else: return xret = sorted(list1, key=sort1)print(ret) 12345678910111213141516171819202122# 这是一个字符串排序，排序规则：小写&lt;大写&lt;奇数&lt;偶数# s='asdf234GDSdsf23'# 排序：小写-大写-奇数-偶数# 原理：先比较元组的第一个值，FALSEimport strings = 'asdf234GDSdsf23'def sort2(x): if x.isdigit(): if int(x) % 1 == 1: return ord(x) + 100 else: return ord(x) + 1000 elif x.islower(): return ord(x) - 100 else: return ord(x)print("".join(sorted(s, key=sort2))) 通过上面的题目 我又了解到python中sorted()方法和列表的sort方法使用详解 sorted基本用法 列表有自己的sort方法，其对列表进行原址排序，既然是原址排序，那显然元组不可能拥有这种方法，因为元组是不可修改的。 排序，数字、字符串按照ASCII，中文按照unicode从小到大排序 123x = [4, 6, 2, 1, 7, 9]x.sort()print (x) # [1, 2, 4, 6, 7, 9] 如果需要一个排序好的副本，同时保持原有列表不变，怎么实现呢？ 12345x = [4, 6, 2, 1, 7, 9]y = x[:]y.sort()print(y) # [1, 2, 4, 6, 7, 9]print(x) # [4, 6, 2, 1, 7, 9] 注意：y = x[:] 通过分片操作将列表x的元素全部拷贝给y，如果简单的把x赋值给y：y = x，y和x还是指向同一个列表，并没有产生新的副本。 另一种获取已排序的列表副本的方法是使用sorted函数： 1234x =[4, 6, 2, 1, 7, 9]y = sorted(x)print (y) #[1, 2, 4, 6, 7, 9]print (x) #[4, 6, 2, 1, 7, 9] sorted返回一个有序的副本，并且类型总是列表，如下： 1print (sorted(&apos;Python&apos;)) #[&apos;P&apos;, &apos;h&apos;, &apos;n&apos;, &apos;o&apos;, &apos;t&apos;, &apos;y&apos;] 可选参数 sort方法还有两个可选参数：key和reverse 1、key在使用时必须提供一个排序过程总调用的函数： 123x = [&apos;mmm&apos;, &apos;mm&apos;, &apos;mm&apos;, &apos;m&apos; ]x.sort(key = len)print (x) # [&apos;m&apos;, &apos;mm&apos;, &apos;mm&apos;, &apos;mmm&apos;] 2、reverse实现降序排序，需要提供一个布尔值： 123y = [3, 2, 8 ,0 , 1]y.sort(reverse = True)print (y) #[8, 3, 2, 1, 0] True为倒序排列，False为正序排列 sort和sorted的不同 有无返回值 list.sort() ：对原列表进行排序，无返回值 sorted(list)：有返回值 是否影响本身结构 sorted(list) ：不影响本身结构 sorted(list,reverse = True)：不影响本身结构 list.sort()：影响本身结构 list.sort(reverse = True)：影响本身结构 拓展文档https://www.cnblogs.com/huchong/p/8296025.html]]></content>
