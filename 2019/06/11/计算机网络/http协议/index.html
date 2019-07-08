@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="http协议问题1.在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，get方">
-<meta name="keywords" content="http协议">
+  <meta name="description" content="HTTP协议-应用层问题在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，ge">
+<meta name="keywords" content="http协议,nginx配置,抓包工具的使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http协议">
+<meta property="og:title" content="HTTP协议">
 <meta property="og:url" content="https://chenxl18.github.io/2019/06/11/计算机网络/http协议/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="http协议问题1.在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，get方">
+<meta property="og:description" content="HTTP协议-应用层问题在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，ge">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-11T07:06:50.009Z">
+<meta property="og:updated_time" content="2019-07-06T09:42:08.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http协议">
-<meta name="twitter:description" content="http协议问题1.在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，get方">
+<meta name="twitter:title" content="HTTP协议">
+<meta name="twitter:description" content="HTTP协议-应用层问题在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？ DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。  与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK  以get，post方式发送HTTP请求，ge">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>http协议 | xll的个人网站</title>
+  <title>HTTP协议 | xll的个人网站</title>
   
 
 
@@ -423,7 +423,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http协议
+          <h1 class="post-title" itemprop="name headline">HTTP协议
 
               
             
@@ -449,12 +449,24 @@
                 
               
 
-              <time title="创建时间：2019-06-11 14:42:18 / 修改时间：15:06:50" itemprop="dateCreated datePublished" datetime="2019-06-11T14:42:18+08:00">2019-06-11</time>
+              <time title="创建时间：2019-06-11 14:42:18" itemprop="dateCreated datePublished" datetime="2019-06-11T14:42:18+08:00">2019-06-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-06 17:42:08" itemprop="dateModified" datetime="2019-07-06T17:42:08+08:00">2019-07-06</time>
               
             
           </span>
@@ -513,79 +525,89 @@
       
 
       
-        <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h5 id="1-在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"><a href="#1-在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？" class="headerlink" title="1.在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"></a>1.在浏览器里输入<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？</h5><ol>
+        <h1 id="HTTP协议-应用层"><a href="#HTTP协议-应用层" class="headerlink" title="HTTP协议-应用层"></a>HTTP协议-应用层</h1><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h5 id="在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"><a href="#在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？" class="headerlink" title="在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"></a>在浏览器里输入<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？</h5><ol>
 <li>DNS域名解析：浏览器缓存、系统缓存、路由器、ISP的DNS服务器、根域名服务器。把域名转化成IP地址。 </li>
 <li>与IP地址对应的服务器建立TCP连接，经历三次握手：SYN，ACK、SYN，ACK </li>
 <li>以get，post方式发送HTTP请求，get方式发送主机，用户代理，connection属性，cookie等 </li>
 <li>获得服务器的响应，显示页面</li>
 </ol>
-<h5 id="2-如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？"><a href="#2-如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？" class="headerlink" title="2.如果打开https://www.baidu.com网站，会有哪些问题，你如果排除？"></a>2.如果打开<a href="https://www.baidu.com网站，会有哪些问题，你如果排除？" target="_blank" rel="noopener">https://www.baidu.com网站，会有哪些问题，你如果排除？</a></h5><h5 id="3-https协议的实现原理–》加密的原理"><a href="#3-https协议的实现原理–》加密的原理" class="headerlink" title="3.https协议的实现原理–》加密的原理"></a>3.https协议的实现原理–》加密的原理</h5><h4 id="http协议：超文本传输协议"><a href="#http协议：超文本传输协议" class="headerlink" title="http协议：超文本传输协议"></a>http协议：超文本传输协议</h4><p>​                特点：明文</p>
-<p>​        Hyper Text Transfer</p>
-<p>​        Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+<h5 id="如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？"><a href="#如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？" class="headerlink" title="如果打开https://www.baidu.com网站，会有哪些问题，你如果排除？"></a>如果打开<a href="https://www.baidu.com网站，会有哪些问题，你如果排除？" target="_blank" rel="noopener">https://www.baidu.com网站，会有哪些问题，你如果排除？</a></h5><h5 id="https协议的实现原理–》加密的原理"><a href="#https协议的实现原理–》加密的原理" class="headerlink" title="https协议的实现原理–》加密的原理"></a>https协议的实现原理–》加密的原理</h5><h4 id="http协议：超文本传输协议"><a href="#http协议：超文本传输协议" class="headerlink" title="http协议：超文本传输协议"></a>http协议：超文本传输协议</h4><ul>
+<li>特点：明文</li>
+<li>Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</li>
+</ul>
 <p>​        site–&gt;站点–&gt;网站 website–&gt;网站</p>
+<p>​        page–&gt;页面</p>
 <p>​        URL：例如： <a href="http://hn.qq.com/a/20190118/002018.html" target="_blank" rel="noopener">http://hn.qq.com/a/20190118/002018.html</a></p>
 <p>​        URL即统一资源定位符(Uniform Resource Locator)，用来唯一地标识万维网中的某一个文档。URL由协议、主机和端口(默认为80)以及文件名三部分构成。</p>
-<h4 id="https协议：加密的超文本传输协议"><a href="#https协议：加密的超文本传输协议" class="headerlink" title="https协议：加密的超文本传输协议"></a>https协议：加密的超文本传输协议</h4><p>​                特点：密文</p>
-<h4 id="html语言"><a href="#html语言" class="headerlink" title="html语言"></a>html语言</h4><p>​        最常见的超文本格式是超文本标记语言</p>
-<p>  操作系统</p>
-<p>​    web服务</p>
-<p>​        linux</p>
-<p>  数据结构</p>
-<p>  数据库原理</p>
-<h4 id="搭建一个属于自己的网站"><a href="#搭建一个属于自己的网站" class="headerlink" title="搭建一个属于自己的网站"></a>搭建一个属于自己的网站</h4><h5 id="1-准备一个linux系统，确保可以上网"><a href="#1-准备一个linux系统，确保可以上网" class="headerlink" title="1.准备一个linux系统，确保可以上网"></a>1.准备一个linux系统，确保可以上网</h5><p>​    ifup ens33 激活网卡</p>
-<p>​    ip add 查看ip地址</p>
-<p>​    ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 测试你的linux机器是否可以和baidu通信</p>
-<h5 id="2-安装httpd-和-epel-release软件"><a href="#2-安装httpd-和-epel-release软件" class="headerlink" title="2.安装httpd 和 epel-release软件"></a>2.安装httpd 和 epel-release软件</h5><p>​    httpd 提供web服务器的软件</p>
-<p>​        命令： yum install httpd epel-release -y</p>
-<p>​    epel-release —&gt;这是一个软件源头的软件—》提供很多的软件可以下载</p>
-<p>​    安装nginx web服务器软件</p>
-<p>​        命令： yum install nginx -y</p>
+<h4 id="https协议：加密的超文本传输协议"><a href="#https协议：加密的超文本传输协议" class="headerlink" title="https协议：加密的超文本传输协议"></a>https协议：加密的超文本传输协议</h4><ul>
+<li>特点：密文</li>
+</ul>
+<h4 id="html语言"><a href="#html语言" class="headerlink" title="html语言"></a>html语言</h4><ul>
+<li>最常见的超文本格式是超文本标记语言</li>
+</ul>
+<h4 id="搭建一个属于自己的网站"><a href="#搭建一个属于自己的网站" class="headerlink" title="搭建一个属于自己的网站"></a>搭建一个属于自己的网站</h4><h5 id="1-准备一个linux系统，确保可以上网"><a href="#1-准备一个linux系统，确保可以上网" class="headerlink" title="1.准备一个linux系统，确保可以上网"></a>1.准备一个linux系统，确保可以上网</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifup ens33 #激活网卡</span><br><span class="line">ip add #查看ip地址</span><br><span class="line">ping www.baidu.com #测试你的linux机器是否可以和baidu通信</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-安装httpd-和-epel-release软件"><a href="#2-安装httpd-和-epel-release软件" class="headerlink" title="2.安装httpd 和 epel-release软件"></a>2.安装httpd 和 epel-release软件</h5><ul>
+<li>httpd 提供web服务器的软件</li>
+</ul>
+<p>​        命令：<code>yum install httpd epel-release -y</code></p>
+<ul>
+<li>epel-release —&gt;这是一个软件源头的软件—》提供很多的软件可以下载</li>
+<li>安装nginx web服务器软件</li>
+</ul>
+<p>​        命令： <code>yum install nginx -y</code></p>
 <p>​        nginx是一个俄罗斯人开发的web服务器软件</p>
-<p>​    补充</p>
+<ul>
+<li>补充</li>
+</ul>
 <p>​        mirror：镜像 另外一个地方和原来的服务器里的内容，一模一样。</p>
-<h5 id="3-启动nginx软件"><a href="#3-启动nginx软件" class="headerlink" title="3.启动nginx软件"></a>3.启动nginx软件</h5><p>​    命令： service nginx start</p>
-<p>​        开启nginx服务</p>
-<p>​    Redirecting to /bin/systemctl start nginx.service</p>
-<p>​        表示成功启动</p>
-<p>​    命令： service nginx stop</p>
-<p>​        停止nginx服务</p>
-<p>​    Redirecting to /bin/systemctl stop nginx.service</p>
-<p>​        表示成功关闭</p>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>​    yum install lsof -y</p>
-<p>​        lsof 软件是用来查看服务器里那个端口被那个程序使用了</p>
-<p>​        安装lsof命令</p>
-<p>​        lsof -i:80</p>
-<p>​                查看80端口被那个程序使用了</p>
-<p>​                </p>
-<p>​    端口号和程序之间的关系？</p>
+<ul>
+<li>源码下载，编译安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O http://nginx.org/download/nginx-1.17.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-启动nginx软件"><a href="#3-启动nginx软件" class="headerlink" title="3.启动nginx软件"></a>3.启动nginx软件</h5><ul>
+<li>yum 安装的nginx启动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">命令： service nginx start		#开启nginx服务</span><br><span class="line">Redirecting to /bin/systemctl start nginx.service		#表示成功启动</span><br><span class="line">命令： service nginx stop		#停止nginx服务</span><br><span class="line">Redirecting to /bin/systemctl stop nginx.service	#表示成功关闭</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译安装nginx启动</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin	#进入安装目录</span><br><span class="line">./nginx		#启动nginx</span><br></pre></td></tr></table></figure>
+
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p><code>yum install lsof -y</code>    #安装lsof命令</p>
+<ul>
+<li>lsof 软件是用来查看服务器里那个端口被那个程序使用了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:80	#查看80端口被那个程序使用了</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>端口号和程序之间的关系？</li>
+</ul>
 <p>​        只有对外提供服务的程序会占用端口。</p>
 <p>​        端口号—》窗口</p>
 <p>​        1-1024 系统内置的端口–》很经典的使用端口</p>
 <p>​                基本上都会被占了</p>
 <p>​                1-65535 一共有这么多可以用的端口号</p>
-<p>​    架构</p>
+<ul>
+<li>架构</li>
+</ul>
 <p>​        b/s架构 —》browser server –&gt;方便—》流行</p>
 <p>​        c/s架构 —-》client server —》socket 编程</p>
-<p>​    2**32</p>
-<p>​        端口号的多少/报文大小</p>
-<p>​    启动和关闭httpd服务器</p>
+<ul>
+<li>启动和关闭httpd服务器</li>
+</ul>
 <p>​        service httpd start 开启httpd服务</p>
 <p>​        service httpd stop关闭httpd服务</p>
-<p>​        显示效果</p>
-<p>​                </p>
 <h5 id="4-关闭防火墙"><a href="#4-关闭防火墙" class="headerlink" title="4.关闭防火墙"></a>4.关闭防火墙</h5><p>​    iptables -F</p>
-<h5 id="5-查看ip地址"><a href="#5-查看ip地址" class="headerlink" title="5.查看ip地址"></a>5.查看ip地址</h5><p>​    ip add</p>
-<p>​    效果</p>
-<p>​        </p>
-<h5 id="6-在windows系统里打开浏览器"><a href="#6-在windows系统里打开浏览器" class="headerlink" title="6.在windows系统里打开浏览器"></a>6.在windows系统里打开浏览器</h5><h5 id="7-修改网站的首页"><a href="#7-修改网站的首页" class="headerlink" title="7.修改网站的首页"></a>7.修改网站的首页</h5><p>​    cd /usr/share/nginx/html/</p>
-<p>​        存放网页的目录</p>
-<p>​    ls</p>
-<p>​        查看当前目录的文件及文件夹</p>
+<h5 id="5-查看ip地址"><a href="#5-查看ip地址" class="headerlink" title="5.查看ip地址"></a>5.查看ip地址</h5><p>​    <code>ip add</code></p>
+<h5 id="6-在windows系统里打开浏览器"><a href="#6-在windows系统里打开浏览器" class="headerlink" title="6.在windows系统里打开浏览器"></a>6.在windows系统里打开浏览器</h5><h5 id="7-修改网站的首页"><a href="#7-修改网站的首页" class="headerlink" title="7.修改网站的首页"></a>7.修改网站的首页</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/nginx/html/		#存放网页的目录</span><br><span class="line">ls		#查看当前目录的文件及文件夹</span><br></pre></td></tr></table></figure>
+
 <p>​    访问window机器下的index.html</p>
 <p>​        index.html 首页：网站访问的第一个页面 –》入口</p>
-<p>​    vim index.html</p>
+<p>​    <code>vim index.html</code></p>
 <p>​        编辑index.html页面</p>
-<p>​        </p>
 <p>web服务器软件</p>
 <p>  nginx</p>
 <p>  httpd</p>
@@ -606,71 +628,197 @@
 <p>​    域名：baidu.com</p>
 <p>​    主机名：www</p>
 <p>​    www只是baidu.com这个域里的一个主机的名字</p>
-<h4 id="http协议-1"><a href="#http协议-1" class="headerlink" title="http协议"></a>http协议</h4><h5 id="1-请求报文-—》request"><a href="#1-请求报文-—》request" class="headerlink" title="1.请求报文 —》request"></a>1.请求报文 —》request</h5><p>​    GET 方法：去索取内容</p>
-<p>​    POST 方法： 提交</p>
-<p>​    user-agent：用户代理–》浏览器</p>
-<p>​        浏览器代人去访问了服务器</p>
-<p>​    重点掌握</p>
-<p>​        host:访问的网址</p>
-<p>​        accept： 接受的内容</p>
-<p>​        accept-language：语言</p>
-<p>​        user-agent： 客户机的浏览器和系统的信息</p>
-<p>​        accept-encoding： 编码</p>
-<p>​        connection: 是否是长连接</p>
-<h5 id="2-响应报文-–》response"><a href="#2-响应报文-–》response" class="headerlink" title="2.响应报文 –》response"></a>2.响应报文 –》response</h5><p>​    Connection: keep-alive</p>
-<p>​    Date: Fri, 18 Jan 2019 08:31:31 GMT</p>
-<p>​    Server: nginx/1.12.2</p>
-<p>​    版本</p>
-<p>​        最新2.0版本</p>
-<p>  http协议的版本：</p>
-<p>​    1.http协议的版本</p>
+<ul>
+<li><h4 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h4><ul>
+<li><h5 id="请求报文-—》request：即从客产端（浏览器）向Web服务器发送的请求报文。"><a href="#请求报文-—》request：即从客产端（浏览器）向Web服务器发送的请求报文。" class="headerlink" title="请求报文 —》request：即从客产端（浏览器）向Web服务器发送的请求报文。"></a>请求报文 —》request：即从客产端（浏览器）向Web服务器发送的请求报文。</h5><ul>
+<li><p>GET 方法：去索取内容</p>
+</li>
+<li><p>POST 方法： 提交</p>
+<p>GET和POST区别</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>GET</th>
+<th>POST</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后退按钮/刷新</td>
+<td>无害</td>
+<td>数据会被重新提交（浏览器应该告知用户数据会被重新提交）。</td>
+</tr>
+<tr>
+<td>书签</td>
+<td>可收藏为书签</td>
+<td>不可收藏为书签</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>能被缓存</td>
+<td>不能缓存</td>
+</tr>
+<tr>
+<td>编码类型</td>
+<td>application/x-www-form-urlencoded</td>
+<td>application/x-www-form-urlencoded或multipart/form-data。为二进制数据使用多重编码。</td>
+</tr>
+<tr>
+<td>历史</td>
+<td>参数保留在浏览器历史中。</td>
+<td>参数不会保存在浏览器历史中。</td>
+</tr>
+<tr>
+<td>对数据长度的限制</td>
+<td>是的。当发送数据时，GET方法向URL 添加数据；URL的长度是受限制的（URL的最大长度是2048个字符）。</td>
+<td>无限制。</td>
+</tr>
+<tr>
+<td>对数据类型的限制</td>
+<td>只允许ASCII字符。</td>
+<td>没有限制。也允许二进制数据。</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>与POST相比，GET的安全性较差，因为所发送的数据是URL的一部分。在发送密码或其他敏感信息时绝不要使用GET！</td>
+<td>POST比GET更安全，因为参数不会被保存在浏览器历史或web服务器日志中。</td>
+</tr>
+<tr>
+<td>可见性</td>
+<td>数据在URL中对所有人都是可见的。</td>
+<td>数据不会显示在URL中。</td>
+</tr>
+</tbody></table>
+<p>重点的首部字段</p>
+</li>
+<li><p>host:访问的网址</p>
+</li>
+<li><p>accept： 接受的内容</p>
+</li>
+<li><p>accept-language：语言</p>
+</li>
+<li><p>user-agent： 客户机的浏览器和系统的信息</p>
+</li>
+<li><p>accept-encoding： 编码</p>
+</li>
+<li><p>connection: 是否是长连接</p>
+</li>
+</ul>
+</li>
+<li><h5 id="响应报文-–》response：从Web服务器到客户机（浏览器）的应答。"><a href="#响应报文-–》response：从Web服务器到客户机（浏览器）的应答。" class="headerlink" title="响应报文 –》response：从Web服务器到客户机（浏览器）的应答。"></a>响应报文 –》response：从Web服务器到客户机（浏览器）的应答。</h5><ul>
+<li><p>状态码</p>
+</li>
+<li><p>Connection: keep-alive</p>
+</li>
+<li><p>Date: Fri, 18 Jan 2019 08:31:31 GMT</p>
+</li>
+<li><p>Server: nginx/1.12.2（web服务器的软件名）</p>
+</li>
+<li><p>type:</p>
+</li>
+<li><p>set-cookie</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>版本</p>
+<ul>
+<li><p>最新2.0版本</p>
+</li>
+<li><p>现在http协议的版本：</p>
 <p>​        HTTP/1.1版本</p>
-<p>​    2.http2</p>
-<h6 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h6><p>​                keepalive_timeout 65;</p>
-<p>​                持久性连接</p>
-<p>​                在一个连接中，可以进行多次文档的请求和响应。 服务器在发送完响应后，并不立即释放连接，浏览 器可以使用该连接继续请求其他文档。连接保持的 时间可以由双方进行协商。</p>
-<p>​                Connection: keep-alive</p>
-<h6 id="短连接"><a href="#短连接" class="headerlink" title="短连接"></a>短连接</h6><p>​                非持久性连接</p>
-<p>​        无状态性</p>
-<p>  端口号</p>
-<p>​    80</p>
-<p>https协议</p>
-<p>  端口号</p>
-<p>​    443</p>
-<h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><p>  404</p>
-<p>​    网页不存在</p>
-<p>  304</p>
-<p>​    Not Modified —》按CTRL+F5 强制刷新网页内容，不从缓存里读取网页内容</p>
-<p>  301</p>
-<p>​     网页位置发生变化</p>
-<p>  200</p>
-<p>​    访问成功</p>
-<p>  403</p>
-<p>​    服务器里的网页设置了权限不让用户访问 Forbidden</p>
-<p>  5**</p>
-<p>​    服务器的内部问题</p>
-<p>​        HTTP 500</p>
-<p>​                服务器遇到错误，无法完成请求</p>
-<p>​        HTTP 502</p>
-<p>​                网关错误</p>
-<p>​        Error 501</p>
-<p>​                未实现</p>
-<h5 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h5><p>  cookie</p>
-<p>​    有时也用其复数形式 Cookies，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）</p>
-<p>​    <a href="https://baijiahao.baidu.com/s?id=1612804856429135825&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1612804856429135825&amp;wfr=spider&amp;for=pc</a></p>
-<p>  session</p>
-<p>​    session会话机制是一种服务器端机制，它来保存客户端的信息。</p>
-<p>​    一次连接就会产生一个session</p>
-<h5 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h5><p>  http 代理</p>
-<p>​    proxy server</p>
-<p>  代理服务器：中间的一个服务器，代理大家去上网</p>
-<p>  <a href="http://http.taiyangruanjian.com/newrecharge/" target="_blank" rel="noopener">http://http.taiyangruanjian.com/newrecharge/</a></p>
-<p>  user-agent：用户代理–》浏览器</p>
-<p>​    浏览器代人去访问了服务器</p>
-<h5 id="http2-0和http1-1的差异"><a href="#http2-0和http1-1的差异" class="headerlink" title="http2.0和http1.1的差异"></a>http2.0和http1.1的差异</h5><p>cdn</p>
-<p>  CDN的全称是Content Delivery Network，即内容分发网络</p>
-<p>  CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
-<p>  精准调度 秒级加速 降低访问</p>
+</li>
+</ul>
+</li>
+<li><h6 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h6><ul>
+<li>keepalive_timeout 65；</li>
+<li>持久性连接：在一个连接中，可以进行多次文档的请求和响应。 服务器在发送完响应后，并不立即释放连接，浏览 器可以使用该连接继续请求其他文档。连接保持的 时间可以由双方进行协商。</li>
+<li>Connection: keep-alive</li>
+</ul>
+</li>
+<li><h5 id="短连接"><a href="#短连接" class="headerlink" title="短连接"></a>短连接</h5><ul>
+<li>非持久性连接：即浏览器每请求一个Web文档，就创建一个新的连接，当文档传输完毕后，连接就立刻被释放</li>
+<li>无状态性：是指同一个客户端（浏览器）第二次访问同个Web服务器上的页面时，服务器无法知道这个客户曾经访问过。HTTP的无状态性简化了服务器的设计，使其更容易支持大量并发的HTTP请求。（主要为了支持大并发）</li>
+</ul>
+</li>
+<li><h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><ul>
+<li>200：访问成功，服务器正常响应请求</li>
+<li>301：网页位置发生变化</li>
+<li>304：Not Modified —》按CTRL+F5 强制刷新网页内容，不从缓存里读取网页内容</li>
+<li>403：服务器里的网页设置了权限不让用户访问 Forbidden</li>
+<li>404：网页不存在</li>
+<li>5**：服务器的内部问题<ul>
+<li>HTTP 500：服务器遇到错误，无法完成请求</li>
+<li>HTTP 502：网关错误</li>
+<li>Error 501：未实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h5><ul>
+<li><p>用来保存客户的信息（用户名，密码、购物车的信息）</p>
+</li>
+<li><p>cookie：数据存储在浏览器端（客户端）</p>
+<ul>
+<li><a href="https://baijiahao.baidu.com/s?id=1612804856429135825&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1612804856429135825&amp;wfr=spider&amp;for=pc</a></li>
+<li>方便与JavaScript交换数据</li>
+<li>方便获取用户信息</li>
+</ul>
+</li>
+<li><p>session：（会话）数据存储在服务器</p>
+<ul>
+<li><p>高效、安全、不依赖浏览器端环境、服务器端会为每一个用户用一个ID来标识</p>
+</li>
+<li><p>一次连接就会产生一个session</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h5><ul>
+<li>http 代理</li>
+<li>proxy server</li>
+<li>代理服务器：中间的一个服务器，代理大家去上网</li>
+<li><a href="http://http.taiyangruanjian.com/newrecharge/" target="_blank" rel="noopener">http://http.taiyangruanjian.com/newrecharge/</a></li>
+<li>user-agent：用户代理–》浏览器</li>
+<li>浏览器代人去访问了服务器</li>
+</ul>
+</li>
+<li><h4 id="http2-0和http1-1的差异"><a href="#http2-0和http1-1的差异" class="headerlink" title="http2.0和http1.1的差异"></a>http2.0和http1.1的差异</h4></li>
+<li><h4 id="Http和Https的区别（面试常考题）"><a href="#Http和Https的区别（面试常考题）" class="headerlink" title="Http和Https的区别（面试常考题）"></a>Http和Https的区别（面试常考题）</h4><p>  <a href="https://blog.csdn.net/qq_38289815/article/details/80969419?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://blog.csdn.net/qq_38289815/article/details/80969419?tdsourcetag=s_pctim_aiomsg</a></p>
+</li>
+<li><h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4><ul>
+<li>CDN的全称是Content Delivery Network，即内容分发网络</li>
+<li>CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</li>
+<li>精准调度 秒级加速 降低访问</li>
+</ul>
+</li>
+<li><p>协议</p>
+<ul>
+<li>应用层：ftp、http、https、rsync</li>
+<li>http:80端口</li>
+<li>https:443端口</li>
+</ul>
+</li>
+<li><p>提供web服务的软件都能读懂http协议：</p>
+<ul>
+<li>常见web服务器软件：nginx、Apache、Tomcat、IIS、Django、flask</li>
+<li>常见浏览器：chrome、Firefox、curl</li>
+</ul>
+</li>
+<li><p>编译安装nginx的配置文件各项配置详细解释</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>user  nobody;			#以哪个用户身份后动nginx进程--》worker进程</span><br><span class="line">worker_processes  1;	#启动动1个工作进程，这个参数和CPU核心数量一致</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>error_log  logs/error.log;</span><br><span class="line"><span class="meta">#</span>error_log  logs/error.log  notice;</span><br><span class="line"><span class="meta">#</span>error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;	#启动1024个线程去接待用户的请求</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span><br><span class="line">    #                  '$status $body_bytes_sent "$http_referer" '</span><br><span class="line">    #                  '"$http_user_agent" "$http_x_forwarded_for"';</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;	#超时时间65s</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    proxy_pass   http://127.0.0.1;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    root           html;</span><br><span class="line">        #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">        #    fastcgi_index  index.php;</span><br><span class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        #    include        fastcgi_params;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # deny access to .htaccess files, if Apache's document root</span><br><span class="line">        # concurs with nginx's one</span><br><span class="line">        #</span><br><span class="line">        #location ~ /\.ht &#123;</span><br><span class="line">        #    deny  all;</span><br><span class="line">        #&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       8000;</span><br><span class="line">    #    listen       somename:8080;</span><br><span class="line">    #    server_name  somename  alias  another.alias;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       443 ssl;</span><br><span class="line">    #    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    #    ssl_certificate      cert.pem;</span><br><span class="line">    #    ssl_certificate_key  cert.key;</span><br><span class="line"></span><br><span class="line">    #    ssl_session_cache    shared:SSL:1m;</span><br><span class="line">    #    ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    #    ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>minme.types</code>：规定哪些程序对应哪些文件类型—&gt;后缀名</p>
+<ul>
+<li><p>nginx可以调用对应的程序去打开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/nginx/conf/minme.types</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -704,6 +852,10 @@
         <div class="post-tags">
           
             <a href="/tags/http协议/" rel="tag"># http协议</a>
+          
+            <a href="/tags/nginx配置/" rel="tag"># nginx配置</a>
+          
+            <a href="/tags/抓包工具的使用/" rel="tag"># 抓包工具的使用</a>
           
         </div>
       
@@ -961,7 +1113,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1026,7 +1182,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http协议"><span class="nav-number">1.</span> <span class="nav-text">http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">1.在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">2.如果打开https://www.baidu.com网站，会有哪些问题，你如果排除？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-https协议的实现原理–》加密的原理"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">3.https协议的实现原理–》加密的原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http协议：超文本传输协议"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">http协议：超文本传输协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https协议：加密的超文本传输协议"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">https协议：加密的超文本传输协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html语言"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">html语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建一个属于自己的网站"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">搭建一个属于自己的网站</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-准备一个linux系统，确保可以上网"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">1.准备一个linux系统，确保可以上网</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装httpd-和-epel-release软件"><span class="nav-number">1.0.0.5.2.</span> <span class="nav-text">2.安装httpd 和 epel-release软件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-启动nginx软件"><span class="nav-number">1.0.0.5.3.</span> <span class="nav-text">3.启动nginx软件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充"><span class="nav-number">1.0.0.5.4.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-关闭防火墙"><span class="nav-number">1.0.0.5.5.</span> <span class="nav-text">4.关闭防火墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-查看ip地址"><span class="nav-number">1.0.0.5.6.</span> <span class="nav-text">5.查看ip地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-在windows系统里打开浏览器"><span class="nav-number">1.0.0.5.7.</span> <span class="nav-text">6.在windows系统里打开浏览器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-修改网站的首页"><span class="nav-number">1.0.0.5.8.</span> <span class="nav-text">7.修改网站的首页</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http协议-1"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-请求报文-—》request"><span class="nav-number">1.0.0.6.1.</span> <span class="nav-text">1.请求报文 —》request</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-响应报文-–》response"><span class="nav-number">1.0.0.6.2.</span> <span class="nav-text">2.响应报文 –》response</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#长连接"><span class="nav-number">1.0.0.6.2.1.</span> <span class="nav-text">长连接</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#短连接"><span class="nav-number">1.0.0.6.2.2.</span> <span class="nav-text">短连接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#状态码"><span class="nav-number">1.0.0.6.3.</span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.0.0.6.4.</span> <span class="nav-text">cookie和session</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代理"><span class="nav-number">1.0.0.6.5.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http2-0和http1-1的差异"><span class="nav-number">1.0.0.6.6.</span> <span class="nav-text">http2.0和http1.1的差异</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议-应用层"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议-应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在浏览器里输入https-www-baidu-com-一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">在浏览器里输入https://www.baidu.com 一个回车后，浏览器里会显示百度的首页，请详细说下背后发送什么事情，越细致越好？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果打开https-www-baidu-com网站，会有哪些问题，你如果排除？"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">如果打开https://www.baidu.com网站，会有哪些问题，你如果排除？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https协议的实现原理–》加密的原理"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">https协议的实现原理–》加密的原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http协议：超文本传输协议"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">http协议：超文本传输协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https协议：加密的超文本传输协议"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">https协议：加密的超文本传输协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html语言"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">html语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建一个属于自己的网站"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">搭建一个属于自己的网站</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-准备一个linux系统，确保可以上网"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">1.准备一个linux系统，确保可以上网</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装httpd-和-epel-release软件"><span class="nav-number">1.0.0.5.2.</span> <span class="nav-text">2.安装httpd 和 epel-release软件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-启动nginx软件"><span class="nav-number">1.0.0.5.3.</span> <span class="nav-text">3.启动nginx软件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充"><span class="nav-number">1.0.0.5.4.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-关闭防火墙"><span class="nav-number">1.0.0.5.5.</span> <span class="nav-text">4.关闭防火墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-查看ip地址"><span class="nav-number">1.0.0.5.6.</span> <span class="nav-text">5.查看ip地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-在windows系统里打开浏览器"><span class="nav-number">1.0.0.5.7.</span> <span class="nav-text">6.在windows系统里打开浏览器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-修改网站的首页"><span class="nav-number">1.0.0.5.8.</span> <span class="nav-text">7.修改网站的首页</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http协议"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#请求报文-—》request：即从客产端（浏览器）向Web服务器发送的请求报文。"><span class="nav-number">1.0.0.6.1.</span> <span class="nav-text">请求报文 —》request：即从客产端（浏览器）向Web服务器发送的请求报文。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#响应报文-–》response：从Web服务器到客户机（浏览器）的应答。"><span class="nav-number">1.0.0.6.2.</span> <span class="nav-text">响应报文 –》response：从Web服务器到客户机（浏览器）的应答。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#长连接"><span class="nav-number">1.0.0.6.2.1.</span> <span class="nav-text">长连接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#短连接"><span class="nav-number">1.0.0.6.3.</span> <span class="nav-text">短连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#状态码"><span class="nav-number">1.0.0.6.4.</span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.0.0.6.5.</span> <span class="nav-text">cookie和session</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代理"><span class="nav-number">1.0.0.6.6.</span> <span class="nav-text">代理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http2-0和http1-1的差异"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">http2.0和http1.1的差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http和Https的区别（面试常考题）"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">Http和Https的区别（面试常考题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CDN"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">CDN</span></a></li></ol></li></ol></div>
             
 
           </div>

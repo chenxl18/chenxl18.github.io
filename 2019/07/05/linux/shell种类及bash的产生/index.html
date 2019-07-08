@@ -103,18 +103,20 @@
 
 
 
-  <meta name="description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程  用户进程：用来实现具体的某个功能应用的程序，为用户提">
+  <meta name="description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程 用户进程：用来实现具体的某个功能应用的程序，为用户提供">
 <meta name="keywords" content="shell种类,bash的产生,w命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell种类及bash的产生">
 <meta property="og:url" content="https://chenxl18.github.io/2019/07/05/linux/shell种类及bash的产生/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程  用户进程：用来实现具体的某个功能应用的程序，为用户提">
+<meta property="og:description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程 用户进程：用来实现具体的某个功能应用的程序，为用户提供">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T12:37:21.457Z">
+<meta property="og:image" content="d:%5Chexo%5Cmyblog%5Csource_posts%5Clinux%5Cshell%E7%A7%8D%E7%B1%BB%E5%8F%8Abash%E7%9A%84%E4%BA%A7%E7%94%9F.assets%5C1562333623889.png">
+<meta property="og:updated_time" content="2019-07-05T13:33:46.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell种类及bash的产生">
-<meta name="twitter:description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程  用户进程：用来实现具体的某个功能应用的程序，为用户提">
+<meta name="twitter:description" content="shell脚本的基本组成 声明和注释（注释以#开头）   1#! /bin/bash #是声明这个脚本是使用bash来执行的  系统命令  文本处理工具（grep、cut、sed、awk）  各种变量  各种条件判断  循环结构语句  各种函数    shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行  用户进程和系统进程 用户进程：用来实现具体的某个功能应用的程序，为用户提供">
+<meta name="twitter:image" content="d:%5Chexo%5Cmyblog%5Csource_posts%5Clinux%5Cshell%E7%A7%8D%E7%B1%BB%E5%8F%8Abash%E7%9A%84%E4%BA%A7%E7%94%9F.assets%5C1562333623889.png">
 
 
 
@@ -449,7 +451,7 @@
                 
               
 
-              <time title="创建时间：2019-07-05 19:20:11 / 修改时间：20:37:21" itemprop="dateCreated datePublished" datetime="2019-07-05T19:20:11+08:00">2019-07-05</time>
+              <time title="创建时间：2019-07-05 19:20:11 / 修改时间：21:33:46" itemprop="dateCreated datePublished" datetime="2019-07-05T19:20:11+08:00">2019-07-05</time>
             
 
             
@@ -541,8 +543,7 @@
 </li>
 <li><p>shell的作用：命令解释器，介于系统内核与用户之间，负责解释命令行</p>
 </li>
-<li><p>用户进程和系统进程</p>
-<ul>
+<li><h4 id="用户进程和系统进程"><a href="#用户进程和系统进程" class="headerlink" title="用户进程和系统进程"></a>用户进程和系统进程</h4><ul>
 <li><p>用户进程：用来实现具体的某个功能应用的程序，为用户提供服务的程序。mysq1、lkdir等</p>
 </li>
 <li><p>系统进程：其实就是操作系统本身内部的代码运行的进程。</p>
@@ -613,7 +614,65 @@
 <li>shift+&lt;：上一页的进程信息</li>
 </ul>
 </li>
+<li><h4 id="Shell启动配置文件的区别"><a href="#Shell启动配置文件的区别" class="headerlink" title="Shell启动配置文件的区别"></a>Shell启动配置文件的区别</h4><ul>
+<li>/etc/profile：配置全局环境变量，影响所有用户</li>
+<li>~/.bash_profile：配置个人环境，影响一个用户</li>
+<li>/etc/bashrc：配置全局的别名或者shell选项，影响所有用户</li>
+<li>~/.bashrc：配置个人别名或者shell选项，影响一个用户</li>
+<li>在用户家目录下，每个目录都有的配置文件，只对单独的用户有效。<ul>
+<li>.bash_profile:用户每次登录时执行—&gt;.bashrc</li>
+<li>.bashrc：每次进入新的Bash环境时执行（打开终端），定义别名，—&gt;/etc/bashrc</li>
+<li>.bash_logout：用户每次退出登录时执行</li>
+<li>.bash_history：保存上次用户注销前使用的命令</li>
 </ul>
+</li>
+</ul>
+</li>
+<li><p>环境变量：全局变量，所有人都可以使用的变量</p>
+</li>
+<li><p>命令历史</p>
+<ul>
+<li>保存用户曾经执行过的命令操作</li>
+<li>存放位置：~/.bash_history文件</li>
+</ul>
+</li>
+<li><h4 id="history-查看历史命令"><a href="#history-查看历史命令" class="headerlink" title="history:查看历史命令"></a>history:查看历史命令</h4><ul>
+<li><p>使用上下箭头按键逐条翻看，允许编辑并重复执行</p>
+</li>
+<li><p>清除历史命令：<code>history -c</code>(只是将加载到内存的历史命令清除)</p>
+</li>
+<li><p>最有效的全部清除（磁盘里的历史记录也一起清空）</p>
+<ul>
+<li>先<code>rm -rf ~/.bash_history</code></li>
+<li>在<code>history -c</code></li>
+<li><code>exit</code></li>
+</ul>
+</li>
+<li><p>调用历史命令</p>
+<ul>
+<li>!n：执行历史记录中的的第n条命令</li>
+<li>!str：执行历史记录中最近以”str”开头的命令</li>
+</ul>
+</li>
+<li><p>设置记录历史命令的条数</p>
+<p>  修改HISTSIZE参数（默认为1000条）</p>
+</li>
+</ul>
+</li>
+<li><h4 id="alias-Bash的命令别名"><a href="#alias-Bash的命令别名" class="headerlink" title="alias:Bash的命令别名"></a>alias:Bash的命令别名</h4><ul>
+<li><p>命令别名：为使用频率较高的复杂命令行设置简短的调用名称</p>
+<p>  存放位置：~/.bashrc</p>
+</li>
+<li><p>查看命令别名：格式：alias [别名]</p>
+</li>
+<li><p>设置命令别名<code>alias 别名=&#39;实际执行的命令&#39;</code></p>
+</li>
+<li><p>取消已设置的命令别名：<code>unalias 别名</code>或者<code>unalias -a</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="D:%5Chexo%5Cmyblog%5Csource_posts%5Clinux%5Cshell%E7%A7%8D%E7%B1%BB%E5%8F%8Abash%E7%9A%84%E4%BA%A7%E7%94%9F.assets%5C1562333623889.png" alt="1562333623889"></p>
 
       
     </div>
@@ -663,7 +722,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/04/函数式编程练习题/" rel="next" title="函数式编程练习题">
+              <a href="/2019/07/04/python/函数式编程练习题/" rel="next" title="函数式编程练习题">
                 <i class="fa fa-chevron-left"></i> 函数式编程练习题
               </a>
             
@@ -904,7 +963,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -969,7 +1032,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的基本组成"><span class="nav-number">1.</span> <span class="nav-text">shell脚本的基本组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w命令"><span class="nav-number">2.</span> <span class="nav-text">w命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ps-aux静态的查看进程"><span class="nav-number">3.</span> <span class="nav-text">ps aux静态的查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pstree-查看进程树"><span class="nav-number">4.</span> <span class="nav-text">pstree 查看进程树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">5.</span> <span class="nav-text">top命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的基本组成"><span class="nav-number">1.</span> <span class="nav-text">shell脚本的基本组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户进程和系统进程"><span class="nav-number">2.</span> <span class="nav-text">用户进程和系统进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w命令"><span class="nav-number">3.</span> <span class="nav-text">w命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ps-aux静态的查看进程"><span class="nav-number">4.</span> <span class="nav-text">ps aux静态的查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pstree-查看进程树"><span class="nav-number">5.</span> <span class="nav-text">pstree 查看进程树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top命令"><span class="nav-number">6.</span> <span class="nav-text">top命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shell启动配置文件的区别"><span class="nav-number">7.</span> <span class="nav-text">Shell启动配置文件的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history-查看历史命令"><span class="nav-number">8.</span> <span class="nav-text">history:查看历史命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alias-Bash的命令别名"><span class="nav-number">9.</span> <span class="nav-text">alias:Bash的命令别名</span></a></li></ol></div>
             
 
           </div>
