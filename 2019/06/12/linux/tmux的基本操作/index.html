@@ -533,21 +533,21 @@
 
       
         <h1 id="如何在linux机器中使用tmux-分屏工具"><a href="#如何在linux机器中使用tmux-分屏工具" class="headerlink" title="如何在linux机器中使用tmux(分屏工具)"></a>如何在linux机器中使用tmux(分屏工具)</h1><h3 id="tmux（介绍）"><a href="#tmux（介绍）" class="headerlink" title="tmux（介绍）"></a>tmux（介绍）</h3><p>tmux（terminal multiplexer）是Linux上的终端复用神器，可从一个屏幕上管理多个终端（准确说是伪终端）。使用该工具，用户可以连接或断开会话，而保持终端在后台运行。类似的工具还有screen，个人对这二者的使用感受是，用过tmux就再也不想用screen了</p>
-<h3 id="更新epel源"><a href="#更新epel源" class="headerlink" title="更新epel源"></a>更新epel源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br></pre></td></tr></table></figure>
+<h3 id="更新epel源"><a href="#更新epel源" class="headerlink" title="更新epel源"></a>更新epel源</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> epel-<span class="keyword">release</span> -y</span><br></pre></td></tr></table></figure>
 
-<h3 id="下载tmux工具"><a href="#下载tmux工具" class="headerlink" title="下载tmux工具"></a>下载tmux工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install tmux -y</span><br></pre></td></tr></table></figure>
+<h3 id="下载tmux工具"><a href="#下载tmux工具" class="headerlink" title="下载tmux工具"></a>下载tmux工具</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> tmux -y</span><br></pre></td></tr></table></figure>
 
-<h3 id="开启tmux终端"><a href="#开启tmux终端" class="headerlink" title="开启tmux终端"></a>开启tmux终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
+<h3 id="开启tmux终端"><a href="#开启tmux终端" class="headerlink" title="开启tmux终端"></a>开启tmux终端</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tmux</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="tmux基本操作"><a href="#tmux基本操作" class="headerlink" title="tmux基本操作"></a>tmux基本操作</h3><h4 id="打开一个新窗口"><a href="#打开一个新窗口" class="headerlink" title="打开一个新窗口"></a>打开一个新窗口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + &quot;</span><br></pre></td></tr></table></figure>
+<h3 id="tmux基本操作"><a href="#tmux基本操作" class="headerlink" title="tmux基本操作"></a>tmux基本操作</h3><h4 id="打开一个新窗口"><a href="#打开一个新窗口" class="headerlink" title="打开一个新窗口"></a>打开一个新窗口</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl <span class="selector-tag">b</span> + <span class="string">"</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="光标上下切换"><a href="#光标上下切换" class="headerlink" title="光标上下切换"></a>光标上下切换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + 上下方向键</span><br></pre></td></tr></table></figure>
+<h4 id="光标上下切换"><a href="#光标上下切换" class="headerlink" title="光标上下切换"></a>光标上下切换</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl <span class="selector-tag">b</span> + 上下方向键</span><br></pre></td></tr></table></figure>
 
-<h4 id="退出tmux"><a href="#退出tmux" class="headerlink" title="退出tmux"></a>退出tmux</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + d</span><br></pre></td></tr></table></figure>
+<h4 id="退出tmux"><a href="#退出tmux" class="headerlink" title="退出tmux"></a>退出tmux</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl <span class="selector-tag">b</span> + d</span><br></pre></td></tr></table></figure>
 
-<h4 id="删除光标所在一个tmux窗口"><a href="#删除光标所在一个tmux窗口" class="headerlink" title="删除光标所在一个tmux窗口"></a>删除光标所在一个tmux窗口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl b + x</span><br></pre></td></tr></table></figure>
+<h4 id="删除光标所在一个tmux窗口"><a href="#删除光标所在一个tmux窗口" class="headerlink" title="删除光标所在一个tmux窗口"></a>删除光标所在一个tmux窗口</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl <span class="selector-tag">b</span> + x</span><br></pre></td></tr></table></figure>
 
-<h4 id="列出所有命令"><a href="#列出所有命令" class="headerlink" title="列出所有命令"></a>列出所有命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-command</span><br></pre></td></tr></table></figure>
+<h4 id="列出所有命令"><a href="#列出所有命令" class="headerlink" title="列出所有命令"></a>列出所有命令</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="keyword">list</span>-<span class="keyword">command</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Tmux的快捷键使用说明："><a href="#Tmux的快捷键使用说明：" class="headerlink" title="Tmux的快捷键使用说明："></a>Tmux的快捷键使用说明：</h3><table>
 <thead>
@@ -1005,7 +1005,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

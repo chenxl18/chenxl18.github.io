@@ -537,7 +537,7 @@
 </li>
 <li><p>2.魔法方法__call__怎么使用？</p>
 <ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class A():</span><br><span class="line">	pass</span><br><span class="line">a = A()</span><br><span class="line">a(1,2,3)	=&gt;调用a =&gt; a.__call__(self,*args,**kwargs)</span><br><span class="line">#如果没有__call__()会报错，不可调用</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class A():</span><br><span class="line">	pass</span><br><span class="line"><span class="selector-tag">a</span> = A()</span><br><span class="line"><span class="function"><span class="title">a</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span>	=&gt;调用<span class="selector-tag">a</span> =&gt; <span class="selector-tag">a</span>.__call__(self,*args,**kwargs)</span><br><span class="line">#如果没有__call__()会报错，不可调用</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -560,14 +560,14 @@
 <li><p>新式类：python3或由内置类型派生出来的类。</p>
 <ul>
 <li><p>C3算法，<code>A.mro()</code> =&gt;方法解析顺序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class A(object):</span><br><span class="line">	pass</span><br><span class="line">class B(A):</span><br><span class="line">	pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>经典类：不是由内置类型派生出来的类（Python2）</p>
 <ul>
 <li><p>深度优先方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class A():</span><br><span class="line">	pass</span><br><span class="line">class B(A)：</span><br><span class="line">	pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">A</span>():</span></span><br><span class="line"><span class="class">	pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">B</span>(<span class="type">A</span>)：</span></span><br><span class="line"><span class="class">	pass</span></span><br></pre></td></tr></table></figure>
 
 <p>注：广度优先：子节点顺序：从左到右</p>
 <p>​        深度优先：子节点顺序：从左到右</p>
@@ -579,12 +579,12 @@
 <li><p>6.面向对象中的一些特殊方法有哪些？如_<em>_<em>call</em></em></p>
 <ul>
 <li><p>__str__：友好显示实例信息</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;__main__.A object at 0x00000244EC33F940&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;__main__<span class="selector-class">.A</span> <span class="selector-tag">object</span> at <span class="number">0</span>x00000244EC33F940&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>__eq__：判读两个对象是否相等,==</p>
 </li>
 <li><p>__add__：两个对象相加,+</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(self, other)</span><br><span class="line">a + b=&gt;a.__add__(b)=&gt;A.__add__(a,b)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(self, other)</span><br><span class="line"><span class="selector-tag">a</span> + b=&gt;<span class="selector-tag">a</span>.__add__(b)=&gt;A.__add__(<span class="selector-tag">a</span>,b)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -597,7 +597,7 @@
 </ul>
 </li>
 <li><p>8.写一个类，并让它尽可能多的支持操作符（+ - * / //% ** == &gt; &lt;）</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+:__add__</span><br><span class="line">-:__sub__</span><br><span class="line">*:__mul__</span><br><span class="line">/:__truediv__	1/2 = 0.5(python3)  1/2 = 0(python2) 1.0/2 = 0.5(python2)</span><br><span class="line">//:__floordiv__	1//2 = 0(python3)</span><br><span class="line">%:__mod__</span><br><span class="line">**:__pow__</span><br><span class="line">==:__eq__</span><br><span class="line">&gt;:__gt__</span><br><span class="line">&lt;:__lt__</span><br><span class="line">&gt;=:__ge__</span><br><span class="line">&lt;=:__le__</span><br></pre></td></tr></table></figure>
+  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">+:__add__</span></span><br><span class="line"><span class="section">-:__sub__</span></span><br><span class="line"><span class="section">*:__mul__</span></span><br><span class="line"><span class="section">/:__truediv__	1/2 = 0.5(python3)  1/2 = 0(python2) 1.0/2 = 0.5(python2)</span></span><br><span class="line"><span class="section">//:__floordiv__	1//2 = 0(python3)</span></span><br><span class="line"><span class="section">%:__mod__</span></span><br><span class="line"><span class="section">**:__pow__</span></span><br><span class="line"><span class="section">==:__eq__</span></span><br><span class="line"><span class="section">&gt;:__gt__</span></span><br><span class="line"><span class="section">&lt;:__lt__</span></span><br><span class="line"><span class="section">&gt;=:__ge__</span></span><br><span class="line"><span class="section">&lt;=:__le__</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>9.类属性与实例属性是什么？区别和应用场景？</p>
 <ul>
@@ -644,7 +644,7 @@
 <li><p>14.是否可以在一句import中导入多个库？</p>
 <ul>
 <li><p>推荐使用</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import sys</span><br></pre></td></tr></table></figure>
+  <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -972,7 +972,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

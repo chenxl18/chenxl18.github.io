@@ -531,18 +531,18 @@
 <li><p>列表有自己的sort方法，其对列表进行原址排序，既然是原址排序，那显然元组不可能拥有这种方法，因为元组是不可修改的。</p>
 </li>
 <li><p>排序，数字、字符串按照ASCII，中文按照unicode从小到大排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = [4, 6, 2, 1, 7, 9]</span><br><span class="line">x.sort()</span><br><span class="line">print (x) # [1, 2, 4, 6, 7, 9]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line">x.sort()</span><br><span class="line">print (x) # [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果需要一个排序好的副本，同时保持原有列表不变，怎么实现呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = [4, 6, 2, 1, 7, 9]</span><br><span class="line">y = x[:]</span><br><span class="line">y.sort()</span><br><span class="line">print(y)  # [1, 2, 4, 6, 7, 9]</span><br><span class="line">print(x)  # [4, 6, 2, 1, 7, 9]</span><br></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line">y = x[:]</span><br><span class="line">y.sort()</span><br><span class="line"><span class="keyword">print</span>(y)  <span class="meta"># [1, 2, 4, 6, 7, 9]</span></span><br><span class="line"><span class="keyword">print</span>(x)  <span class="meta"># [4, 6, 2, 1, 7, 9]</span></span><br></pre></td></tr></table></figure>
 
 <p>注意：<strong>y = x[:] 通过分片操作将列表x的元素全部拷贝给y，如果简单的把x赋值给y：y = x，y和x还是指向同一个列表，并没有产生新的副本。</strong></p>
 </li>
 <li><p><strong>另一种获取已排序的列表副本的方法是使用sorted函数：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x =[4, 6, 2, 1, 7, 9]</span><br><span class="line">y = sorted(x)</span><br><span class="line">print (y) #[1, 2, 4, 6, 7, 9]</span><br><span class="line">print (x) #[4, 6, 2, 1, 7, 9]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x =[<span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line">y = sorted(x)</span><br><span class="line">print (y) #[<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line">print (x) #[<span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>sorted返回一个有序的副本，并且类型总是列表，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print (sorted(&apos;Python&apos;)) #[&apos;P&apos;, &apos;h&apos;, &apos;n&apos;, &apos;o&apos;, &apos;t&apos;, &apos;y&apos;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (sorted(<span class="string">'Python'</span>)) #[<span class="string">'P'</span>, <span class="string">'h'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'t'</span>, <span class="string">'y'</span>]</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -552,10 +552,10 @@
 <li><p>sort方法还有两个可选参数：key和reverse</p>
 <ul>
 <li><p>1、key在使用时必须提供一个排序过程总调用的函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = [&apos;mmm&apos;, &apos;mm&apos;, &apos;mm&apos;, &apos;m&apos; ]</span><br><span class="line">x.sort(key = len)</span><br><span class="line">print (x) # [&apos;m&apos;, &apos;mm&apos;, &apos;mm&apos;, &apos;mmm&apos;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">'mmm'</span>, <span class="string">'mm'</span>, <span class="string">'mm'</span>, <span class="string">'m'</span> ]</span><br><span class="line">x.<span class="built_in">sort</span>(key = <span class="built_in">len</span>)</span><br><span class="line"><span class="built_in">print</span> (x) # [<span class="string">'m'</span>, <span class="string">'mm'</span>, <span class="string">'mm'</span>, <span class="string">'mmm'</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>2、reverse实现降序排序，需要提供一个布尔值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y = [3, 2, 8 ,0 , 1]</span><br><span class="line">y.sort(reverse = True)</span><br><span class="line">print (y) #[8, 3, 2, 1, 0]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">8</span> ,<span class="number">0</span> , <span class="number">1</span>]</span><br><span class="line">y.sort(reverse = True)</span><br><span class="line">print (y) #[<span class="number">8</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>True为倒序排列，False为正序排列</p>
 </li>
@@ -881,7 +881,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

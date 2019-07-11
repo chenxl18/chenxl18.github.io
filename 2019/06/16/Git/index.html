@@ -538,9 +538,9 @@
 <p>  不能同步空目录</p>
 </li>
 <li><p>git clone：克隆仓库</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/chenxl18/chenxl18.github.io.git</span><br><span class="line">#=&gt; 当前目录</span><br></pre></td></tr></table></figure>
+  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/chenxl18/chenxl18.github.io.git</span><br><span class="line"><span class="comment">#=&gt; 当前目录</span></span><br></pre></td></tr></table></figure>
 
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/d/hexo/myblog/source/_posts (master)</span><br><span class="line"># master =&gt;master 分支</span><br></pre></td></tr></table></figure>
+  <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/d/</span>hexo<span class="meta-keyword">/myblog/</span>source/_posts (master)</span><br><span class="line"><span class="meta"># master =&gt;master 分支</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>web页面（服务器）修改-&gt;同步-&gt;本地</p>
 <p>  1.在web页面修改</p>
@@ -550,24 +550,24 @@
 <li><p>本地修改-&gt;同步-&gt;web页面（服务器）</p>
 <p>  1.本地修改：vim，右击创建</p>
 <p>  2.标记待添加到仓库：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add liu.txt</span><br></pre></td></tr></table></figure>
+  <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> liu.txt</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置邮箱、用户名(必须配置此项才能提交数据到仓库)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(master)$ git config user.name &apos;yourname&apos; (master)$ git config user.email &apos;youremail@163.com&apos;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(master)$ git config user<span class="selector-class">.name</span> <span class="string">'yourname'</span> (master)$ git config user<span class="selector-class">.email</span> <span class="string">'youremail@163.com'</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
 </ul>
 <ul>
 <li><p>提交文件到本地仓库：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit   #一定要写备注信息，否则此次提交会被忽略</span><br></pre></td></tr></table></figure>
+  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit   <span class="comment">#一定要写备注信息，否则此次提交会被忽略</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
 </ul>
 <pre><code>提交到远程仓库：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
 
 
 注意：当进行push/commit之前，最好先pull一下</code></pre><ul>
@@ -590,7 +590,7 @@
 <p>  pull的时候，如果能自动合并的，它会自动合并，不能自动合并的，手动合并</p>
 </li>
 <li><p>MERGING模式</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;HEAD </span><br><span class="line">你的修改 </span><br><span class="line">====== </span><br><span class="line">远程仓库的修改 </span><br><span class="line">&gt;&gt;&gt;&gt;&gt; 版本号</span><br></pre></td></tr></table></figure>
+  <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;&lt;&lt;&lt;<span class="attr">HEAD</span> </span></span></span><br><span class="line"><span class="xml">你的修改 </span></span><br><span class="line"><span class="xml">====== </span></span><br><span class="line"><span class="xml">远程仓库的修改 </span></span><br><span class="line"><span class="xml">&gt;&gt;&gt;&gt;&gt; 版本号</span></span><br></pre></td></tr></table></figure>
 
 <p>  把自己需要的部分保留，不需要的删除。修改完成后再次add/commit即可退出merge模式 </p>
 <p>  （&gt;&gt;&gt;&gt; ==== &lt;&lt;&lt;&lt;&lt;这些行一定删除）</p>
@@ -968,7 +968,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

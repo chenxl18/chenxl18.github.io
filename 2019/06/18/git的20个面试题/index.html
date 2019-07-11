@@ -594,10 +594,10 @@
 <li><p>在GIT中，你如何还原已经push并公开的提交？</p>
 <ul>
 <li><p>删除或修复新提交中的错误文件，并将其推送到远程存储库。这是修复错误的最自然方式。对文件进行必要的修改后，将其提交到我将使用的远程存储库</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;commit message&quot;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"commit message"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建一个新的提交，撤消在错误提交中所做的所有更改。可以使用命令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert &lt;name of bad commit&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert &lt;<span class="built_in">name</span> <span class="keyword">of</span> bad commit&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -663,17 +663,17 @@
 <li><p>怎样将N次提交压缩成一次提交?</p>
 <ul>
 <li><p>如果要从头开始编写新的提交消息，请使用以下命令：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset –soft HEAD~N &amp;&amp;</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> –soft <span class="keyword">HEAD</span>~N &amp;&amp;</span><br><span class="line">git <span class="keyword">commit</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果你想在新的提交消息中串联现有的提交消息，那么需要提取这些消息并将它们传给 git commit，可以这样：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset –soft HEAD~N &amp;&amp;</span><br><span class="line">git commit –edit -m&quot;$(git log –format=%B –reverse .HEAD@&#123;N&#125;)&quot;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> –soft HEAD~N &amp;&amp;</span><br><span class="line">git commit –edit -<span class="keyword">m</span><span class="string">"$(git log –format=%B –reverse .HEAD<span class="subst">@&#123;N&#125;</span>)"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>什么是GIT bisect?如何使用它来确定（回归）错误的来源？</p>
 <ul>
 <li><p>Git bisect 用于查找使用二进制搜索引入错误的提交。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git bisect &lt;subcommand&gt; &lt;options&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">bisect </span>&lt;<span class="keyword">subcommand&gt; </span>&lt;options&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>此命令用了二进制搜索算法来查找项目历史记录中的哪个提交引入了错误。你可以通过告诉它已知包含该错误的“错误”提交以及在引入错误之前已知的“良好”提交来使用它。然后 git bisect 在这两个端点之间选择一个提交，并询问你所选的提交是“好”还是“坏”。它继续缩小范围，直到找到引入更改的确切提交。</p>
 </li>
@@ -1013,7 +1013,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
