@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[请求响应流程]]></title>
-    <url>%2F2019%2F07%2F23%2F%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E6%B5%81%E7%A8%8B%2F</url>
+    <url>%2F2019%2F07%2F23%2Fweb%E5%BC%80%E5%8F%91%2F%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[MVC模式 Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等） T代表模板（Template）：负责如何把页面展示给用户（html） V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template MVC/MVT设计模式关键的优势 开发者更改一个应用程序中的URL而不用影响到这个程序底层的实现 设计师可以改变HTML页面的样式而不用接触业务逻辑代码 数据库管理员可以重新命名数据表并且只需更改模型 请求响应流程图（简版） 请求响应流程图（复杂版） 前面的图片展示了从一个访客的浏览器到Django应用并返回的一个web请求的简单历程。如下是数字标识的路径： 浏览器发送请求（基本上是字节类型的字符串）到web服务器 web服务器（比如，Nginx）把这个请求转交到一个WSGl（比如，uWSGl），或者直接地文件系统能够取出一个文件（比如，一个CSS文件） 不像web服务器那样，WSGl服务器可以直接运行Python应用。请求生成一个被称为environ的Ptyhon字典，而且，可以选择传递过去几个中间件的层，最终，达到Diango应用]]></content>
       <categories>
         <category>python</category>
