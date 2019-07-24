@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="LAMP和LNMPLNMP:（一种开发环境）  linux nginx MySQL php/python/perl(php是一门语言，专门写网站)  zabbix (监控软件)–&amp;gt;php–&amp;gt;LANP  LAMP:  linux  apache(httpd)  MySQL(mariadb)  php/python/perl   为什么企业非常喜欢使用LAMP/LNMP  因为免费并且开源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T02:14:36.190Z">
+<meta property="og:updated_time" content="2019-07-22T12:50:49.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP和LNMP">
 <meta name="twitter:description" content="LAMP和LNMPLNMP:（一种开发环境）  linux nginx MySQL php/python/perl(php是一门语言，专门写网站)  zabbix (监控软件)–&amp;gt;php–&amp;gt;LANP  LAMP:  linux  apache(httpd)  MySQL(mariadb)  php/python/perl   为什么企业非常喜欢使用LAMP/LNMP  因为免费并且开源">
@@ -449,12 +449,24 @@
                 
               
 
-              <time title="创建时间：2019-07-13 09:54:08 / 修改时间：10:14:36" itemprop="dateCreated datePublished" datetime="2019-07-13T09:54:08+08:00">2019-07-13</time>
+              <time title="创建时间：2019-07-13 09:54:08" itemprop="dateCreated datePublished" datetime="2019-07-13T09:54:08+08:00">2019-07-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-22 20:50:49" itemprop="dateModified" datetime="2019-07-22T20:50:49+08:00">2019-07-22</time>
               
             
           </span>
@@ -546,6 +558,77 @@
 <li>因为免费并且开源</li>
 <li>成本低廉（吸引人的地方）</li>
 </ul>
+<h3 id="搭建一个自己的网站"><a href="#搭建一个自己的网站" class="headerlink" title="搭建一个自己的网站"></a>搭建一个自己的网站</h3><p>​        nginx：Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<p><strong>apache和nginx的差异？</strong></p>
+<ul>
+<li>安装、软件名字  apache的提供服务的软件包名叫httpd，nginx的叫nginx</li>
+<li>市场上的占有率  apache比nginx多    apache出来的时间早 ，nginx是后起之秀</li>
+<li>工作原理：apache采用进程，nginx采用线程（线程更省资源，进程更稳定）</li>
+<li>软件功能和大小   apache功能多（ 重量级），代码多    轻量级的web服务器软件（nginx）</li>
+<li>讲讲配置项的差异</li>
+</ul>
+<p>站队：<br>    taobao  –》Tengine   –》taobao  nginx  </p>
+<pre><code>Server: BWS/1.1</code></pre><ul>
+<li><p>安装：yum 安装可以使用epel源或者官方源</p>
+  <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]<span class="comment"># yum  install epel-release -y</span></span><br><span class="line">[root@sanchuang ~]<span class="comment"># cd /etc/yum.repos.d/</span></span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># ls</span></span><br><span class="line">CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo  epel-testing.repo</span><br><span class="line">CentOS-CR.repo    CentOS-fasttrack.repo  CentOS-Sources.repo  epel.repo</span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># vim nginx.repo</span></span><br><span class="line">[nginx-stable]</span><br><span class="line">name=nginx stable repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://nginx.org/keys/nginx_signing.key</span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># yum  install nginx  -y</span></span><br><span class="line">[root@sanchuang nginx]<span class="comment"># pwd</span></span><br><span class="line">/etc/nginx</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">nginx.conf  --》主配置文件</span><br><span class="line">[root@sanchuang ~]# yum  install httpd -y</span><br><span class="line">[root@sanchuang ~]# cd /etc/httpd/  存放配置文件的路径</span><br><span class="line">[root@sanchuang httpd]# ls</span><br><span class="line">conf  conf.d  conf.modules.d  logs  modules  run</span><br><span class="line">[root@sanchuang httpd]# cd conf</span><br><span class="line">[root@sanchuang conf]# ls</span><br><span class="line">httpd.conf  magic</span><br><span class="line">配置文件的路径：  serverroot</span><br><span class="line">	nginx  --》/etc/nginx/nginx.conf</span><br><span class="line">	httpd  --&gt;/etc/httpd/conf/httpd.conf</span><br><span class="line">存放网页的路径： documentroot</span><br><span class="line">			httpd --》DocumentRoot "/var/www/html"</span><br><span class="line">			nginx --》root         /usr/share/nginx/html;</span><br><span class="line">配置文件对比</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>进程和线程方式</p>
+<p>location  –》路由</p>
+<p>对某个目录进行权限的设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/var/www"&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    # Allow open access:</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注：将welcome.conf 删除，这样httpd的网站根目录就成了一个ftp服务器，可以下载文件</p>
+<ul>
+<li>httpd.conf配置部分解释</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang conf]<span class="comment"># cat httpd.conf |egrep -v "^#|^$|\s+#"</span></span><br><span class="line">ServerRoot <span class="string">"/etc/httpd"</span>   --》安装的目录</span><br><span class="line">Listen 8080   --》监听的端口号</span><br><span class="line">Include conf.modules.d/*<span class="string">.conf</span>   --》包括其他的配置文件</span><br><span class="line">User apache  启动进程使用的用户</span><br><span class="line">Group apache  启动进程使用的组</span><br><span class="line">ServerAdmin root@localhost  管理员的邮箱</span><br><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;<span class="string">/Directory</span>&gt;</span><br><span class="line">DocumentRoot <span class="string">"/var/www/html"</span>   --》存放网页目录</span><br><span class="line">&lt;Directory <span class="string">"/var/www"</span>&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;<span class="string">/Directory</span>&gt;</span><br><span class="line">&lt;Directory <span class="string">"/var/www/html"</span>&gt;</span><br><span class="line">    Options Indexes FollowSymLinks</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;<span class="string">/Directory</span>&gt;</span><br><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html  --》规定网站的首页</span><br><span class="line">        DirectoryIndex shouye.html index.html  index.php     指定多个首页文件，按从左到右的顺序，去查询</span><br><span class="line">&lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">&lt;Files <span class="string">".ht*"</span>&gt;</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;<span class="string">/Files</span>&gt;</span><br><span class="line">ErrorLog <span class="string">"logs/error_log"</span></span><br><span class="line">LogLevel warn</span><br><span class="line">&lt;IfModule log_config_module&gt;</span><br><span class="line">    LogFormat <span class="string">"%h %l %u %t \"%r\" %&gt;s %b \"%&#123;Referer&#125;i\" \"%&#123;User-Agent&#125;i\""</span> combined</span><br><span class="line">    LogFormat <span class="string">"%h %l %u %t \"%r\" %&gt;s %b"</span> common</span><br><span class="line">    &lt;IfModule logio_module&gt;</span><br><span class="line">      LogFormat <span class="string">"%h %l %u %t \"%r\" %&gt;s %b \"%&#123;Referer&#125;i\" \"%&#123;User-Agent&#125;i\" %I %O"</span> combinedio</span><br><span class="line">    &lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">    CustomLog <span class="string">"logs/access_log"</span> combined</span><br><span class="line">&lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">&lt;IfModule <span class="keyword">alias</span>_module&gt;</span><br><span class="line">    ScriptAlias <span class="string">/cgi-bin/</span> <span class="string">"/var/www/cgi-bin/"</span></span><br><span class="line">      Alias <span class="string">/chenxianle</span> <span class="string">"/var/www/html/chenxianle"</span>    <span class="comment"># 访问的url  192.168.0.241:8080/chenxianle  会自动访问/var/www/html/chenxianle目录里的网页</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">&lt;Directory <span class="string">"/var/www/cgi-bin"</span>&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Options None</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;<span class="string">/Directory</span>&gt;</span><br><span class="line">&lt;IfModule mime_module&gt;</span><br><span class="line">    TypesConfig <span class="string">/etc/mime.types</span></span><br><span class="line">    AddType application/x-compress <span class="string">.Z</span></span><br><span class="line">    AddType application/x-gzip <span class="string">.gz</span> <span class="string">.tgz</span></span><br><span class="line">    AddType text/html <span class="string">.shtml</span></span><br><span class="line">    AddOutputFilter INCLUDES <span class="string">.shtml</span></span><br><span class="line">&lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">AddDefaultCharset UTF-8</span><br><span class="line">&lt;IfModule mime_magic_module&gt;</span><br><span class="line">    MIMEMagicFile conf/magic</span><br><span class="line">&lt;<span class="string">/IfModule</span>&gt;</span><br><span class="line">EnableSendfile on</span><br><span class="line">IncludeOptional conf.d/*<span class="string">.conf</span></span><br><span class="line">[root@sanchuang conf]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>搭建一个网站：</p>
+<pre><code>1.apache  --》8080  ---》www.dinglang.com
+2.nginx  --》80  ---&gt;www.jack.com</code></pre><p>nginx里的配置文件/etc/hosts</p>
+<p>windows里的主配置文件C:\Windows\System32\drivers\etc\hosts</p>
+<ul>
+<li><p>apache和nginx都是对静态页面的支持</p>
+<pre><code>apache如何支持php写的程序
+nginx如何知道python写的程序</code></pre></li>
+<li><p>动静分离：</p>
+<pre><code>静态页面---》nginx
+动态页面 --》php/python</code></pre><p>  通过url来实现识别</p>
+</li>
+<li><p>静态页面和动态页面的区别？</p>
+</li>
+</ul>
+<p> huhai.py<br> huhai.php<br> huhai.js</p>
+<p>是否有后端程序去数据库里读写数据，数据的变化</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang conf.modules.d]# vim <span class="number">00</span>-mpm.conf </span><br><span class="line">LoadModule mpm_prefork_module modules/mod_mpm_prefork.so</span><br><span class="line">StartServers         <span class="number">50</span></span><br><span class="line">ServerLimit         <span class="number">256</span></span><br><span class="line">MaxSpareServers   <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>核心特性与多处理模块(MPM)—》apache<ul>
+<li>prefork –》预先产生进程，等着客户来访问  –》apache</li>
+<li>StartServers  200 启动多少进程数</li>
+<li>MinSpareServers   最少备用的进程数</li>
+<li>MaxSpareServers  20 最多备用的进程数</li>
+<li>MaxRequestWorkers   同时最多可以有多少请求数</li>
+<li>MaxConnectionsPerChild   一个进程可以处理多少次的请求</li>
+<li>ServerLimit         256  最多支持256个访问量</li>
+</ul>
+</li>
+</ul>
+<p>优点是稳定<br>缺点：消耗资源（内存、cpu）</p>
+<p>一个用户访问3M   *10000 =30G</p>
+<p>worker：多进程和多线程混合的模式</p>
+<p> multi-threaded multi-process web server</p>
+<p>ServerLimit         16<br>StartServers         2<br>MaxRequestWorkers  150<br>MinSpareThreads     25<br>MaxSpareThreads     75<br>ThreadsPerChild     25<br>zabbix –》</p>
+<p>event ：纯线程处理模式  –》nginx</p>
+<h1 id="event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming"><a href="#event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming" class="headerlink" title="event MPM: A variant of the worker MPM with the goal of consuming"></a>event MPM: A variant of the worker MPM with the goal of consuming</h1><h1 id="threads-only-for-connections-with-active-processing"><a href="#threads-only-for-connections-with-active-processing" class="headerlink" title="threads only for connections with active processing"></a>threads only for connections with active processing</h1><p>我如何验证？<br>    模拟同时1000人去访问<br>    压力测试<br>            服务器的瓶颈在哪里？<br>            资源的角度：cpu、内存、网络带宽、磁盘IO</p>
+<p>[root@sanchuang ~]# ab -c 10000 -n 10000 <a href="http://192.168.0.241/dinglang/index.html" target="_blank" rel="noopener">http://192.168.0.241/dinglang/index.html</a><br>This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;<br>Copyright 1996 Adam Twiss, Zeus Technology Ltd, <a href="http://www.zeustech.net/" target="_blank" rel="noopener">http://www.zeustech.net/</a><br>Licensed to The Apache Software Foundation, <a href="http://www.apache.org/" target="_blank" rel="noopener">http://www.apache.org/</a></p>
+<p>Benchmarking 192.168.0.241 (be patient)<br>socket: Too many open files (24)<br>[root@sanchuang ~]#<br>[root@sanchuang ~]# ulimit -a<br>core file size          (blocks, -c) 0<br>data seg size           (kbytes, -d) unlimited<br>scheduling priority             (-e) 0<br>file size               (blocks, -f) unlimited<br>pending signals                 (-i) 7221<br>max locked memory       (kbytes, -l) 64<br>max memory size         (kbytes, -m) unlimited<br>open files                      (-n) 1024   默认内核允许一个进程最多可以打开1024个文件</p>
+<p>[root@sanchuang ~]# ulimit -n 100000  临时修改内核允许的一个进程可以打开多少文件数量的限制<br>[root@sanchuang ~]# ulimit -a<br>core file size          (blocks, -c) 0<br>data seg size           (kbytes, -d) unlimited<br>scheduling priority             (-e) 0<br>file size               (blocks, -f) unlimited<br>pending signals                 (-i) 7221<br>max locked memory       (kbytes, -l) 64<br>max memory size         (kbytes, -m) unlimited<br>open files                      (-n) 100000<br>pipe size            (512 bytes, -p) 8<br>POSIX message queues     (bytes, -q) 819200<br>real-time priority              (-r) 0<br>stack size              (kbytes, -s) 8192<br>cpu time               (seconds, -t) unlimited<br>max user processes              (-u) 7221<br>virtual memory          (kbytes, -v) unlimited<br>file locks                      (-x) unlimited<br>[root@sanchuang ~]# </p>
+<p>[root@sanchuang nginx]# cat access.log |awk ‘{print $1}’|sort |uniq -c<br>     32 192.168.0.102<br>     38 192.168.0.104<br>     50 192.168.0.126<br>     17 192.168.0.13<br>      4 192.168.0.140<br>   8051 192.168.0.152<br>      8 192.168.0.155<br>    102 192.168.0.208<br>   3577 192.168.0.241<br>      4 192.168.0.35<br>     72 192.168.0.41<br>      5 192.168.0.50<br>      6 192.168.0.61<br>[root@sanchuang nginx]# </p>
 
       
     </div>
@@ -602,6 +685,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/23/web开发/github创建Djanggo项目流程/" rel="prev" title="github创建Djanggo项目流程">
+                github创建Djanggo项目流程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -670,7 +757,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -739,7 +826,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -854,7 +945,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">49</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -919,7 +1016,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LAMP和LNMP"><span class="nav-number">1.</span> <span class="nav-text">LAMP和LNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zabbix"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">zabbix</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LAMP和LNMP"><span class="nav-number">1.</span> <span class="nav-text">LAMP和LNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zabbix"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">zabbix</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建一个自己的网站"><span class="nav-number">1.0.1.</span> <span class="nav-text">搭建一个自己的网站</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming"><span class="nav-number">2.</span> <span class="nav-text">event MPM: A variant of the worker MPM with the goal of consuming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#threads-only-for-connections-with-active-processing"><span class="nav-number">3.</span> <span class="nav-text">threads only for connections with active processing</span></a></li></div>
             
 
           </div>
