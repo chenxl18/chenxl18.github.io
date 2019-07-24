@@ -116,11 +116,11 @@
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563969631749.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563969973985.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970186529.png">
-<meta property="og:image" content="https://chenxl18.github.io/1563970329518.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970329518.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970411915.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970742076.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970919752.png">
-<meta property="og:updated_time" content="2019-07-24T12:24:26.539Z">
+<meta property="og:updated_time" content="2019-07-24T12:50:26.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django初探-02返回HTML页面">
 <meta name="twitter:description" content="通常在实际开发中，我们会将html代码与业务逻辑代码分离，这样结构更清晰 1. 编写html文件我们写这么一个templates/demo01.html文件，内容来源：  http://v3.bootcss.com/getting-started/#template http://v3.bootcss.com/css/#forms css-js文件  html内容如下： 1234567891011">
@@ -459,7 +459,7 @@
                 
               
 
-              <time title="创建时间：2019-07-24 19:51:42 / 修改时间：20:24:26" itemprop="dateCreated datePublished" datetime="2019-07-24T19:51:42+08:00">2019-07-24</time>
+              <time title="创建时间：2019-07-24 19:51:42 / 修改时间：20:50:26" itemprop="dateCreated datePublished" datetime="2019-07-24T19:51:42+08:00">2019-07-24</time>
             
 
             
@@ -546,6 +546,7 @@
 <h3 id="3-配置Settings"><a href="#3-配置Settings" class="headerlink" title="3.  配置Settings"></a>3.  配置Settings</h3><p>为了让django知道我们的html文件在哪里，需要修改settings文件的相应内容。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># djangostart/settings.py</span><br><span class="line">TEMPLATES = [</span><br><span class="line">	&#123;</span><br><span class="line">	'BACKEND': 'django.template.backends.django.DjangoTemplates',</span><br><span class="line">	# 修改此处，让Django到这里的目录找html模板文件</span><br><span class="line">	'DIRS': [os.path.join(BASE_DIR, 'templates')],</span><br><span class="line">	# APP_DIRS为True时，会自动去INSTALLED_APPS应用的templates查找html文件</span><br><span class="line">	'APP_DIRS': True,</span><br><span class="line">	'OPTIONS': &#123;</span><br><span class="line">		'context_processors': [</span><br><span class="line">			'django.template.context_processors.debug',</span><br><span class="line">			'django.Template.context_processors.request',</span><br><span class="line">			'django.contrib.auth.context_processors.auth',</span><br><span class="line">			'django.contrib.messages.context_processors.messages',</span><br><span class="line">			],</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
+<h3 id="4-保存"><a href="#4-保存" class="headerlink" title="4.保存()"></a>4.保存()</h3><p><code>ctrl+s</code></p>
 <h3 id="5-启动web服务"><a href="#5-启动web服务" class="headerlink" title="5. 启动web服务"></a>5. 启动web服务</h3><p>查看结果：能够正确找到html文件，但是静态文件似乎没有加载（F12查看）</p>
 <p><img src="1563969430245.png" alt="1563969430245"></p>
 <h3 id="6-使用静态文件（用bootstrap写一个信息录入页面）"><a href="#6-使用静态文件（用bootstrap写一个信息录入页面）" class="headerlink" title="6. 使用静态文件（用bootstrap写一个信息录入页面）"></a>6. 使用静态文件（用bootstrap写一个信息录入页面）</h3><p>在django中，一般将静态文件放在static目录中.接下来，在mysite/app01中新建个static目录并准备好资源.</p>
@@ -596,7 +597,7 @@
 <p>  <img src="1563970186529.png" alt="1563970186529"></p>
 </li>
 <li><p>修改djangostart\app01\views.py</p>
-<p>  <img src="/1563970329518.png" alt="1563970329518"></p>
+<p>  <img src="1563970329518.png" alt="1563970329518"></p>
 </li>
 <li><p>在此路径下添加一个html页面（注意要与views.py的return文件一样）</p>
 <p>  <img src="1563970411915.png" alt="1563970411915"></p>
@@ -1013,7 +1014,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编写html文件"><span class="nav-number">1.</span> <span class="nav-text">1. 编写html文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改views文件"><span class="nav-number">2.</span> <span class="nav-text">2. 修改views文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置Settings"><span class="nav-number">3.</span> <span class="nav-text">3.  配置Settings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-启动web服务"><span class="nav-number">4.</span> <span class="nav-text">5. 启动web服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用静态文件（用bootstrap写一个信息录入页面）"><span class="nav-number">5.</span> <span class="nav-text">6. 使用静态文件（用bootstrap写一个信息录入页面）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-settings配置：站点的配置信息都在这里"><span class="nav-number">6.</span> <span class="nav-text">7. settings配置：站点的配置信息都在这里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-修改html文件中的引用"><span class="nav-number">7.</span> <span class="nav-text">8. 修改html文件中的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-重新启动web服务"><span class="nav-number">8.</span> <span class="nav-text">9. 重新启动web服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修改模板文件"><span class="nav-number">9.</span> <span class="nav-text">10.修改模板文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-修改视图函数"><span class="nav-number">10.</span> <span class="nav-text">11.修改视图函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-浏览器测试"><span class="nav-number">11.</span> <span class="nav-text">12. 浏览器测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-POST方式会有一个跨站请求保护机制"><span class="nav-number">12.</span> <span class="nav-text">13. POST方式会有一个跨站请求保护机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-登录页面"><span class="nav-number">13.</span> <span class="nav-text">14.登录页面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编写html文件"><span class="nav-number">1.</span> <span class="nav-text">1. 编写html文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改views文件"><span class="nav-number">2.</span> <span class="nav-text">2. 修改views文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置Settings"><span class="nav-number">3.</span> <span class="nav-text">3.  配置Settings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-保存"><span class="nav-number">4.</span> <span class="nav-text">4.保存()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-启动web服务"><span class="nav-number">5.</span> <span class="nav-text">5. 启动web服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用静态文件（用bootstrap写一个信息录入页面）"><span class="nav-number">6.</span> <span class="nav-text">6. 使用静态文件（用bootstrap写一个信息录入页面）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-settings配置：站点的配置信息都在这里"><span class="nav-number">7.</span> <span class="nav-text">7. settings配置：站点的配置信息都在这里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-修改html文件中的引用"><span class="nav-number">8.</span> <span class="nav-text">8. 修改html文件中的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-重新启动web服务"><span class="nav-number">9.</span> <span class="nav-text">9. 重新启动web服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-修改模板文件"><span class="nav-number">10.</span> <span class="nav-text">10.修改模板文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-修改视图函数"><span class="nav-number">11.</span> <span class="nav-text">11.修改视图函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-浏览器测试"><span class="nav-number">12.</span> <span class="nav-text">12. 浏览器测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-POST方式会有一个跨站请求保护机制"><span class="nav-number">13.</span> <span class="nav-text">13. POST方式会有一个跨站请求保护机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-登录页面"><span class="nav-number">14.</span> <span class="nav-text">14.登录页面</span></a></li></ol></div>
             
 
           </div>
