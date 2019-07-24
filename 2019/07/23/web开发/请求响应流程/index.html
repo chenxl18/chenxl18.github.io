@@ -103,22 +103,23 @@
 
 
 
-  <meta name="description" content="MVC模式 Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等）  T代表模板（Template）：负责如何把页面展示给用户（html）  V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template    MVC/MVT设计模式关键的优势 开发者更改一个应用程序中的URL而">
+  <meta name="description" content="MVC模式 模型（M）:定义数据库相关的内容，负责业务对象与数据库的映射（ORM）  视图（V）:定义HTML等静态网页文件相关，负责与用户的交互（页面）  控制器（C）:定义业务逻辑相关，就是你的主要代码，负责接收用户的输入调用模型和视图完成用户的请求      Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以">
 <meta name="keywords" content="Django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="请求响应流程">
 <meta property="og:url" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="MVC模式 Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等）  T代表模板（Template）：负责如何把页面展示给用户（html）  V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template    MVC/MVT设计模式关键的优势 开发者更改一个应用程序中的URL而">
+<meta property="og:description" content="MVC模式 模型（M）:定义数据库相关的内容，负责业务对象与数据库的映射（ORM）  视图（V）:定义HTML等静态网页文件相关，负责与用户的交互（页面）  控制器（C）:定义业务逻辑相关，就是你的主要代码，负责接收用户的输入调用模型和视图完成用户的请求      Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563853212332.png">
-<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563853623407.png">
-<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563853756357.png">
-<meta property="og:updated_time" content="2019-07-24T01:54:15.756Z">
+<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563965303098.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563965345498.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563965392120.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563965413565.png">
+<meta property="og:updated_time" content="2019-07-24T10:53:40.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="请求响应流程">
-<meta name="twitter:description" content="MVC模式 Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等）  T代表模板（Template）：负责如何把页面展示给用户（html）  V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template    MVC/MVT设计模式关键的优势 开发者更改一个应用程序中的URL而">
-<meta name="twitter:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563853212332.png">
+<meta name="twitter:description" content="MVC模式 模型（M）:定义数据库相关的内容，负责业务对象与数据库的映射（ORM）  视图（V）:定义HTML等静态网页文件相关，负责与用户的交互（页面）  控制器（C）:定义业务逻辑相关，就是你的主要代码，负责接收用户的输入调用模型和视图完成用户的请求      Django的MTV模式 M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以">
+<meta name="twitter:image" content="https://chenxl18.github.io/2019/07/23/web开发/请求响应流程/1563965303098.png">
 
 
 
@@ -470,7 +471,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-24 09:54:15" itemprop="dateModified" datetime="2019-07-24T09:54:15+08:00">2019-07-24</time>
+                <time title="修改时间：2019-07-24 18:53:40" itemprop="dateModified" datetime="2019-07-24T18:53:40+08:00">2019-07-24</time>
               
             
           </span>
@@ -537,27 +538,42 @@
 
       
         <h4 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h4><ul>
-<li><h4 id="Django的MTV模式"><a href="#Django的MTV模式" class="headerlink" title="Django的MTV模式"></a>Django的MTV模式</h4></li>
-<li><p>M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等）</p>
+<li><p>模型（M）:定义数据库相关的内容，负责业务对象与数据库的映射（ORM）</p>
 </li>
-<li><p>T代表模板（Template）：负责如何把页面展示给用户（html）</p>
+<li><p>视图（V）:定义HTML等静态网页文件相关，负责与用户的交互（页面）</p>
 </li>
-<li><p>V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template</p>
+<li><p>控制器（C）:定义业务逻辑相关，就是你的主要代码，负责接收用户的输入调用模型和视图完成用户的请求</p>
+<p>  <img src="1563965303098.png" alt="1563965303098"></p>
 </li>
 </ul>
-<p><img src="1563853212332.png" alt="1563853212332"></p>
+<h4 id="Django的MTV模式"><a href="#Django的MTV模式" class="headerlink" title="Django的MTV模式"></a>Django的MTV模式</h4><ul>
+<li>M代表模型（Model）：负责业务对象和数据库的关系映射（ORM）（如何存取，如何验证有效性，包含哪些行为以及数据之间的关系等）</li>
+<li>T代表模板（Template）：负责如何把页面展示给用户（html）</li>
+<li>V代表视图（View）：负责业务逻辑，并在适当时候调用Model和Template</li>
+</ul>
+<p><img src="1563965345498.png" alt="1563965345498"></p>
 <h4 id="MVC-MVT设计模式关键的优势"><a href="#MVC-MVT设计模式关键的优势" class="headerlink" title="MVC/MVT设计模式关键的优势"></a>MVC/MVT设计模式关键的优势</h4><ul>
 <li>开发者更改一个应用程序中的URL而不用影响到这个程序底层的实现</li>
 <li>设计师可以改变HTML页面的样式而不用接触业务逻辑代码</li>
 <li>数据库管理员可以重新命名数据表并且只需更改模型</li>
 </ul>
-<h4 id="请求响应流程图（简版）"><a href="#请求响应流程图（简版）" class="headerlink" title="请求响应流程图（简版）"></a>请求响应流程图（简版）</h4><p><img src="1563853623407.png" alt="1563853623407"></p>
-<h4 id="请求响应流程图（复杂版）"><a href="#请求响应流程图（复杂版）" class="headerlink" title="请求响应流程图（复杂版）"></a>请求响应流程图（复杂版）</h4><p><img src="1563853756357.png" alt="1563853756357"></p>
+<h4 id="请求响应流程图（简版）"><a href="#请求响应流程图（简版）" class="headerlink" title="请求响应流程图（简版）"></a>请求响应流程图（简版）</h4><p><img src="1563965392120.png" alt="1563965392120"></p>
+<h4 id="请求响应流程图（复杂版）"><a href="#请求响应流程图（复杂版）" class="headerlink" title="请求响应流程图（复杂版）"></a>请求响应流程图（复杂版）</h4><p><img src="1563965413565.png" alt="1563965413565"></p>
 <p>前面的图片展示了从一个访客的浏览器到Django应用并返回的一个web请求的简单历程。如下是数字标识的路径：</p>
 <ul>
 <li>浏览器发送请求（基本上是字节类型的字符串）到web服务器</li>
 <li>web服务器（比如，Nginx）把这个请求转交到一个WSGl（比如，uWSGl），或者直接地文件系统能够取出一个文件（比如，一个CSS文件）</li>
 <li>不像web服务器那样，WSGl服务器可以直接运行Python应用。请求生成一个被称为environ的Ptyhon字典，而且，可以选择传递过去几个中间件的层，最终，达到Diango应用</li>
+<li>URLconf中含有属于应用的urls.py选择一个视图处理基于请求的URL的那个请求，这个请求就已经变成了 HttpRequest——一个Python字典对象</li>
+<li>被选择的那个视图通常要做下面所列出的一件或者更多件事情：<ul>
+<li>A. 通过模型与数据库对话</li>
+<li>B. 使用模板渲染HTML或者任何格式化过的响应</li>
+<li>C. 返回一个纯文本响应（不被显示的）</li>
+<li>D. 抛出一个异常</li>
+</ul>
+</li>
+<li>HttpResponse对象离开Django后，被渲染为一个字符串</li>
+<li>在浏览器见到一个美化的，渲染后的web页面</li>
 </ul>
 
       
@@ -613,6 +629,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/24/web开发/django初探-01/" rel="prev" title="django初探-01">
+                django初探-01 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -681,7 +701,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -754,7 +774,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -875,7 +897,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">52</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
