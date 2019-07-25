@@ -119,19 +119,19 @@
 
 
 
-  <meta name="description" content="路由系统3.什么是URL规划 URL命令  URL拆分  扩展：restful  POST:创建资源  GET:请求资源（幂等操作）     PATCH:更新资源  DELETE:删除资源   4.为什么要做URL规划 层次结构更清晰 分工更明确  5.什么时候做URL拆分 当URL量比较大    状态码  参考资料：http://www.ruanyifeng.com/blog/2014/05/r">
+  <meta name="description" content="路由系统1. URL整洁之道 为什么URL应该保持整洁和有意义  参见万维网发明者Berners-Lee的Cool URIs don’t change 里面有关于的卓越论证。  两种url设计方式的对比：id为1的博客  /blog/1  /blog.php?id=1   2. Django的路由系统对于高质量的Web应用来说，使用简洁、优雅的URL模式是一个非常值得重视的细节。Django让你随">
 <meta name="keywords" content="路由系统,url">
 <meta property="og:type" content="article">
 <meta property="og:title" content="django-04路由系统">
 <meta property="og:url" content="https://chenxl18.github.io/2019/07/25/web开发/django-04路由系统/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="路由系统3.什么是URL规划 URL命令  URL拆分  扩展：restful  POST:创建资源  GET:请求资源（幂等操作）     PATCH:更新资源  DELETE:删除资源   4.为什么要做URL规划 层次结构更清晰 分工更明确  5.什么时候做URL拆分 当URL量比较大    状态码  参考资料：http://www.ruanyifeng.com/blog/2014/05/r">
+<meta property="og:description" content="路由系统1. URL整洁之道 为什么URL应该保持整洁和有意义  参见万维网发明者Berners-Lee的Cool URIs don’t change 里面有关于的卓越论证。  两种url设计方式的对比：id为1的博客  /blog/1  /blog.php?id=1   2. Django的路由系统对于高质量的Web应用来说，使用简洁、优雅的URL模式是一个非常值得重视的细节。Django让你随">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/25/web开发/django-04路由系统/1564039814677.png">
-<meta property="og:updated_time" content="2019-07-25T11:37:04.781Z">
+<meta property="og:updated_time" content="2019-07-25T13:20:08.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django-04路由系统">
-<meta name="twitter:description" content="路由系统3.什么是URL规划 URL命令  URL拆分  扩展：restful  POST:创建资源  GET:请求资源（幂等操作）     PATCH:更新资源  DELETE:删除资源   4.为什么要做URL规划 层次结构更清晰 分工更明确  5.什么时候做URL拆分 当URL量比较大    状态码  参考资料：http://www.ruanyifeng.com/blog/2014/05/r">
+<meta name="twitter:description" content="路由系统1. URL整洁之道 为什么URL应该保持整洁和有意义  参见万维网发明者Berners-Lee的Cool URIs don’t change 里面有关于的卓越论证。  两种url设计方式的对比：id为1的博客  /blog/1  /blog.php?id=1   2. Django的路由系统对于高质量的Web应用来说，使用简洁、优雅的URL模式是一个非常值得重视的细节。Django让你随">
 <meta name="twitter:image" content="https://chenxl18.github.io/2019/07/25/web开发/django-04路由系统/1564039814677.png">
 
 
@@ -479,7 +479,7 @@
                 
               
 
-              <time title="创建时间：2019-07-25 15:07:24 / 修改时间：19:37:04" itemprop="dateCreated datePublished" datetime="2019-07-25T15:07:24+08:00">2019-07-25</time>
+              <time title="创建时间：2019-07-25 15:07:24 / 修改时间：21:20:08" itemprop="dateCreated datePublished" datetime="2019-07-25T15:07:24+08:00">2019-07-25</time>
             
 
             
@@ -550,7 +550,17 @@
       
 
       
-        <h1 id="路由系统"><a href="#路由系统" class="headerlink" title="路由系统"></a>路由系统</h1><h3 id="3-什么是URL规划"><a href="#3-什么是URL规划" class="headerlink" title="3.什么是URL规划"></a>3.什么是URL规划</h3><ul>
+        <h1 id="路由系统"><a href="#路由系统" class="headerlink" title="路由系统"></a>路由系统</h1><h3 id="1-URL整洁之道"><a href="#1-URL整洁之道" class="headerlink" title="1. URL整洁之道"></a>1. URL整洁之道</h3><ul>
+<li><p>为什么URL应该保持整洁和有意义<br>  参见万维网发明者<a href="http://www.w3.org/Provider/Style/URI" target="_blank" rel="noopener">Berners-Lee的Cool URIs don’t change</a> 里面有关于的卓越论证。</p>
+</li>
+<li><p>两种url设计方式的对比：id为1的博客<br>  /blog/1<br>  /blog.php?id=1</p>
+</li>
+</ul>
+<h3 id="2-Django的路由系统"><a href="#2-Django的路由系统" class="headerlink" title="2. Django的路由系统"></a>2. Django的路由系统</h3><p>对于高质量的Web应用来说，使用简洁、优雅的URL模式是一个非常值得重视的细节。Django让你随心所欲设计你的URL，不受框架束缚。<br>为了给一个应用设计URL，你需要创建一个Python 模块，通常称为URLconf（URL configuration）。这个模块是纯粹的Python 代码，<br>包含URL 模式（简单的正则表达式）到Python 函数（你的视图）的简单映射。<br>映射可短可长，随便你。它可以引用其它的映射。因为它是纯粹的Python代码，它可以动态构造。</p>
+<blockquote>
+<p>Django 还提供根据当前语言翻译URL 的一种方法。更多信息参见国际化文档。<br>Django的路由默认都在urls文件里，它将浏览器输入的url映射到相应的业务处理逻辑。</p>
+</blockquote>
+<h3 id="3-什么是URL规划"><a href="#3-什么是URL规划" class="headerlink" title="3.什么是URL规划"></a>3.什么是URL规划</h3><ul>
 <li><p>URL命令</p>
 </li>
 <li><p>URL拆分</p>
@@ -573,8 +583,13 @@
 <h3 id="5-什么时候做URL拆分"><a href="#5-什么时候做URL拆分" class="headerlink" title="5.什么时候做URL拆分"></a>5.什么时候做URL拆分</h3><ul>
 <li><p>当URL量比较大</p>
 </li>
-<li></li>
+<li><p>有明确的分类</p>
+</li>
 </ul>
+<h3 id="6-如何做URL规划"><a href="#6-如何做URL规划" class="headerlink" title="6. 如何做URL规划"></a>6. 如何做URL规划</h3><ul>
+<li>URL链接</li>
+</ul>
+<h3 id="7-官方帮助"><a href="#7-官方帮助" class="headerlink" title="7. 官方帮助"></a>7. 官方帮助</h3><p><a href="https://docs.djangoproject.com/en/1.11/topics/http/urls/" target="_blank" rel="noopener">https://docs.djangoproject.com/en/1.11/topics/http/urls/</a></p>
 <p>状态码</p>
 <p><img src="1564039814677.png" alt="1564039814677"></p>
 <h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/05/restful_api.html</a></p>
@@ -981,7 +996,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#路由系统"><span class="nav-number">1.</span> <span class="nav-text">路由系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-什么是URL规划"><span class="nav-number">1.0.1.</span> <span class="nav-text">3.什么是URL规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-为什么要做URL规划"><span class="nav-number">1.0.2.</span> <span class="nav-text">4.为什么要做URL规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-什么时候做URL拆分"><span class="nav-number">1.0.3.</span> <span class="nav-text">5.什么时候做URL拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料："><span class="nav-number">1.0.3.1.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#路由系统"><span class="nav-number">1.</span> <span class="nav-text">路由系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-URL整洁之道"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. URL整洁之道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Django的路由系统"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Django的路由系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-什么是URL规划"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.什么是URL规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-为什么要做URL规划"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.为什么要做URL规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-什么时候做URL拆分"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.什么时候做URL拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-如何做URL规划"><span class="nav-number">1.0.6.</span> <span class="nav-text">6. 如何做URL规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-官方帮助"><span class="nav-number">1.0.7.</span> <span class="nav-text">7. 官方帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料："><span class="nav-number">1.0.7.1.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

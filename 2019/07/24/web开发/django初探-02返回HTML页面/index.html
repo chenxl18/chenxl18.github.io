@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970411915.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970742076.png">
 <meta property="og:image" content="https://chenxl18.github.io/2019/07/24/web开发/django初探-02返回HTML页面/1563970919752.png">
-<meta property="og:updated_time" content="2019-07-24T12:50:26.320Z">
+<meta property="og:updated_time" content="2019-07-25T13:21:37.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django初探-02返回HTML页面">
 <meta name="twitter:description" content="通常在实际开发中，我们会将html代码与业务逻辑代码分离，这样结构更清晰 1. 编写html文件我们写这么一个templates/demo01.html文件，内容来源：  http://v3.bootcss.com/getting-started/#template http://v3.bootcss.com/css/#forms css-js文件  html内容如下： 1234567891011">
@@ -487,12 +487,24 @@
                 
               
 
-              <time title="创建时间：2019-07-24 19:51:42 / 修改时间：20:50:26" itemprop="dateCreated datePublished" datetime="2019-07-24T19:51:42+08:00">2019-07-24</time>
+              <time title="创建时间：2019-07-24 19:51:42" itemprop="dateCreated datePublished" datetime="2019-07-24T19:51:42+08:00">2019-07-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-25 21:21:37" itemprop="dateModified" datetime="2019-07-25T21:21:37+08:00">2019-07-25</time>
               
             
           </span>
@@ -572,7 +584,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># app01/views.py</span><br><span class="line">from django.shortcuts import render</span><br><span class="line">def demo01(request):</span><br><span class="line">	# 参数1固定的，参数2为模块文件，具体可看render源码（最终返回一个HttpResponse对象）</span><br><span class="line">	return render(request, 'demo01.html')</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-配置Settings"><a href="#3-配置Settings" class="headerlink" title="3.  配置Settings"></a>3.  配置Settings</h3><p>为了让django知道我们的html文件在哪里，需要修改settings文件的相应内容。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># djangostart/settings.py</span><br><span class="line">TEMPLATES = [</span><br><span class="line">	&#123;</span><br><span class="line">	'BACKEND': 'django.template.backends.django.DjangoTemplates',</span><br><span class="line">	# 修改此处，让Django到这里的目录找html模板文件</span><br><span class="line">	'DIRS': [os.path.join(BASE_DIR, 'templates')],</span><br><span class="line">	# APP_DIRS为True时，会自动去INSTALLED_APPS应用的templates查找html文件</span><br><span class="line">	'APP_DIRS': True,</span><br><span class="line">	'OPTIONS': &#123;</span><br><span class="line">		'context_processors': [</span><br><span class="line">			'django.template.context_processors.debug',</span><br><span class="line">			'django.Template.context_processors.request',</span><br><span class="line">			'django.contrib.auth.context_processors.auth',</span><br><span class="line">			'django.contrib.messages.context_processors.messages',</span><br><span class="line">			],</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># djangostart/settings.py</span></span><br><span class="line">TEMPLATES = [</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">	<span class="comment"># 修改此处，让Django到这里的目录找html模板文件</span></span><br><span class="line">	<span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)],</span><br><span class="line">	<span class="comment"># APP_DIRS为True时，会自动去INSTALLED_APPS应用的templates查找html文件</span></span><br><span class="line">	<span class="string">'APP_DIRS'</span>: <span class="literal">True</span>,</span><br><span class="line">	<span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">		<span class="string">'context_processors'</span>: [</span><br><span class="line">			<span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">			<span class="string">'django.Template.context_processors.request'</span>,</span><br><span class="line">			<span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">			<span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">			],</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-保存"><a href="#4-保存" class="headerlink" title="4.保存()"></a>4.保存()</h3><p><code>ctrl+s</code></p>
 <h3 id="5-启动web服务"><a href="#5-启动web服务" class="headerlink" title="5. 启动web服务"></a>5. 启动web服务</h3><p>查看结果：能够正确找到html文件，但是静态文件似乎没有加载（F12查看）</p>
