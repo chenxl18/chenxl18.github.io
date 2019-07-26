@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="LAMP和LNMPLNMP:（一种开发环境）  linux nginx MySQL php/python/perl(php是一门语言，专门写网站)  zabbix (监控软件)–&amp;gt;php–&amp;gt;LANP  LAMP:  linux  apache(httpd)  MySQL(mariadb)  php/python/perl   为什么企业非常喜欢使用LAMP/LNMP  因为免费并且开源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T12:50:49.559Z">
+<meta property="og:updated_time" content="2019-07-26T12:02:26.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP和LNMP">
 <meta name="twitter:description" content="LAMP和LNMPLNMP:（一种开发环境）  linux nginx MySQL php/python/perl(php是一门语言，专门写网站)  zabbix (监控软件)–&amp;gt;php–&amp;gt;LANP  LAMP:  linux  apache(httpd)  MySQL(mariadb)  php/python/perl   为什么企业非常喜欢使用LAMP/LNMP  因为免费并且开源">
@@ -277,7 +277,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">34</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -334,7 +334,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">60</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">62</span></a>
 
   </li>
         
@@ -494,7 +494,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-22 20:50:49" itemprop="dateModified" datetime="2019-07-22T20:50:49+08:00">2019-07-22</time>
+                <time title="修改时间：2019-07-26 20:02:26" itemprop="dateModified" datetime="2019-07-26T20:02:26+08:00">2019-07-26</time>
               
             
           </span>
@@ -589,24 +589,31 @@
 <h3 id="搭建一个自己的网站"><a href="#搭建一个自己的网站" class="headerlink" title="搭建一个自己的网站"></a>搭建一个自己的网站</h3><p>​        nginx：Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
 <p><strong>apache和nginx的差异？</strong></p>
 <ul>
-<li>安装、软件名字  apache的提供服务的软件包名叫httpd，nginx的叫nginx</li>
-<li>市场上的占有率  apache比nginx多    apache出来的时间早 ，nginx是后起之秀</li>
-<li>工作原理：apache采用进程，nginx采用线程（线程更省资源，进程更稳定）</li>
-<li>软件功能和大小   apache功能多（ 重量级），代码多    轻量级的web服务器软件（nginx）</li>
-<li>讲讲配置项的差异</li>
-</ul>
-<p>站队：<br>    taobao  –》Tengine   –》taobao  nginx  </p>
-<pre><code>Server: BWS/1.1</code></pre><ul>
+<li><p>安装、软件名字  apache的提供服务的软件包名叫httpd，nginx的叫nginx</p>
+</li>
+<li><p>市场上的占有率  apache比nginx多    apache出来的时间早 ，nginx是后起之秀</p>
+</li>
+<li><p>工作原理：apache采用进程，nginx采用线程（线程更省资源，进程更稳定）</p>
+</li>
+<li><p>软件功能和大小   apache功能多（ 重量级），代码多    轻量级的web服务器软件（nginx）</p>
+</li>
+<li><p>讲讲配置项的差异</p>
+<p>  Server: BWS/1.1</p>
+</li>
 <li><p>安装：yum 安装可以使用epel源或者官方源</p>
   <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]<span class="comment"># yum  install epel-release -y</span></span><br><span class="line">[root@sanchuang ~]<span class="comment"># cd /etc/yum.repos.d/</span></span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># ls</span></span><br><span class="line">CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo  epel-testing.repo</span><br><span class="line">CentOS-CR.repo    CentOS-fasttrack.repo  CentOS-Sources.repo  epel.repo</span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># vim nginx.repo</span></span><br><span class="line">[nginx-stable]</span><br><span class="line">name=nginx stable repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://nginx.org/keys/nginx_signing.key</span><br><span class="line">[root@sanchuang yum.repos.d]<span class="comment"># yum  install nginx  -y</span></span><br><span class="line">[root@sanchuang nginx]<span class="comment"># pwd</span></span><br><span class="line">/etc/nginx</span><br></pre></td></tr></table></figure>
 
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">nginx.conf  --》主配置文件</span><br><span class="line">[root@sanchuang ~]# yum  install httpd -y</span><br><span class="line">[root@sanchuang ~]# cd /etc/httpd/  存放配置文件的路径</span><br><span class="line">[root@sanchuang httpd]# ls</span><br><span class="line">conf  conf.d  conf.modules.d  logs  modules  run</span><br><span class="line">[root@sanchuang httpd]# cd conf</span><br><span class="line">[root@sanchuang conf]# ls</span><br><span class="line">httpd.conf  magic</span><br><span class="line">配置文件的路径：  serverroot</span><br><span class="line">	nginx  --》/etc/nginx/nginx.conf</span><br><span class="line">	httpd  --&gt;/etc/httpd/conf/httpd.conf</span><br><span class="line">存放网页的路径： documentroot</span><br><span class="line">			httpd --》DocumentRoot "/var/www/html"</span><br><span class="line">			nginx --》root         /usr/share/nginx/html;</span><br><span class="line">配置文件对比</span><br></pre></td></tr></table></figure>
 
+
 </li>
 </ul>
-<p>进程和线程方式</p>
-<p>location  –》路由</p>
-<p>对某个目录进行权限的设置</p>
+<pre><code>进程和线程方式
+
+
+location  --》路由</code></pre><ul>
+<li>对某个目录进行权限的设置</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/var/www"&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    # Allow open access:</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
 
 <p>注：将welcome.conf 删除，这样httpd的网站根目录就成了一个ftp服务器，可以下载文件</p>
@@ -622,42 +629,67 @@
 <ul>
 <li><p>apache和nginx都是对静态页面的支持</p>
 <pre><code>apache如何支持php写的程序
-nginx如何知道python写的程序</code></pre></li>
+    nginx如何知道python写的程序</code></pre></li>
 <li><p>动静分离：</p>
 <pre><code>静态页面---》nginx
-动态页面 --》php/python</code></pre><p>  通过url来实现识别</p>
+    动态页面 --》php/python</code></pre><p>  通过url来实现识别</p>
 </li>
 <li><p>静态页面和动态页面的区别？</p>
+<ul>
+<li><p>是否有后端程序去数据库里读写数据，数据的变化</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang conf.modules.d]# vim <span class="number">00</span>-mpm.conf </span><br><span class="line">LoadModule mpm_prefork_module modules/mod_mpm_prefork.so</span><br><span class="line">StartServers         <span class="number">50</span></span><br><span class="line">ServerLimit         <span class="number">256</span></span><br><span class="line">MaxSpareServers   <span class="number">10</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p> huhai.py<br> huhai.php<br> huhai.js</p>
-<p>是否有后端程序去数据库里读写数据，数据的变化</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang conf.modules.d]# vim <span class="number">00</span>-mpm.conf </span><br><span class="line">LoadModule mpm_prefork_module modules/mod_mpm_prefork.so</span><br><span class="line">StartServers         <span class="number">50</span></span><br><span class="line">ServerLimit         <span class="number">256</span></span><br><span class="line">MaxSpareServers   <span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>核心特性与多处理模块(MPM)—》apache</p>
+<ul>
+<li>1.prefork ：预先产生进程，等着客户来访问  ——》apache默认的处理模式</li>
+<li>StartServers  200 ：启动多少进程数</li>
+<li>MinSpareServers   ：最少备用的进程数</li>
+<li>MaxSpareServers  20 ：最多备用的进程数</li>
+<li>MaxRequestWorkers  ： 同时最多可以有多少请求数</li>
+<li>MaxConnectionsPerChild  ： 一个进程可以处理多少次的请求</li>
+<li>ServerLimit         256  ：最多支持256个访问量</li>
+</ul>
+</li>
+<li><p>进程：优点：稳定。缺点：消耗资源（内存、cpu）</p>
+<ul>
+<li>2.worker：多进程和多线程混合的模式<ul>
+<li>multi-threaded multi-process web server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ServerLimit         <span class="number">16</span></span><br><span class="line">StartServers         <span class="number">2</span></span><br><span class="line">MaxRequestWorkers  <span class="number">150</span></span><br><span class="line">MinSpareThreads     <span class="number">25</span></span><br><span class="line">MaxSpareThreads     <span class="number">75</span></span><br><span class="line">ThreadsPerChild     <span class="number">25</span></span><br><span class="line">zabbix --》</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>核心特性与多处理模块(MPM)—》apache<ul>
-<li>prefork –》预先产生进程，等着客户来访问  –》apache</li>
-<li>StartServers  200 启动多少进程数</li>
-<li>MinSpareServers   最少备用的进程数</li>
-<li>MaxSpareServers  20 最多备用的进程数</li>
-<li>MaxRequestWorkers   同时最多可以有多少请求数</li>
-<li>MaxConnectionsPerChild   一个进程可以处理多少次的请求</li>
-<li>ServerLimit         256  最多支持256个访问量</li>
+<li><ul>
+<li>3.event ：纯线程处理模式  ：event MPM: A variant of the worker MPM with the goal of consuming threads only for connections with active processing（默认nginx处理模式）</li>
 </ul>
 </li>
 </ul>
-<p>优点是稳定<br>缺点：消耗资源（内存、cpu）</p>
-<p>一个用户访问3M   *10000 =30G</p>
-<p>worker：多进程和多线程混合的模式</p>
-<p> multi-threaded multi-process web server</p>
-<p>ServerLimit         16<br>StartServers         2<br>MaxRequestWorkers  150<br>MinSpareThreads     25<br>MaxSpareThreads     75<br>ThreadsPerChild     25<br>zabbix –》</p>
-<p>event ：纯线程处理模式  –》nginx</p>
-<h1 id="event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming"><a href="#event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming" class="headerlink" title="event MPM: A variant of the worker MPM with the goal of consuming"></a>event MPM: A variant of the worker MPM with the goal of consuming</h1><h1 id="threads-only-for-connections-with-active-processing"><a href="#threads-only-for-connections-with-active-processing" class="headerlink" title="threads only for connections with active processing"></a>threads only for connections with active processing</h1><p>我如何验证？<br>    模拟同时1000人去访问<br>    压力测试<br>            服务器的瓶颈在哪里？<br>            资源的角度：cpu、内存、网络带宽、磁盘IO</p>
-<p>[root@sanchuang ~]# ab -c 10000 -n 10000 <a href="http://192.168.0.241/dinglang/index.html" target="_blank" rel="noopener">http://192.168.0.241/dinglang/index.html</a><br>This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;<br>Copyright 1996 Adam Twiss, Zeus Technology Ltd, <a href="http://www.zeustech.net/" target="_blank" rel="noopener">http://www.zeustech.net/</a><br>Licensed to The Apache Software Foundation, <a href="http://www.apache.org/" target="_blank" rel="noopener">http://www.apache.org/</a></p>
-<p>Benchmarking 192.168.0.241 (be patient)<br>socket: Too many open files (24)<br>[root@sanchuang ~]#<br>[root@sanchuang ~]# ulimit -a<br>core file size          (blocks, -c) 0<br>data seg size           (kbytes, -d) unlimited<br>scheduling priority             (-e) 0<br>file size               (blocks, -f) unlimited<br>pending signals                 (-i) 7221<br>max locked memory       (kbytes, -l) 64<br>max memory size         (kbytes, -m) unlimited<br>open files                      (-n) 1024   默认内核允许一个进程最多可以打开1024个文件</p>
-<p>[root@sanchuang ~]# ulimit -n 100000  临时修改内核允许的一个进程可以打开多少文件数量的限制<br>[root@sanchuang ~]# ulimit -a<br>core file size          (blocks, -c) 0<br>data seg size           (kbytes, -d) unlimited<br>scheduling priority             (-e) 0<br>file size               (blocks, -f) unlimited<br>pending signals                 (-i) 7221<br>max locked memory       (kbytes, -l) 64<br>max memory size         (kbytes, -m) unlimited<br>open files                      (-n) 100000<br>pipe size            (512 bytes, -p) 8<br>POSIX message queues     (bytes, -q) 819200<br>real-time priority              (-r) 0<br>stack size              (kbytes, -s) 8192<br>cpu time               (seconds, -t) unlimited<br>max user processes              (-u) 7221<br>virtual memory          (kbytes, -v) unlimited<br>file locks                      (-x) unlimited<br>[root@sanchuang ~]# </p>
-<p>[root@sanchuang nginx]# cat access.log |awk ‘{print $1}’|sort |uniq -c<br>     32 192.168.0.102<br>     38 192.168.0.104<br>     50 192.168.0.126<br>     17 192.168.0.13<br>      4 192.168.0.140<br>   8051 192.168.0.152<br>      8 192.168.0.155<br>    102 192.168.0.208<br>   3577 192.168.0.241<br>      4 192.168.0.35<br>     72 192.168.0.41<br>      5 192.168.0.50<br>      6 192.168.0.61<br>[root@sanchuang nginx]# </p>
+<h3 id="如何验证？"><a href="#如何验证？" class="headerlink" title="如何验证？"></a>如何验证？</h3><ul>
+<li><p>模拟同时1000人去访问</p>
+</li>
+<li><p>压力测试</p>
+<ul>
+<li>服务器的瓶颈在哪里？</li>
+<li>资源的角度：cpu、内存、网络带宽、磁盘IO</li>
+</ul>
+</li>
+<li><p>ab—apache压力测试软件（httpd自带的软件，不需要下载）</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]# ab -c 10000 -n 10000  http://192.168.0.241/root/index.html</span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br><span class="line"></span><br><span class="line">Benchmarking 192.168.0.241 (be patient)</span><br><span class="line">socket: Too many open files (24)</span><br><span class="line">[root@sanchuang ~]# ulimit -a</span><br><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 7221</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 1024   默认内核允许一个进程最多可以打开1024个文件</span><br></pre></td></tr></table></figure>
 
+
+</li>
+</ul>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]# ulimit -n 100000  临时修改内核允许的一个进程可以打开多少文件数量的限制</span><br><span class="line">[root@sanchuang ~]# ulimit -a</span><br><span class="line">core file size          (blocks, -c) 0</span><br><span class="line">data seg size           (kbytes, -d) unlimited</span><br><span class="line">scheduling priority             (-e) 0</span><br><span class="line">file size               (blocks, -f) unlimited</span><br><span class="line">pending signals                 (-i) 7221</span><br><span class="line">max locked memory       (kbytes, -l) 64</span><br><span class="line">max memory size         (kbytes, -m) unlimited</span><br><span class="line">open files                      (-n) 100000</span><br><span class="line">pipe size            (512 bytes, -p) 8</span><br><span class="line">POSIX message queues     (bytes, -q) 819200</span><br><span class="line">real-time priority              (-r) 0</span><br><span class="line">stack size              (kbytes, -s) 8192</span><br><span class="line">cpu time               (seconds, -t) unlimited</span><br><span class="line">max user processes              (-u) 7221</span><br><span class="line">virtual memory          (kbytes, -v) unlimited</span><br><span class="line">file locks                      (-x) unlimited</span><br></pre></td></tr></table></figure>
+
+
+查看nginx日志（哪个ip地址xshell使用nginx测试的次数）
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang nginx]# cat access.log |awk '&#123;print $1&#125;'|sort |uniq -c</span><br><span class="line">     32 192.168.0.102</span><br><span class="line">     38 192.168.0.104</span><br><span class="line">     50 192.168.0.126</span><br><span class="line">     17 192.168.0.13</span><br><span class="line">      4 192.168.0.140</span><br><span class="line">   8051 192.168.0.152</span><br><span class="line">      8 192.168.0.155</span><br><span class="line">    102 192.168.0.208</span><br><span class="line">   3577 192.168.0.241</span><br><span class="line">      4 192.168.0.35</span><br><span class="line">     72 192.168.0.41</span><br><span class="line">      5 192.168.0.50</span><br><span class="line">      6 192.168.0.61</span><br></pre></td></tr></table></figure></code></pre>
       
     </div>
 
@@ -785,7 +817,7 @@ nginx如何知道python写的程序</code></pre></li>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -999,7 +1031,11 @@ nginx如何知道python写的程序</code></pre></li>
                     
                       
                     
-                    <span class="site-state-item-count">60</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1064,7 +1100,7 @@ nginx如何知道python写的程序</code></pre></li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LAMP和LNMP"><span class="nav-number">1.</span> <span class="nav-text">LAMP和LNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zabbix"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">zabbix</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建一个自己的网站"><span class="nav-number">1.0.1.</span> <span class="nav-text">搭建一个自己的网站</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#event-MPM-A-variant-of-the-worker-MPM-with-the-goal-of-consuming"><span class="nav-number">2.</span> <span class="nav-text">event MPM: A variant of the worker MPM with the goal of consuming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#threads-only-for-connections-with-active-processing"><span class="nav-number">3.</span> <span class="nav-text">threads only for connections with active processing</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LAMP和LNMP"><span class="nav-number">1.</span> <span class="nav-text">LAMP和LNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zabbix"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">zabbix</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建一个自己的网站"><span class="nav-number">1.0.1.</span> <span class="nav-text">搭建一个自己的网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何验证？"><span class="nav-number">1.0.2.</span> <span class="nav-text">如何验证？</span></a></li></ol></div>
             
 
           </div>
@@ -1607,5 +1643,5 @@ nginx如何知道python写的程序</code></pre></li>
   
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
