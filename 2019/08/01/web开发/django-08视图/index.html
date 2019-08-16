@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Django视图什么是视图 视图，是一个简单的Python 函数/类，它接受Web请求并且返回Web响应。可响应的内容：  网页的HTML内容 重定向 404错误 XML文档 图片 是任何东西都可以  无论视图本身包含什么逻辑，都要返回响应。为了将代码放在某处，约定是将视图放置在项目或应用程序目录中的名为views.py的文件中。 一个简单视图12345678from django.shortcu">
+<meta name="keywords" content="django视图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django-08视图">
+<meta property="og:url" content="https://chenxl18.github.io/2019/08/01/web开发/django-08视图/index.html">
+<meta property="og:site_name" content="xll的个人网站">
+<meta property="og:description" content="Django视图什么是视图 视图，是一个简单的Python 函数/类，它接受Web请求并且返回Web响应。可响应的内容：  网页的HTML内容 重定向 404错误 XML文档 图片 是任何东西都可以  无论视图本身包含什么逻辑，都要返回响应。为了将代码放在某处，约定是将视图放置在项目或应用程序目录中的名为views.py的文件中。 一个简单视图12345678from django.shortcu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/01/web开发/django-08视图/1564659446198.png">
+<meta property="og:updated_time" content="2019-08-04T08:35:27.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="django-08视图">
+<meta name="twitter:description" content="Django视图什么是视图 视图，是一个简单的Python 函数/类，它接受Web请求并且返回Web响应。可响应的内容：  网页的HTML内容 重定向 404错误 XML文档 图片 是任何东西都可以  无论视图本身包含什么逻辑，都要返回响应。为了将代码放在某处，约定是将视图放置在项目或应用程序目录中的名为views.py的文件中。 一个简单视图12345678from django.shortcu">
+<meta name="twitter:image" content="https://chenxl18.github.io/2019/08/01/web开发/django-08视图/1564659446198.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenxl18.github.io/2019/08/01/web开发/django-08视图/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>django-08视图 | xll的个人网站</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xll的个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">得之我幸，失之我命</p>
+      
+    
+    
+      <a>
+        <img class="custom-logo-image" src="/images/xl.jpg" alt="xll的个人网站">
+      </a>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/music/" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i> <br>音乐</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">74</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">32</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/08/01/web开发/django-08视图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xll">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xll的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">django-08视图
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-01 19:30:14" itemprop="dateCreated datePublished" datetime="2019-08-01T19:30:14+08:00">2019-08-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-04 16:35:27" itemprop="dateModified" datetime="2019-08-04T16:35:27+08:00">2019-08-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Django视图"><a href="#Django视图" class="headerlink" title="Django视图"></a>Django视图</h3><h4 id="什么是视图"><a href="#什么是视图" class="headerlink" title="什么是视图"></a>什么是视图</h4><p> 视图，是一个简单的Python 函数/类，它接受Web请求并且返回Web响应。可响应的内容：</p>
+<ul>
+<li>网页的HTML内容</li>
+<li>重定向</li>
+<li>404错误</li>
+<li>XML文档</li>
+<li>图片</li>
+<li>是任何东西都可以</li>
+</ul>
+<p>无论视图本身包含什么逻辑，都要返回响应。为了将代码放在某处，约定是将视图放置在项目或应用程序目录中的名为views.py的文件中。</p>
+<h4 id="一个简单视图"><a href="#一个简单视图" class="headerlink" title="一个简单视图"></a>一个简单视图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="comment"># request 必填，名字可以修改，封装了用户请求的所有内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo01</span><span class="params">(request)</span>:</span></span><br><span class="line">    html = <span class="string">'&lt;h1&gt;i am demo01&lt;/h1&gt;'</span></span><br><span class="line">    print(html)</span><br><span class="line">    <span class="comment"># 此处不能直接return html, 必须返回一个HttpResponse对象</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(html)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>代码说明：</p>
+<ul>
+<li>导入HttpResponse</li>
+<li>定义demo01函数，参数有1个名为request</li>
+<li>返回一个HttpResponse对象</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li><p>视图函数的名称并不重要，命名规则同变量</p>
+</li>
+<li><p>每个视图函数都负责返回一个HttpResponse对象</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Request-Response处理流程的分析"><a href="#Request-Response处理流程的分析" class="headerlink" title="Request/Response处理流程的分析"></a>Request/Response处理流程的分析</h4><p>熟悉HttpRequest与HttpResponse工作方式</p>
+<p><img src="1564659446198.png" alt="1564659446198"></p>
+<ul>
+<li><p>参考链接：<br>  <a href="http://blog.csdn.net/xiluoduyu/article/details/47255887" target="_blank" rel="noopener">http://blog.csdn.net/xiluoduyu/article/details/47255887</a></p>
+<p>  ​    </p>
+</li>
+</ul>
+<h3 id="Django-Request对象字段值"><a href="#Django-Request对象字段值" class="headerlink" title="Django-Request对象字段值"></a>Django-Request对象字段值</h3><h4 id="HttpRequest是什么"><a href="#HttpRequest是什么" class="headerlink" title="HttpRequest是什么"></a>HttpRequest是什么</h4><ul>
+<li><p>HTTP 应用的信息是通过请求报文和响应报文传递的，关于更多的相关知识，可以阅读《HTTP权威指南》获得。</p>
+</li>
+<li><p>HttpRequest对象表示来自某客户端的一个单独的HTTP请求。HttpRequest对象是 Django自动创建的。</p>
+</li>
+<li><p>其中请求报文由客户端发送，其中包含和许多的信息，而 django 将这些信息封装成了 HttpRequest 对象，该对象由 HttpRequest 类创建。</p>
+</li>
+<li><p>每一个请求都会生成一个 HttpRequest 对象，django会将这个对象自动传递给响应的视图函数，一般视图函数约定俗成地使用 request 参数承接这个对象。当然你也可以使用其他参数来承接这个对象，并没有硬性规定一定要使用什么名称。</p>
+</li>
+</ul>
+<h4 id="HttpRequest属性"><a href="#HttpRequest属性" class="headerlink" title="HttpRequest属性"></a>HttpRequest属性</h4><blockquote>
+<p>django将请求报文中的请求行、首部信息、内容主体封装成 HttpRequest 类中的属性。除了特殊说明的之外，其他均为只读的。</p>
+<p><strong>打上断点，并以Debug模式运行Django</strong>。访问对应的URL，查看Request的属性</p>
+</blockquote>
+<ul>
+<li><p><code>HttpRequest.scheme</code></p>
+<p>一个字符串，代表请求的方案，一般为 ‘http’ 或 ‘https’。</p>
+</li>
+<li><p><code>HttpRequest.body</code></p>
+<p>一个字符串，代表请求报文的主体。在处理非 HTTP 形式的报文时非常有用，例如：二进制图片、XML等。</p>
+<p>但是，如果要处理表单数据的时候，推荐还是使用 HttpRequest.POST 。</p>
+<p>另外，我们还可以用 python 的类文件方法去操作它，详情参考 HttpRequest.read() 。</p>
+</li>
+<li><p><code>HttpRequest.path</code></p>
+<p>一个字符串，表示请求的路径组件（不含域名）。</p>
+<p>例如：”/music/bands/the_beatles/“</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.path_info</code></p>
+<p>一个字符串，在某些 Web 服务器配置下，主机名后的 URL 部分被分成脚本前缀部分和路径信息部分。path_info 属性将始终包含路径信息部分，不论使用的Web 服务器是什么。使用它代替 path 可以让代码在测试和开发环境中更容易地切换。</p>
+<p>例如，如果应用的WSGIScriptAlias 设置为”/minfo”，那么当 path 是”/minfo/music/bands/the_beatles/“ 时path_info 将是”/music/bands/the_beatles/“。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.method</code></p>
+<p>一个字符串，表示请求使用的HTTP 方法。必须使用大写。</p>
+<p>例如：”GET”、”POST”</p>
+</li>
+<li><p><code>HttpRequest.encoding</code></p>
+<p>一个字符串，表示提交的数据的编码方式（如果为 None 则表示使用 DEFAULT_CHARSET 的设置，默认为 ‘utf-8’）。这个属性是可写的，你可以修改它来修改访问表单数据使用的编码。接下来对属性的任何访问（例如从 GET 或 POST 中读取数据）将使用新的 encoding 值。如果你知道表单数据的编码不是 DEFAULT_CHARSET ，则使用它。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.GET</code></p>
+<p>一个类似于字典的对象，包含 HTTP GET 的所有参数。详情请参考 QueryDict 对象。</p>
+</li>
+<li><p><code>HttpRequest.POST</code></p>
+<p>一个类似于字典的对象，如果请求中包含表单数据，则将这些数据封装成 QueryDict 对象。</p>
+<p>POST 请求可以带有空的 POST 字典 —— 如果通过 HTTP POST 方法发送一个表单，但是表单中没有任何的数据，QueryDict 对象依然会被创建。因此，不应该使用 if request.POST 来检查使用的是否是POST 方法；应该使用 if request.method == “POST”</p>
+<p>另外：如果使用 POST 上传文件的话，文件信息将包含在 FILES 属性中。</p>
+</li>
+<li><p><code>HttpRequest.REQUEST</code></p>
+<p>一个类似于字典的对象，它首先搜索POST，然后搜索GET，主要是为了方便。灵感来自于PHP 的 <code>$_REQUEST。</code></p>
+<p>例如，如果 GET = {“name”: “john”} 而 POST = {“age”: ‘34’} ， REQUEST[“name”] 将等于”john”， REQUEST[“age”] 将等于”34”。</p>
+<p>强烈建议使用 GET 和 POST 而不要用REQUEST，因为它们更加明确。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.COOKIES</code></p>
+<p>一个标准的Python 字典，包含所有的cookie。键和值都为字符串。(放在Header中)</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.FILES</code></p>
+<p>一个类似于字典的对象，包含所有的上传文件信息。FILES 中的每个键为<code>&lt;input type=&quot;file&quot; name=&quot;&quot; /&gt;</code>中的name，值则为对应的数据。</p>
+<p>注意，FILES 只有在请求的方法为POST且提交的<code>&lt;form&gt;</code>带有<code>enctype=&quot;multipart/form-data&quot;</code>的情况下才会包含数据。否则，FILES 将为一个空的类似于字典的对象。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.META</code></p>
+<p>一个标准的Python 字典，包含所有的HTTP 首部。具体的头部信息取决于客户端和服务器，下面是一些示例：</p>
+<ul>
+<li>CONTENT_LENGTH —— 请求的正文的长度（是一个字符串）。</li>
+<li>CONTENT_TYPE —— 请求的正文的MIME 类型。</li>
+<li>HTTP_ACCEPT —— 响应可接收的Content-Type。</li>
+<li>HTTP_ACCEPT_ENCODING —— 响应可接收的编码。</li>
+<li>HTTP_ACCEPT_LANGUAGE —— 响应可接收的语言。</li>
+<li>HTTP_HOST —— 客服端发送的HTTP Host 头部。</li>
+<li>HTTP_REFERER —— Referring 页面。</li>
+<li>HTTP_USER_AGENT —— 客户端的user-agent 字符串。</li>
+<li>QUERY_STRING —— 单个字符串形式的查询字符串（未解析过的形式）。</li>
+<li>REMOTE_ADDR —— 客户端的IP 地址。</li>
+<li>REMOTE_HOST —— 客户端的主机名。</li>
+<li>REMOTE_USER —— 服务器认证后的用户。</li>
+<li>REQUEST_METHOD —— 一个字符串，例如”GET” 或”POST”。</li>
+<li>SERVER_NAME —— 服务器的主机名。</li>
+<li>SERVER_PORT —— 服务器的端口（是一个字符串）。</li>
+</ul>
+<p>从上面可以看到，除 <figure class="highlight plain"><figcaption><span>和 ```CONTENT_TYPE``` 之外，请求中的任何 HTTP 首部转换为 META 的键时，都会将所有字母大写并将连接符替换为下划线最后加上```HTTP_```前缀。所以，一个叫做```X-Bender```的头部将转换成 META 中的```HTTP_X_BENDER```键。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* `HttpRequest.user`</span><br><span class="line"></span><br><span class="line"> 一个 AUTH_USER_MODEL 类型的对象，表示当前登录的用户。</span><br><span class="line"></span><br><span class="line"> 如果用户当前没有登录，user 将设置为```django.contrib.auth.models.AnonymousUser```的一个实例。你可以通过 is_authenticated() 区分它们。</span><br><span class="line"></span><br><span class="line">例如：</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<p>if request.user.is_authenticated(): </p>
+<pre><code># Do something for logged-in users. </code></pre><p>else: </p>
+<pre><code># Do something for anonymous users.</code></pre><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"> user </span>只有当Django 启用 AuthenticationMiddleware 中间件时才可用。</span><br><span class="line"></span><br><span class="line">+ 匿名用户: ```class models.AnonymousUser</span><br></pre></td></tr></table></figure>
+
+<p>django.contrib.auth.models.AnonymousUser 类实现了django.contrib.auth.models.User 接口，但具有下面几个不同点：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">id 永远为None。</span><br><span class="line">username 永远为空字符串。</span><br><span class="line"><span class="function"><span class="title">get_username</span><span class="params">()</span></span> 永远返回空字符串。</span><br><span class="line">is_staff 和 is_superuser 永远为False。</span><br><span class="line">is_active 永远为 False。</span><br><span class="line">groups 和 user_permissions 永远为空。</span><br><span class="line"><span class="function"><span class="title">is_anonymous</span><span class="params">()</span></span> 返回True 而不是False。</span><br><span class="line"><span class="function"><span class="title">is_authenticated</span><span class="params">()</span></span> 返回False 而不是True。</span><br><span class="line"><span class="function"><span class="title">set_password</span><span class="params">()</span></span>、check_password()、save() 和delete() 引发 NotImplementedError。</span><br><span class="line">New <span class="keyword">in</span> Django <span class="number">1.8</span>:</span><br><span class="line">新增 AnonymousUser.get_username() 以更好地模拟 django<span class="selector-class">.contrib</span><span class="selector-class">.auth</span><span class="selector-class">.models</span><span class="selector-class">.User</span>。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>HttpRequest.session</code></p>
+<p>一个既可读又可写的类似于字典的对象，表示当前的会话。只有当Django 启用会话的支持时才可用。完整的细节参见会话的文档。</p>
+</li>
+<li><p><code>HttpRequest.urlconf</code></p>
+<p>不是由Django 自身定义的，但是如果其它代码（例如，自定义的中间件类）设置了它，Django 就会读取它。如果存在，它将用来作为当前的请求的Root URLconf，并覆盖 ROOT_URLCONF 设置。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.resolver_match</code></p>
+<p>一个 ResolverMatch 的实例，表示解析后的URL。这个属性只有在 URL 解析方法之后才设置，这意味着它在所有的视图中可以访问，但是在 URL 解析发生之前执行的中间件方法中不可以访问（比如process_request，但你可以使用 process_view 代替）。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.get_host()</code></p>
+<p>根据从HTTP_X_FORWARDED_HOST（如果打开 USE_X_FORWARDED_HOST，默认为False）和 HTTP_HOST 头部信息返回请求的原始主机。如果这两个头部没有提供相应的值，则使用SERVER_NAME 和SERVER_PORT，在PEP 3333 中有详细描述。</p>
+<p>USE_X_FORWARDED_HOST：一个布尔值，用于指定是否优先使用 X-Forwarded-Host 首部，仅在代理设置了该首部的情况下，才可以被使用。</p>
+<p>例如：”127.0.0.1:8000”</p>
+<p>注意：当主机位于多个代理后面时，get_host() 方法将会失败。除非使用中间件重写代理的首部。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.get_full_path()</code></p>
+<p>返回 path，如果可以将加上查询字符串。</p>
+<p>例如：”/music/bands/the_beatles/?print=true”</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.build_absolute_uri(location)</code></p>
+<p>返回location 的绝对URI。如果location 没有提供，则使用request.get_full_path()的返回值。</p>
+<p>如果URI 已经是一个绝对的URI，将不会修改。否则，使用请求中的服务器相关的变量构建绝对URI。</p>
+<p>例如：”<a href="http://example.com/music/bands/the_beatles/?print=true&quot;" target="_blank" rel="noopener">http://example.com/music/bands/the_beatles/?print=true&quot;</a></p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.get_signed_cookie(key, default=RAISE_ERROR, salt=&#39;&#39;, max_age=None)</code></p>
+<p>返回签名过的Cookie 对应的值，如果签名不再合法则返回django.core.signing.BadSignature。</p>
+<p>如果提供 default 参数，将不会引发异常并返回 default 的值。</p>
+<p>可选参数salt 可以用来对安全密钥强力攻击提供额外的保护。max_age 参数用于检查Cookie 对应的时间戳以确保Cookie 的时间不会超过max_age 秒。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'name'</span>) </span><br><span class="line"><span class="string">'Tony'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'name'</span>, salt=<span class="string">'name-salt'</span>) </span><br><span class="line"><span class="string">'Tony'</span> </span><br><span class="line"><span class="comment"># 假设在设置cookie的时候使用的是相同的salt </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'non-existing-cookie'</span>) </span><br><span class="line"><span class="meta">... </span>KeyError: <span class="string">'non-existing-cookie'</span> </span><br><span class="line"><span class="comment"># 没有相应的键时触发异常 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'non-existing-cookie'</span>, <span class="literal">False</span>) </span><br><span class="line"><span class="literal">False</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'cookie-that-was-tampered-with'</span>) </span><br><span class="line"><span class="meta">... </span>BadSignature: </span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'name'</span>, max_age=<span class="number">60</span>) </span><br><span class="line"><span class="meta">... </span>SignatureExpired: Signature age <span class="number">1677.3839159</span> &gt; <span class="number">60</span> seconds </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>request.get_signed_cookie(<span class="string">'name'</span>, <span class="literal">False</span>, max_age=<span class="number">60</span>) </span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>HttpRequest.is_secure()</code></p>
+<p>如果请求时是安全的，则返回True；即请求通是过 HTTPS 发起的。</p>
+</li>
+<li><p><code>HttpRequest.is_ajax()</code></p>
+<p>如果请求是通过XMLHttpRequest 发起的，则返回True，方法是检查 HTTP_X_REQUESTED_WITH 相应的首部是否是字符串’XMLHttpRequest’。</p>
+<p>大部分现代的 JavaScript 库都会发送这个头部。如果你编写自己的 XMLHttpRequest 调用（在浏览器端），你必须手工设置这个值来让 is_ajax() 可以工作。</p>
+<p>如果一个响应需要根据请求是否是通过AJAX 发起的，并且你正在使用某种形式的缓存例如Django 的 cache middleware， 你应该使用 vary_on_headers(‘HTTP_X_REQUESTED_WITH’) 装饰你的视图以让响应能够正确地缓存。</p>
+</li>
+</ul>
+<ul>
+<li><p><code>HttpRequest.read(size=None)</code></p>
+<p>像文件一样读取请求报文的内容主体，同样的，还有以下方法可用。</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 其行为和文件操作中的一样。</span><br><span class="line"><span class="selector-tag">HttpRequest</span><span class="selector-class">.readline</span>()</span><br><span class="line"><span class="selector-tag">HttpRequest</span><span class="selector-class">.readlines</span>()</span><br><span class="line"><span class="selector-tag">HttpRequest</span><span class="selector-class">.xreadlines</span>()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>HttpRequest.__iter__()</code></p>
+<p>说明可以使用 for 的方式迭代文件的每一行。</p>
+</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p> <a href="https://www.cnblogs.com/scolia/archive/2016/07/01/5633351.html" target="_blank" rel="noopener">https://www.cnblogs.com/scolia/archive/2016/07/01/5633351.html</a> </p>
+<h3 id="Django快捷返回方式-HttpResponse"><a href="#Django快捷返回方式-HttpResponse" class="headerlink" title="Django快捷返回方式 (HttpResponse)"></a>Django快捷返回方式 (HttpResponse)</h3><blockquote>
+<p>官方文档：<a href="https://docs.djangoproject.com/en/1.11/topics/http/shortcuts/" target="_blank" rel="noopener">https://docs.djangoproject.com/en/1.11/topics/http/shortcuts/</a></p>
+<p>Request 和 Response 对象起到了服务器与客户机之间的信息传递作用。Request对象用于接收客户端浏览器提交的数据，而Response 对象的功能则是将服务器端的数据发送到客户端浏览器。</p>
+<p>每一个视图都需要一个返回（必须是一个Response对象）, 一个Response对象需要包含： </p>
+<ul>
+<li>指定响应内容</li>
+<li>响应格式</li>
+<li>设置cookies</li>
+</ul>
+</blockquote>
+<h4 id="HttpResponse：返回一个内容"><a href="#HttpResponse：返回一个内容" class="headerlink" title="HttpResponse：返回一个内容"></a><code>HttpResponse</code>：返回一个内容</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># request 必填，名字可以修改，封装了用户请求的所有内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo01</span><span class="params">(request)</span>:</span></span><br><span class="line">    html = <span class="string">'&lt;h1&gt;i am demo01&lt;/h1&gt;'</span></span><br><span class="line">    print(html)</span><br><span class="line">    <span class="comment"># 此处不能直接return html, 必须返回一个HttpResponse对象</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(html)</span><br></pre></td></tr></table></figure>
+
+<h4 id="render-结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的-HttpResponse-对象。"><a href="#render-结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的-HttpResponse-对象。" class="headerlink" title="render: 结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的 HttpResponse 对象。"></a><code>render</code>: 结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的 HttpResponse 对象。</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render(request, template<span class="emphasis">_name[, context][, context_</span>instance][<span class="string">, content_type</span>][<span class="symbol">, status</span>][<span class="string">, current_app</span>][<span class="symbol">, dirs</span>][<span class="string">, using</span>])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>必选的参数</p>
+<ul>
+<li><code>request</code>: 该request用于生成response</li>
+<li><code>template_name</code>: 要使用的模板的完整名称或者模板名称的一个序列。</li>
+</ul>
+</li>
+<li><p>可选的参数</p>
+<ul>
+<li><p><code>context</code>: 添加到模板上下文的一个字典。super如果字典中的某个值是可调用的，视图将在渲染模板之前调用它。</p>
+</li>
+<li><p><code>content_type</code>: 生成的文档要使用的MIME 类型。默认为<figure class="highlight plain"><figcaption><span>设置的值。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    * `status`: 响应的状态码。默认为200。</span><br><span class="line"></span><br><span class="line">* 使用示例：</span><br></pre></td></tr></table></figure></p>
+<h1 id="下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml："><a href="#下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml：" class="headerlink" title="下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml："></a>下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml：</h1><p>from django.shortcuts import render<br>def my_view(request):</p>
+<h1 id="View-code-here…"><a href="#View-code-here…" class="headerlink" title="View code here…"></a>View code here…</h1><p>  return render(request, ‘myapp/index.html’, {“foo”: “bar”},<br>  content_type=”application/xhtml+xml”, status=301)</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### ```render_to_response</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render<span class="emphasis">_to_</span>response(template<span class="emphasis">_name[, context][, context_</span>instance][<span class="string">, content_type</span>][<span class="symbol">, status</span>][<span class="string">, dirs</span>][<span class="symbol">, using</span>])</span><br></pre></td></tr></table></figure>
+
+<p>结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的 HttpResponse 对象。</p>
+<ul>
+<li><p>必选的参数</p>
+<figure class="highlight plain"><figcaption><span>要使用的模板的完整名称或者模板名称的一个序列。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用示例：</span><br></pre></td></tr></table></figure>
+
+<h1 id="下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml：-1"><a href="#下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml：-1" class="headerlink" title="下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml："></a>下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml：</h1><p>from django.shortcuts import render_to_response<br>def my_view(request):</p>
+<pre><code># View code here...
+return render_to_response(&apos;myapp/index.html&apos;, {&quot;foo&quot;: &quot;bar&quot;},
+content_type=&quot;application/xhtml+xml&quot;)</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### redirect</span><br></pre></td></tr></table></figure>
+
+<p>redirect(to, [permanent=False, ]*args, `kwargs)</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">为传递进来的参数返回HttpResponseRedirect 给正确的URL</span><br><span class="line"></span><br><span class="line">* 参数可以是：</span><br><span class="line"></span><br><span class="line">一个模型：将调用模型的```get_absolute_url()``` 函数</span><br><span class="line">一个视图，可以带有参数：将使用```urlresolvers.reverse``` 来反向解析名称</span><br><span class="line">一个绝对的或相对的URL，将原封不动的作为重定向的位置。</span><br><span class="line"></span><br><span class="line">* 使用示例：</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>from django.shortcuts import redirect<br>def my_view(request):<br>    …<br>    object = MyModel.objects.get(…)</p>
+<pre><code># 通过传递一个对象；将调用get_absolute_url() 方法来获取重定向的URL
+return redirect(object)
+
+# 通过传递一个视图的名称，可以带有位置参数和关键字参数；将使用reverse() 方法反向解析URL
+return redirect(&apos;some-view-name&apos;, foo=&apos;bar&apos;)
+
+# 传递要重定向的一个硬编码的URL
+return redirect(&apos;/some/url/&apos;)
+
+# 一个完整的URL
+return redirect(&apos;http://example.com/&apos;)</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### JsonResponse：返回一个Json格式数据</span><br><span class="line"></span><br><span class="line">&gt; 接口返回json格式数据，直接用JsonResponse </span><br><span class="line"></span><br><span class="line">#### Http404：手动引发<span class="number">404</span>页面</span><br><span class="line"></span><br><span class="line">Django提供了Http404异常。如果你在视图函数中的任何地方抛出Http404异常，Django都会捕获它，并且带上HTTP404错误码返回你应用的标准错误页面。</span><br></pre></td></tr></table></figure>
+
+<p>from django.shortcuts import render, HttpResponse, redirect, Http404<br>def index(request)</p>
+<pre><code># 触发一个404错误
+raise Http404(&apos;not exist&apos;)
+return HttpResponse(&apos;I am index&apos;)</code></pre><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">测试这个效果需要非<span class="keyword">DEBUG</span>模式</span><br></pre></td></tr></table></figure>
+
+<h1 id="myblogsettings-py"><a href="#myblogsettings-py" class="headerlink" title="myblogsettings.py"></a>myblogsettings.py</h1><p>DEBUG = False<br>ALLOWED_HOSTS = [‘127.0.0.1’, ‘localhost’]</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### get_object_or_404</span><br></pre></td></tr></table></figure>
+
+<p>get_object_or_404(klass, *args, `kwargs)</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在一个给定的模型管理器上调用<span class="built_in">get</span>()，但是引发Http404 而不是模型的DoesNotExist 异常。</span><br><span class="line"></span><br><span class="line"><span class="comment">* 必选的参数</span></span><br><span class="line"><span class="comment"> * klass: 获取该对象的一个Model 类，Manager或QuerySet 实例。</span></span><br><span class="line"><span class="comment"> * `kwargs`: 查询的参数，格式应该可以被get() 和filter()接受。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">* 示例：</span></span><br></pre></td></tr></table></figure>
+
+<p>from django.shortcuts import get_object_or_404</p>
+<p>def my_view(request):<br>    my_object = get_object_or_404(MyModel, pk=1)<br>    return xxx</p>
+<h1 id="这个示例等同于："><a href="#这个示例等同于：" class="headerlink" title="这个示例等同于："></a>这个示例等同于：</h1><p>from django.http import Http404</p>
+<p>def my_view(request):<br>    try:<br>        my_object = MyModel.objects.get(pk=1)<br>    except MyModel.DoesNotExist:<br>        raise Http404(“No MyModel matches the given query.”)<br>    return xxx</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>参数可为queryset</span><br></pre></td></tr></table></figure>
+
+<p>queryset = Book.objects.filter(title__startswith=’M’)<br>get_object_or_404(queryset, pk=1)</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>参数可为自定义管理器</span><br></pre></td></tr></table></figure>
+
+<p>get_object_or_404(Book.dahl_objects, title=’Matilda’)</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">* </span>参数可为关联的管理器</span><br></pre></td></tr></table></figure>
+
+<p>author = Author.objects.get(name=’Roald Dahl’)<br>get_object_or_404(author.book_set, title=’Matilda’)</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### get_list_or_404</span><br></pre></td></tr></table></figure>
+
+<p>get_list_or_404(klass, *args, `kwargs)[source]</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">返回一个给定模型管理器上filter() 的结果，并将结果映射为一个列表，如果结果为空则返回Http404。</span><br><span class="line"></span><br><span class="line"><span class="bullet">* </span>示例：</span><br></pre></td></tr></table></figure>
+
+<p>from django.shortcuts import get_list_or_404<br>def my_view(request):<br>    my_objects = get_list_or_404(MyModel, published=True)</p>
+<h1 id="这个示例等同于：-1"><a href="#这个示例等同于：-1" class="headerlink" title="这个示例等同于："></a>这个示例等同于：</h1><p>from django.http import Http404<br>def my_view(request):<br>    my_objects = list(MyModel.objects.filter(published=True))<br>    if not my_objects:<br>        raise Http404(“No MyModel matches the given query.”)</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 基于类的视图</span><br><span class="line"></span><br><span class="line">&gt; 文档：https:<span class="comment">//docs.djangoproject.com/en/1.11/ref/class-based-views/</span></span><br><span class="line"></span><br><span class="line">在早期，我们认识到在视图开发过程中有共同的用法和模式。这时我们引入基于函数的通用视图来抽象这些模式以简化常见情形的视图开发。</span><br><span class="line"></span><br><span class="line">* 基于函数视图的用法有以下三种：</span><br></pre></td></tr></table></figure>
+
+<p>def index(request):<br>    return HttpResponse(‘hello world!’)</p>
+<p>def index(request):<br>    result = {‘demo’:’demo’}<br>    return render(request, ‘blog/about.html’, result)</p>
+<p>def index(request):<br>    result = {‘demo’:’demo’}<br>    return render_to_response(‘blog/about.html’, result)<br>```</p>
+<p>基于函数的视图的问题在于，虽然它们很好地覆盖了简单的情形，但是不能扩展或自定义它们，即使是一些简单的配置选项，这让它们在现实应用中受到很多限制。基于类的通用视图然后应运而生，目的与基于函数的通用视图一样，就是为了使得视图的开发更加容易。</p>
+<ul>
+<li><p>django 基本类视图分为四类：</p>
+<ul>
+<li><p>基础类视图：</p>
+<p>View<br>TemplateView<br>RedirectView</p>
+</li>
+<li><p>展示类视图：(get)</p>
+<p>DetailView<br>ListView</p>
+</li>
+<li><p>编辑类视图：</p>
+<p>FormView<br>CreateView<br>UpdateView<br>DeleteView</p>
+</li>
+<li><p>日期类视图：</p>
+<p>ArchiveIndexView<br>YearArchiveView<br>MonthArchiveView<br>WeekArchiveView<br>DayArchiveView<br>TodayArchiveView<br>DateDetailView</p>
+</li>
+</ul>
+</li>
+<li><p>下面三个是最常使用的基于类的通用视图：</p>
+<p><strong>TemplateView，View，ListView，DetailView</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/django视图/" rel="tag"><i class="fa fa-tag"></i>  django视图</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/31/web开发/django-07跨站请求伪造/" rel="next" title="django-07跨站请求伪造">
+                <i class="fa fa-chevron-left"></i> django-07跨站请求伪造
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/09/计算机网络/NAT/" rel="prev" title="NAT">
+                NAT <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xll</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenxl18/chenxl18.github.io" title="GitHub &rarr; https://github.com/chenxl18/chenxl18.github.io" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/#/user/home?id=594731641" title="CloudMusic &rarr; https://music.163.com/#/user/home?id=594731641" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>CloudMusic</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+          <embed src="//music.163.com/style/swf/widget.swf?sid=1347468523&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django视图"><span class="nav-number">1.</span> <span class="nav-text">Django视图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是视图"><span class="nav-number">1.1.</span> <span class="nav-text">什么是视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个简单视图"><span class="nav-number">1.2.</span> <span class="nav-text">一个简单视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-Response处理流程的分析"><span class="nav-number">1.3.</span> <span class="nav-text">Request/Response处理流程的分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django-Request对象字段值"><span class="nav-number">2.</span> <span class="nav-text">Django-Request对象字段值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpRequest是什么"><span class="nav-number">2.1.</span> <span class="nav-text">HttpRequest是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpRequest属性"><span class="nav-number">2.2.</span> <span class="nav-text">HttpRequest属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">2.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django快捷返回方式-HttpResponse"><span class="nav-number">3.</span> <span class="nav-text">Django快捷返回方式 (HttpResponse)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpResponse：返回一个内容"><span class="nav-number">3.1.</span> <span class="nav-text">HttpResponse：返回一个内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#render-结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的-HttpResponse-对象。"><span class="nav-number">3.2.</span> <span class="nav-text">render: 结合一个给定的模板和一个给定的上下文字典，并返回一个渲染后的 HttpResponse 对象。</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml："><span class="nav-number"></span> <span class="nav-text">下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View-code-here…"><span class="nav-number"></span> <span class="nav-text">View code here…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下面的示例渲染模板myapp-index-html，MIME-类型为application-xhtml-xml：-1"><span class="nav-number"></span> <span class="nav-text">下面的示例渲染模板myapp/index.html，MIME 类型为application/xhtml+xml：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#myblogsettings-py"><span class="nav-number"></span> <span class="nav-text">myblogsettings.py</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个示例等同于："><span class="nav-number"></span> <span class="nav-text">这个示例等同于：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个示例等同于：-1"><span class="nav-number"></span> <span class="nav-text">这个示例等同于：</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xll</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="990" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
