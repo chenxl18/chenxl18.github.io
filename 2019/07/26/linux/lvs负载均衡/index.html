@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="xll的个人网站">
 <meta property="og:description" content="lvs负载均衡服务器安全运维规范集群：(cluster) 很多台机器做一样事情（提供一样的功能）  集群： 1.成本     2.性能     3.稳定性:是否需要停止服务     4.高可用型(优势)     5.维护方面     6.扩展性 集群非常好的软件(都是开源的)  nginx lvs   LVS集群软件  简介：LVS是Linux Virtual Server的简写，意即Linux虚">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T13:11:22.684Z">
+<meta property="og:updated_time" content="2019-08-28T01:23:44.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lvs负载均衡">
 <meta name="twitter:description" content="lvs负载均衡服务器安全运维规范集群：(cluster) 很多台机器做一样事情（提供一样的功能）  集群： 1.成本     2.性能     3.稳定性:是否需要停止服务     4.高可用型(优势)     5.维护方面     6.扩展性 集群非常好的软件(都是开源的)  nginx lvs   LVS集群软件  简介：LVS是Linux Virtual Server的简写，意即Linux虚">
@@ -277,7 +277,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">47</span></a>
 
   </li>
         
@@ -334,7 +334,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">74</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">83</span></a>
 
   </li>
         
@@ -477,12 +477,24 @@
                 
               
 
-              <time title="创建时间：2019-07-26 20:03:31 / 修改时间：21:11:22" itemprop="dateCreated datePublished" datetime="2019-07-26T20:03:31+08:00">2019-07-26</time>
+              <time title="创建时间：2019-07-26 20:03:31" itemprop="dateCreated datePublished" datetime="2019-07-26T20:03:31+08:00">2019-07-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-28 09:23:44" itemprop="dateModified" datetime="2019-08-28T09:23:44+08:00">2019-08-28</time>
               
             
           </span>
@@ -499,7 +511,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux高级/" itemprop="url" rel="index"><span itemprop="name">linux高级</span></a></span>
 
                 
                 
@@ -639,15 +651,14 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">    [root@LB ~]# yum  install ipvsadm  </span><br><span class="line">    #关闭防火墙和selinux</span><br><span class="line">    [root@LB ~]# iptables -F</span><br><span class="line">    [root@LB ~]# service firewalld stop</span><br><span class="line">    Redirecting to /bin/systemctl stop firewalld.service</span><br><span class="line">    [root@LB ~]# getenforce </span><br><span class="line">    Enforcing</span><br><span class="line">    [root@LB ~]# setenforce 0</span><br><span class="line">    [root@LB ~]# getenforce </span><br><span class="line">    Permissive</span><br><span class="line">    [root@LB ~]# iptables -L</span><br><span class="line">    Chain INPUT (policy ACCEPT)</span><br><span class="line">    target     prot opt source               destination </span><br><span class="line">    Chain FORWARD (policy ACCEPT)</span><br><span class="line">    target     prot opt source               destination </span><br><span class="line">    Chain OUTPUT (policy ACCEPT)</span><br><span class="line">    target     prot opt source               destination </span><br><span class="line">    [root@LB ~]# getenforce </span><br><span class="line">    Permissive</span><br><span class="line">    [root@LB ~]# cat lvs_nat.sh </span><br><span class="line">    #! /bin/bash </span><br><span class="line">    #director 服务器上开启路由转发功能</span><br><span class="line">    echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="meta">#</span><span class="bash">director 设置nat防火墙</span></span><br><span class="line">    iptables -t nat -F</span><br><span class="line">    iptables -t nat -X</span><br><span class="line">    iptables -t nat -A POSTROUTING -s 192.168.80.0/24 -o ens33  -j SNAT  --to-source 192.168.0.205</span><br><span class="line">    #director设置ipvsadm</span><br><span class="line">    IPVSADM='/usr/sbin/ipvsadm'</span><br><span class="line">    $IPVSADM -C</span><br><span class="line">    #清空规则</span><br><span class="line">    $IPVSADM -A -t 192.168.0.205:80 -s rr　　</span><br><span class="line">    rr为轮询</span><br><span class="line">    $IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.2:80 -m </span><br><span class="line">    #-a增加服务器 -m表示LVS模式为NAT</span><br><span class="line">    $IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.3:80 -m</span><br><span class="line">    #-r指定服务器IP</span><br><span class="line">    [root@LB ~]# </span><br><span class="line">    [root@LB ~]# ipvsadm -l</span><br><span class="line">    IP Virtual Server version 1.2.1 (size=4096)</span><br><span class="line">    Prot LocalAddress:Port Scheduler Flags</span><br><span class="line">      -&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn</span><br><span class="line">    TCP  LB:http rr</span><br><span class="line">      -&gt; 192.168.80.2:http            Masq    1      12         5         </span><br><span class="line">      -&gt; 192.168.80.3:http            Masq    1      9          10</span><br></pre></td></tr></table></figure>
 
 
-
 </li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>LVS的NAT模式：<pre><code>1. 修改的是源ip还是目的ip？
-2. 有哪些调度算法
-3. 是否可以接很多很多的real server？</code></pre></li>
+   2. 有哪些调度算法
+      3. 是否可以接很多很多的real server？</code></pre></li>
 </ul>
 <p>​    </p>
 
@@ -776,7 +787,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1022,7 +1033,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">74</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

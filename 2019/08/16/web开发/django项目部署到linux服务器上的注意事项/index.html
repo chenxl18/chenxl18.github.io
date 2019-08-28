@@ -119,19 +119,19 @@
 
 
 
-  <meta name="description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便 WSGI  处理动态请求（uwsgi, gunicorn） Nginx  处理静态资源 ==&amp;gt; （/static/, /uploads/）    2.Django分布式架构 Nginx ：  提供服务，并处理静态请求  Server1..N：  处理动态请求">
+  <meta name="description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便,gunicorn可以同时起多个pythondjango进程，提高多进程服务，提高并发处理能力。gunicorn将django包装成一个服务启动，进行管理。(supervisor监控gunicorn,一旦gunicorn进程停止服务，马上重新启动进程) WSGI  处理">
 <meta name="keywords" content="部署服务器,error总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="django项目部署到linux服务器上的注意事项">
 <meta property="og:url" content="https://chenxl18.github.io/2019/08/16/web开发/django项目部署到linux服务器上的注意事项/index.html">
 <meta property="og:site_name" content="xll的个人网站">
-<meta property="og:description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便 WSGI  处理动态请求（uwsgi, gunicorn） Nginx  处理静态资源 ==&amp;gt; （/static/, /uploads/）    2.Django分布式架构 Nginx ：  提供服务，并处理静态请求  Server1..N：  处理动态请求">
+<meta property="og:description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便,gunicorn可以同时起多个pythondjango进程，提高多进程服务，提高并发处理能力。gunicorn将django包装成一个服务启动，进行管理。(supervisor监控gunicorn,一旦gunicorn进程停止服务，马上重新启动进程) WSGI  处理">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://chenxl18.github.io/2019/08/16/web开发/django项目部署到linux服务器上的注意事项/1565961026742.png">
-<meta property="og:updated_time" content="2019-08-16T13:46:51.856Z">
+<meta property="og:updated_time" content="2019-08-17T02:28:44.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django项目部署到linux服务器上的注意事项">
-<meta name="twitter:description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便 WSGI  处理动态请求（uwsgi, gunicorn） Nginx  处理静态资源 ==&amp;gt; （/static/, /uploads/）    2.Django分布式架构 Nginx ：  提供服务，并处理静态请求  Server1..N：  处理动态请求">
+<meta name="twitter:description" content="Django项目部署1. 常见的部署方式 nginx+uwsgi：配置要求严格，效率高 nginx+gunicorn：部署极其方便,gunicorn可以同时起多个pythondjango进程，提高多进程服务，提高并发处理能力。gunicorn将django包装成一个服务启动，进行管理。(supervisor监控gunicorn,一旦gunicorn进程停止服务，马上重新启动进程) WSGI  处理">
 <meta name="twitter:image" content="https://chenxl18.github.io/2019/08/16/web开发/django项目部署到linux服务器上的注意事项/1565961026742.png">
 
 
@@ -279,7 +279,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">47</span></a>
 
   </li>
         
@@ -336,7 +336,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">74</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">83</span></a>
 
   </li>
         
@@ -479,12 +479,24 @@
                 
               
 
-              <time title="创建时间：2019-08-16 20:53:10 / 修改时间：21:46:51" itemprop="dateCreated datePublished" datetime="2019-08-16T20:53:10+08:00">2019-08-16</time>
+              <time title="创建时间：2019-08-16 20:53:10" itemprop="dateCreated datePublished" datetime="2019-08-16T20:53:10+08:00">2019-08-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-17 10:28:44" itemprop="dateModified" datetime="2019-08-17T10:28:44+08:00">2019-08-17</time>
               
             
           </span>
@@ -552,7 +564,7 @@
       
         <h2 id="Django项目部署"><a href="#Django项目部署" class="headerlink" title="Django项目部署"></a>Django项目部署</h2><h4 id="1-常见的部署方式"><a href="#1-常见的部署方式" class="headerlink" title="1. 常见的部署方式"></a>1. 常见的部署方式</h4><ul>
 <li>nginx+uwsgi：配置要求严格，效率高</li>
-<li>nginx+gunicorn：部署极其方便<ul>
+<li>nginx+gunicorn：部署极其方便,gunicorn可以同时起多个pythondjango进程，提高多进程服务，提高并发处理能力。gunicorn将django包装成一个服务启动，进行管理。(supervisor监控gunicorn,一旦gunicorn进程停止服务，马上重新启动进程)<ul>
 <li>WSGI<br>  处理动态请求（uwsgi, gunicorn）</li>
 <li>Nginx<br>  处理静态资源 ==&gt; （/static/, /uploads/）</li>
 </ul>
@@ -580,10 +592,11 @@
 </ul>
 </li>
 <li><p>数据库</p>
-<ul>
-<li>是否开启Debug</li>
+</li>
 </ul>
 </li>
+<li><p>是否开启Debug</p>
+<ul>
 <li><p>区分环境</p>
 <ol>
 <li>env.ini</li>
@@ -818,6 +831,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/17/linux/LNMP/" rel="prev" title="LNMP">
+                LNMP <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -885,7 +902,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1131,7 +1148,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">74</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

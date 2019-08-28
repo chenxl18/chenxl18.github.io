@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="笔试题 （1）硬链接和软链接 （2）p、s b block 块 c char  字符 l link 链接 d 文件夹 s sock socket p pipe 管道 （3）   （1）CLOSE-WAIT （2）25 （3）计划任务,iptables策略 ​    0 8-18 * * 1-5 base/root/iptables.sh （4）STP:生成树协议  （1）错误日志、二进制日志、慢日">
+<meta name="keywords" content="笔试题,top,dstat,netstat,sysstat,htop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统性能监控">
+<meta property="og:url" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/index.html">
+<meta property="og:site_name" content="xll的个人网站">
+<meta property="og:description" content="笔试题 （1）硬链接和软链接 （2）p、s b block 块 c char  字符 l link 链接 d 文件夹 s sock socket p pipe 管道 （3）   （1）CLOSE-WAIT （2）25 （3）计划任务,iptables策略 ​    0 8-18 * * 1-5 base/root/iptables.sh （4）STP:生成树协议  （1）错误日志、二进制日志、慢日">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566956834680.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566957006456.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566956787489.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566957216161.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566957850646.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566959266215.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566960801373.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566998024347.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566998323887.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566998453357.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566995762357.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566995845141.png">
+<meta property="og:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566996423385.png">
+<meta property="og:updated_time" content="2019-08-28T13:20:59.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统性能监控">
+<meta name="twitter:description" content="笔试题 （1）硬链接和软链接 （2）p、s b block 块 c char  字符 l link 链接 d 文件夹 s sock socket p pipe 管道 （3）   （1）CLOSE-WAIT （2）25 （3）计划任务,iptables策略 ​    0 8-18 * * 1-5 base/root/iptables.sh （4）STP:生成树协议  （1）错误日志、二进制日志、慢日">
+<meta name="twitter:image" content="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/1566956834680.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>系统性能监控 | xll的个人网站</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xll的个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">得之我幸，失之我命</p>
+      
+    
+    
+      <a>
+        <img class="custom-logo-image" src="/images/xl.jpg" alt="xll的个人网站">
+      </a>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">47</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-music">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/music/" rel="section"><i class="menu-item-icon fa fa-fw fa-music"></i> <br>音乐</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">83</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">32</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxl18.github.io/2019/08/28/linux/系统性能监控/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xll">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xll的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统性能监控
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 09:45:11 / 修改时间：21:20:59" itemprop="dateCreated datePublished" datetime="2019-08-28T09:45:11+08:00">2019-08-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux高级/" itemprop="url" rel="index"><span itemprop="name">linux高级</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="笔试题"><a href="#笔试题" class="headerlink" title="笔试题"></a>笔试题</h2><p><img src="1566956834680.png" alt="1566956834680"></p>
+<p>（1）硬链接和软链接</p>
+<p>（2）p、s</p>
+<p>b block 块</p>
+<p>c char  字符</p>
+<p>l link 链接</p>
+<p>d 文件夹</p>
+<p>s sock socket</p>
+<p>p pipe 管道</p>
+<p>（3）<img src="1566957006456.png" alt="1566957006456"></p>
+<p><img src="1566956787489.png" alt="1566956787489"></p>
+<p><img src="1566957216161.png" alt="1566957216161"></p>
+<p>（1）CLOSE-WAIT</p>
+<p>（2）25</p>
+<p>（3）计划任务,iptables策略</p>
+<p>​    <code>0 8-18 * * 1-5 base/root/iptables.sh</code></p>
+<p>（4）STP:生成树协议</p>
+<p><img src="1566957850646.png" alt="1566957850646"></p>
+<p>（1）错误日志、二进制日志、慢日志、</p>
+<p><img src="1566959266215.png" alt="1566959266215"></p>
+<p>(1)ip地址、域名、时间、状态码、时间、状态码、url、</p>
+<p>(2)cat access.log |awk ‘ $9&gt;200 {print $1}’ |sort|uniq -c |sort -rn|head</p>
+<p>将本地一个name.txt 导入脚本中，创建name.txt中的新用户并生成随机密码，将对用的随机密码和用户名导入新文本newname.txt中</p>
+<p><code>cat create_user.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">&gt;user_passwd.txt</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(cat /root/name.txt)</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">	useradd <span class="variable">$i</span></span><br><span class="line">	u_passwd=$(<span class="built_in">echo</span> <span class="variable">$i</span> |md5sum |cut -c 1-15)</span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$u_passwd</span> |passwd <span class="variable">$i</span> --stdin</span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">"<span class="variable">$i</span>\t<span class="variable">$u_passwd</span>"</span> &gt;&gt;user_passwd.txt</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="1566960801373.png" alt="1566960801373"></p>
+<h2 id="系统性能监控"><a href="#系统性能监控" class="headerlink" title="系统性能监控"></a>系统性能监控</h2><h3 id="进程查看命令"><a href="#进程查看命令" class="headerlink" title="进程查看命令"></a>进程查看命令</h3><p>静态查看进程的信息，某一个时刻进程的信息</p>
+<p><a href="https://www.cnblogs.com/wxgblogs/p/6591980.html" target="_blank" rel="noopener">https://www.cnblogs.com/wxgblogs/p/6591980.html</a></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@LNMP ~]<span class="comment"># ps -l</span></span><br><span class="line">F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD</span><br><span class="line">4 S    <span class="number"> 0 </span><span class="number"> 16843 </span><span class="number"> 16833 </span><span class="number"> 0 </span><span class="number"> 80 </span> <span class="number"> 0 </span>-<span class="number"> 28860 </span>do_wai pts/1    00:00:00 bash</span><br><span class="line">0 R    <span class="number"> 0 </span><span class="number"> 32093 </span><span class="number"> 16843 </span><span class="number"> 0 </span><span class="number"> 80 </span> <span class="number"> 0 </span>-<span class="number"> 38309 </span>-      pts/1    00:00:00 ps</span><br><span class="line">[root@LNMP ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>由于 ps 能够支持的系统类型相当的多，所以他的参数多的离谱，而且有没有加上 - 差很多！</p>
+<p>将目前属于您自己这次登入的 PID 与相关信息列示出来</p>
+<p>各相关信息的意义为：</p>
+<ul>
+<li>F 代表这个程序的旗标 (flag)， 4 代表使用者为superuser；</li>
+<li>S 代表这个程序的状态 (STAT)；</li>
+<li>UID 代表执行者身份</li>
+<li>PID 进程的ID号！</li>
+<li>PPID 父进程的ID</li>
+<li>C CPU使用的资源百分比</li>
+<li>PRI指进程的执行优先权(Priority的简写)，其值越小越早被执行；</li>
+<li>NI 这个进程的nice值，其表示进程可被执行的优先级的修正数值。</li>
+<li>ADDR 这个是内核函数，指出该程序在内存的那个部分。如果是个执行 的程序，一般就是『 - 』</li>
+<li>SZ 使用掉的内存大小；</li>
+<li>WCHAN 目前这个程序是否正在运作当中，若为 - 表示正在运作；</li>
+<li>TTY 登入者的终端机位置；</li>
+<li>TIME 使用掉的 CPU 时间。</li>
+<li>CMD 所下达的指令名称</li>
+</ul>
+<p>PRI=PRI + NICE  进程的执行优先权(Priority的简写)，其值越小越早被执行；</p>
+<p>nice 好，对别人友好，其实就是对自己残忍<br>    nice值的范围从-20 ~ 19</p>
+<p>A  20 + 10 = 30<br>B  20  - 10 = 10</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@LNMP</span> ~]<span class="meta"># nice -n -10 python</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@LNMP ~]<span class="comment"># ps aux</span></span><br><span class="line">USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root         <span class="number"> 1 </span> 0.5  0.3<span class="number"> 128144 </span><span class="number"> 6676 </span>?        Ss   16:07   0:03 /usr/lib/systemd/systemd --switched-root --syst</span><br><span class="line">root         <span class="number"> 2 </span> 0.0  0.0     <span class="number"> 0 </span>   <span class="number"> 0 </span>?        S    16:07   0:00 [kthreadd]</span><br><span class="line">root         <span class="number"> 3 </span> 1.3  0.0     <span class="number"> 0 </span>   <span class="number"> 0 </span>?        S    16:07   0:09 [ksoftirqd/0]</span><br><span class="line">root         <span class="number"> 4 </span> 0.3  0.0     <span class="number"> 0 </span>   <span class="number"> 0 </span>?        S    16:07   0:02 [kworker/0:0]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>USER：该进程属于那个使用者账号。</p>
+</li>
+<li><p>PID ：该进程的进程ID号。</p>
+</li>
+<li><p>%CPU：该进程使用掉的 CPU 资源百分比；</p>
+</li>
+<li><p>%MEM：该进程所占用的物理内存百分比；</p>
+</li>
+<li><p>VSZ ：该进程使用掉的虚拟内存量 (Kbytes)   </p>
+<ul>
+<li>虚拟内存=真实内存 + swap分区</li>
+</ul>
+</li>
+<li><p>RSS ：该进程占用的固定的内存量 (Kbytes)</p>
+</li>
+<li><p>真实内存=物理内存   16G</p>
+</li>
+<li><p>TTY ：该进程是在那个终端机上面运作，若与终端机无关，则显示 ?。另外， tty1-tty6 是本机上面的登入者程序，若为 pts/0 等等的，则表示为由网络连接进主机的程序。</p>
+<p>  ctrl+alt+F1~F6  —&gt;tty1到tty6</p>
+</li>
+<li><p>STAT：该程序目前的状态，主要的状态有：</p>
+</li>
+<li><p>R ：该程序目前正在运作，或者是可被运作；  running</p>
+</li>
+<li><p>S ：该程序目前正在睡眠当中，但可被某些讯号(signal) 唤醒。   sleeping</p>
+</li>
+<li><p>T ：该程序目前正在侦测或者是停止了；</p>
+</li>
+<li><p>Z ：该程序应该已经终止，但是其父程序却无法正常的终止他，造成 zombie (疆尸) 程序的状态</p>
+</li>
+<li><p>&lt;    high-priority (not nice to other users)</p>
+</li>
+<li><p>N    low-priority (nice to other users)</p>
+</li>
+<li><p>L    has pages locked into memory (for real-time and custom IO)</p>
+</li>
+<li><p>s    is a session leader  下面有子进程</p>
+</li>
+<li><p>l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)</p>
+</li>
+</ul>
+<ul>
+<li>is in the foreground process group 前端进程组</li>
+</ul>
+<ul>
+<li>START：该进程被触发启动的时间；</li>
+<li>TIME ：该进程实际使用 CPU 运作的时间。</li>
+<li>COMMAND：该程序的实际指令。</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@LNMP ~]# <span class="keyword">ps</span> aux|<span class="keyword">grep</span>  mysqld</span><br><span class="line">root      <span class="number">85620</span>  <span class="number">0.0</span>  <span class="number">0.0</span> <span class="number">112728</span>  <span class="number">1000</span> <span class="keyword">pts</span>/<span class="number">3</span>    R+   <span class="number">16</span>:<span class="number">49</span>   <span class="number">0</span>:<span class="number">00</span> <span class="keyword">grep</span> --color=auto mysqld</span><br><span class="line">[root@LNMP ~]# <span class="keyword">ps</span> aux|<span class="keyword">grep</span>  nginx</span><br><span class="line">root      <span class="number">85634</span>  <span class="number">0.0</span>  <span class="number">0.0</span> <span class="number">112728</span>  <span class="number">1000</span> <span class="keyword">pts</span>/<span class="number">3</span>    S+   <span class="number">16</span>:<span class="number">49</span>   <span class="number">0</span>:<span class="number">00</span> <span class="keyword">grep</span> --color=auto nginx</span><br><span class="line">[root@LNMP ~]# <span class="keyword">ps</span> aux|<span class="keyword">grep</span>  bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看内存的大小"><a href="#查看内存的大小" class="headerlink" title="查看内存的大小"></a>查看内存的大小</h3><p><a href="https://www.cnblogs.com/ultranms/p/9254160.html" target="_blank" rel="noopener">https://www.cnblogs.com/ultranms/p/9254160.html</a></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@LNMP ~]<span class="comment"># free -m</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:          <span class="number"> 1819 </span>       <span class="number"> 209 </span>       <span class="number"> 352 </span>         <span class="number"> 8 </span>      <span class="number"> 1257 </span>       1315</span><br><span class="line">Swap:         <span class="number"> 2047 </span>         <span class="number"> 1 </span>       2046</span><br><span class="line">[root@LNMP ~]<span class="comment"># free </span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:       <span class="number"> 1863252 </span>    <span class="number"> 192808 </span>    <span class="number"> 380336 </span>      <span class="number"> 9096 </span>   <span class="number"> 1290108 </span>    1369768</span><br><span class="line">Swap:      <span class="number"> 2097148 </span>      <span class="number"> 1024 </span>    2096124</span><br><span class="line">[root@LNMP ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>有时我们需要持续的观察内存的状况，此时可以使用 -s 选项并指定间隔的秒数：</p>
+<ul>
+<li>-h  以人类能读懂的格式显示   hunan readable</li>
+<li>-s  间隔时间</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">free -h -s <span class="number">3</span></span><br><span class="line">              total        used        free      <span class="keyword">shared </span> <span class="keyword">buff/cache </span>  available</span><br><span class="line"><span class="symbol">Mem:</span>           <span class="number">1</span>.<span class="number">8</span>G        <span class="number">316</span>M        <span class="number">161</span>M        <span class="number">9</span>.<span class="number">3</span>M        <span class="number">1</span>.<span class="number">3</span>G        <span class="number">1</span>.<span class="number">3</span>G</span><br><span class="line"><span class="keyword">Swap: </span>         <span class="number">2</span>.<span class="number">0</span>G        <span class="number">264</span>K        <span class="number">2</span>.<span class="number">0</span>G</span><br><span class="line"></span><br><span class="line">              total        used        free      <span class="keyword">shared </span> <span class="keyword">buff/cache </span>  available</span><br><span class="line"><span class="symbol">Mem:</span>           <span class="number">1</span>.<span class="number">8</span>G        <span class="number">316</span>M        <span class="number">161</span>M        <span class="number">9</span>.<span class="number">3</span>M        <span class="number">1</span>.<span class="number">3</span>G        <span class="number">1</span>.<span class="number">3</span>G</span><br><span class="line"><span class="keyword">Swap: </span>         <span class="number">2</span>.<span class="number">0</span>G        <span class="number">264</span>K        <span class="number">2</span>.<span class="number">0</span>G</span><br><span class="line"></span><br><span class="line">              total        used        free      <span class="keyword">shared </span> <span class="keyword">buff/cache </span>  available</span><br><span class="line"><span class="symbol">Mem:</span>           <span class="number">1</span>.<span class="number">8</span>G        <span class="number">316</span>M        <span class="number">161</span>M        <span class="number">9</span>.<span class="number">3</span>M        <span class="number">1</span>.<span class="number">3</span>G        <span class="number">1</span>.<span class="number">3</span>G</span><br><span class="line"><span class="keyword">Swap: </span>         <span class="number">2</span>.<span class="number">0</span>G        <span class="number">264</span>K        <span class="number">2</span>.<span class="number">0</span>G</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>memory  内存  ：物理内存  –》速度快，性能好</p>
+</li>
+<li><p>swap 交换分区  ：从磁盘里拿出的空间  –》速度慢 </p>
+<ul>
+<li>当真实内存不足的时候，才会去使用swap分区</li>
+</ul>
+</li>
+</ul>
+<p>输出简介<br>下面先解释一下输出的内容：</p>
+<ul>
+<li>Mem 行(第二行)是内存的使用情况。</li>
+<li>Swap 行(第三行)是交换空间的使用情况。</li>
+<li>total 列显示系统总的可用物理内存和交换空间大小。</li>
+<li>used 列显示已经被使用的物理内存和交换空间。</li>
+<li>free 列显示还有多少物理内存和交换空间可用使用。</li>
+<li>shared 列显示被共享使用的物理内存大小。</li>
+<li>buff/cache 列显示被 buffer 和 cache 使用的物理内存大小。</li>
+<li>available 列显示还可以被应用程序使用的物理内存大小。</li>
+</ul>
+<p>我想只有在理解了一些基本概念之后，上面的输出才能帮助我们了解系统的内存状况。</p>
+<h3 id="buff-cache的区别"><a href="#buff-cache的区别" class="headerlink" title="buff/cache的区别"></a>buff/cache的区别</h3><ul>
+<li><p>buffer 在操作系统中指 buffer cache， 中文一般翻译为 “缓冲区”。要理解缓冲区，必须明确另外两个概念：”扇区” 和 “块”。扇区是设备的最小寻址单元，也叫 “硬扇区” 或 “设备块”。块是操作系统中文件系统的最小寻址单元，也叫 “文件块” 或 “I/O 块”。每个块包含一个或多个扇区，但大小不能超过一个页面，所以一个页可以容纳一个或多个内存中的块。当一个块被调入内存时，它要存储在一个缓冲区中。每个缓冲区与一个块对应，它相当于是磁盘块在内存中的表示，注意，buffer cache 只有块的概念而没有文件的概念，它只是把磁盘上的块直接搬到内存中而不关心块中究竟存放的是什么格式的文件。</p>
+</li>
+<li><p>cache 在操作系统中指 page cache，中文一般翻译为 “页高速缓存”。页高速缓存是内核实现的磁盘缓存。它主要用来减少对磁盘的 I/O 操作。具体地讲，是通过把磁盘中的数据缓存到物理内存中，把对磁盘的访问变为对物理内存的访问。页高速缓存缓存的是内存页面。缓存中的页来自对普通文件、块设备文件(这个指的就是 buffer cache 呀)和内存映射文件的读写。<br>  页高速缓存对普通文件的缓存我们可以这样理解：当内核要读一个文件(比如 /etc/hosts)时，它会先检查这个文件的数据是不是已经在页高速缓存中了。如果在，就放弃访问磁盘，直接从内存中读取。这个行为称为缓存命中。如果数据不在缓存中，就是未命中缓存，此时内核就要调度块 I/O 操作从磁盘去读取数据。然后内核将读来的数据放入页高速缓存中。这种缓存的目标是文件系统可以识别的文件(比如 /etc/hosts)。<br>  页高速缓存对块设备文件的缓存就是我们在前面介绍的 buffer/cahce。因为独立的磁盘块通过缓冲区也被存入了页高速缓存(缓冲区最终是由页高速缓存来承载的)。到这里我们应该搞清楚了：无论是缓冲区还是页高速缓存，它们的实现方式都是一样的。缓冲区只不过是一种概念上比较特殊的页高速缓存罢了。<br>  那么为什么 free 命令不直接称为 cache 而非要写成 buff/cache？ 这是因为缓冲区和页高速缓存的实现并非天生就是统一的。在 linux 内核 2.4 中才将它们统一。更早的内核中有两个独立的磁盘缓存：页高速缓存和缓冲区高速缓存。前者缓存页面，后者缓存缓冲区。当你知道了这些故事之后，输出中列的名称可能已经不再重要了。</p>
+</li>
+</ul>
+<h3 id="free-与-available"><a href="#free-与-available" class="headerlink" title="free 与 available"></a>free 与 available</h3><p>在 free 命令的输出中，有一个 free 列，同时还有一个 available 列。这二者到底有何区别？<br>free 是真正尚未被使用的物理内存数量。至于 available 就比较有意思了，它是从应用程序的角度看到的可用内存数量。Linux 内核为了提升磁盘操作的性能，会消耗一部分内存去缓存磁盘数据，就是我们介绍的 buffer 和 cache。所以对于内核来说，buffer 和 cache 都属于已经被使用的内存。当应用程序需要内存时，如果没有足够的 free 内存可以用，内核就会从 buffer 和 cache 中回收内存来满足应用程序的请求。所以从应用程序的角度来说，available  = free + buffer + cache。请注意，这只是一个很理想的计算方式，实际中的数据往往有较大的误差。</p>
+<h3 id="交换空间-swap-space"><a href="#交换空间-swap-space" class="headerlink" title="交换空间(swap space)"></a>交换空间(swap space)</h3><p>swap space 是磁盘上的一块区域，可以是一个分区，也可以是一个文件。所以具体的实现可以是 swap 分区也可以是 swap 文件。当系统物理内存吃紧时，Linux 会将内存中不常访问的数据保存到 swap 上，这样系统就有更多的物理内存为各个进程服务，而当系统需要访问 swap 上存储的内容时，再将 swap 上的数据加载到内存中，这就是常说的换出和换入。交换空间可以在一定程度上缓解内存不足的情况，但是它需要读写磁盘数据，所以性能不是很高。</p>
+<p>现在的机器一般都不太缺内存，如果系统默认还是使用了 swap 是不是会拖累系统的性能？理论上是的，但实际上可能性并不是很大。并且内核提供了一个叫做 swappiness 的参数，用于配置需要将内存中不常用的数据移到 swap 中去的紧迫程度。这个参数的取值范围是 0～100，0 告诉内核尽可能的不要将内存数据移到 swap 中，也即只有在迫不得已的情况下才这么做，而 100 告诉内核只要有可能，尽量的将内存中不常访问的数据移到 swap 中。在 ubuntu 系统中，swappiness 的默认值是 60。如果我们觉着内存充足，可以在 /etc/sysctl.conf 文件中设置 swappiness：</p>
+<p><code>vm.swappiness=10</code><br>如果系统的内存不足，则需要根据物理内存的大小来设置交换空间的大小。具体的策略网上有很丰富的资料，这里笔者不再赘述。</p>
+<p><code>/proc/meminfo 文件</code><br>其实 free 命令中的信息都来自于 /proc/meminfo 文件。/proc/meminfo 文件包含了更多更原始的信息，只是看起来不太直观：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cat /proc/meminfo</span><br><span class="line"></span><br><span class="line">[root<span class="variable">@LNMP</span> ~]<span class="comment"># cat /proc/sys/vm/swappiness </span></span><br><span class="line"><span class="number">30</span></span><br><span class="line">[root<span class="variable">@LNMP</span> ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>free 命令是一个既简单又复杂的命令。简单是因为这个命令的参数少，输出结果清晰。说它复杂则是因为它背后是比较晦涩的操作系统中的概念，如果不清楚这些概念，即便看了 free 命令的输出也 get 不到多少有价值的信息。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@LNMP</span> ~]<span class="meta"># cat /proc/sys/vm/swappiness </span></span><br><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+<p>当物理内存剩余30%的时候，就开始使用swap分区</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@LNMP</span> ~]<span class="meta"># echo 0 &gt;/proc/sys/vm/swappiness   #临时修改内核的参数</span></span><br><span class="line">[root<span class="symbol">@LNMP</span> ~]<span class="meta"># cat /proc/sys/vm/swappiness </span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们觉着内存充足，可以在 /etc/sysctl.conf 文件中设置 swappiness：</p>
+<p><code>vm.swappiness=10</code></p>
+<p>sysctl.conf —》往内核里传递参数的文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@LNMP ~]</span><span class="comment"># cat /etc/sysctl.conf   永久修改内核的参数</span></span><br><span class="line"><span class="comment"># sysctl settings are defined through files in</span></span><br><span class="line"><span class="comment"># /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysctl.d/.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Vendors settings live in /usr/lib/sysctl.d/.</span></span><br><span class="line"><span class="comment"># To override a whole file, create a new file with the same in</span></span><br><span class="line"><span class="comment"># /etc/sysctl.d/ and put new settings there. To override</span></span><br><span class="line"><span class="comment"># only specific settings, add a file with a lexically later</span></span><br><span class="line"><span class="comment"># name in /etc/sysctl.d/ and put new settings there.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more information, see sysctl.conf(5) and sysctl.d(5).</span></span><br><span class="line"><span class="attr">fs.file-max</span>=<span class="number">65535</span>   --》内核允许一个进程可以打开的文件数量</span><br><span class="line"><span class="attr">vm.swappiness</span>=<span class="number">0</span>   --》什么时候开始使用swap分区，当物理内存使用完的时候，开始使用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@LNMP ~]</span><span class="comment"># sysctl -p  # 刷新内核里的参数</span></span><br><span class="line"><span class="attr">fs.file-max</span> = <span class="number">65535</span></span><br><span class="line"><span class="attr">vm.swappiness</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">[root@LNMP ~]<span class="comment"># cat /proc/meminfo   #查询内核里的内存的信息</span></span><br><span class="line"><span class="attribute">MemTotal</span>:        1863252 kB</span><br><span class="line"><span class="attribute">MemFree</span>:           71184 kB</span><br><span class="line"><span class="attribute">MemAvailable</span>:      20724 kB</span><br><span class="line"><span class="attribute">Buffers</span>:               0 kB</span><br><span class="line"><span class="attribute">Cached</span>:            22272 kB</span><br><span class="line"><span class="attribute">SwapCached</span>:       274532 kB</span><br><span class="line"><span class="attribute">Active</span>:          1197068 kB</span><br><span class="line"><span class="attribute">Inactive</span>:         447492 kB</span><br><span class="line"><span class="attribute">Active(anon)</span>:    1187036 kB</span><br><span class="line"><span class="attribute">Inactive(anon)</span>:   435344 kB</span><br><span class="line"><span class="attribute">Active(file)</span>:      10032 kB</span><br><span class="line"><span class="attribute">Inactive(file)</span>:    12148 kB</span><br><span class="line"><span class="attribute">Unevictable</span>:           0 kB</span><br><span class="line"><span class="attribute">Mlocked</span>:               0 kB</span><br><span class="line"><span class="attribute">SwapTotal</span>:       2097148 kB</span><br><span class="line"><span class="attribute">SwapFree</span>:         715772 kB</span><br><span class="line"><span class="attribute">Dirty</span>:                16 kB</span><br><span class="line"><span class="attribute">Writeback</span>:             0 kB</span><br><span class="line"><span class="attribute">AnonPages</span>:       1433672 kB</span><br><span class="line"><span class="attribute">Mapped</span>:             5048 kB</span><br><span class="line"><span class="attribute">Shmem</span>:                 8 kB</span><br><span class="line"><span class="attribute">Slab</span>:              72324 kB</span><br><span class="line"><span class="attribute">SReclaimable</span>:      26452 kB</span><br><span class="line"><span class="attribute">SUnreclaim</span>:        45872 kB</span><br><span class="line"><span class="attribute">KernelStack</span>:        4416 kB</span><br><span class="line"><span class="attribute">PageTables</span>:        12580 kB</span><br><span class="line"><span class="attribute">NFS_Unstable</span>:          0 kB</span><br><span class="line"><span class="attribute">Bounce</span>:                0 kB</span><br><span class="line"><span class="attribute">WritebackTmp</span>:          0 kB</span><br><span class="line"><span class="attribute">CommitLimit</span>:     3028772 kB</span><br><span class="line"><span class="attribute">Committed_AS</span>:    3017064 kB</span><br><span class="line"><span class="attribute">VmallocTotal</span>:   34359738367 kB</span><br><span class="line"><span class="attribute">VmallocUsed</span>:      182368 kB</span><br><span class="line"><span class="attribute">VmallocChunk</span>:   34359310332 kB</span><br><span class="line"><span class="attribute">HardwareCorrupted</span>:     0 kB</span><br><span class="line"><span class="attribute">AnonHugePages</span>:      2048 kB</span><br><span class="line"><span class="attribute">CmaTotal</span>:              0 kB</span><br><span class="line"><span class="attribute">CmaFree</span>:               0 kB</span><br><span class="line"><span class="attribute">HugePages_Total</span>:       0</span><br><span class="line"><span class="attribute">HugePages_Free</span>:        0</span><br><span class="line"><span class="attribute">HugePages_Rsvd</span>:        0</span><br><span class="line"><span class="attribute">HugePages_Surp</span>:        0</span><br><span class="line"><span class="attribute">Hugepagesize</span>:       2048 kB</span><br><span class="line"><span class="attribute">DirectMap4k</span>:       89984 kB</span><br><span class="line"><span class="attribute">DirectMap2M</span>:     2007040 kB</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态显示系统资源（cpu、内存、进程）"><a href="#动态显示系统资源（cpu、内存、进程）" class="headerlink" title="动态显示系统资源（cpu、内存、进程）"></a>动态显示系统资源（cpu、内存、进程）</h3><p><a href="https://www.cnblogs.com/sunshuhai/p/6250514.html" target="_blank" rel="noopener">https://www.cnblogs.com/sunshuhai/p/6250514.html</a></p>
+<p>简介<br>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。</p>
+<p>top显示系统当前的进程和其他状况,是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终止该程序为止. 比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内存使用和执行时间对任务进行排序；而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定. </p>
+<h4 id="参数含义"><a href="#参数含义" class="headerlink" title="#### 参数含义"></a>#### 参数含义</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48</span><br><span class="line">Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id,  0.0% wa,  0.0% hi,  0.0% si</span><br><span class="line">Mem:    191272k total,   173656k used,    17616k free,    22052k buffers</span><br><span class="line">Swap:   192772k total,        0k used,   192772k free,   123988k cached</span><br><span class="line"></span><br><span class="line">PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND</span><br><span class="line">1379 root      16   0  7976 2456 1980 S  0.7  1.3   0:11.03 sshd</span><br><span class="line">14704 root      16   0  2128  980  796 R  0.7  0.5   0:02.72 top</span><br><span class="line">1 root      16   0  1992  632  544 S  0.0  0.3   0:00.90 init</span><br><span class="line">2 root      34  19     0    0    0 S  0.0  0.0   0:00.00 ksoftirqd/0</span><br><span class="line">3 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 watchdog/0</span><br></pre></td></tr></table></figure>
+
+<p>统计信息区前五行是系统整体的统计信息。第一行是任务队列信息，同 uptime 命令的执行结果。其内容如下：</p>
+<p><code>01:06:48    当前时间</code></p>
+<p><code>up 1:22    系统运行时间，格式为时:分</code></p>
+<p><code>1 user    当前登录用户数</code></p>
+<p><code>load average: 0.06, 0.60, 0.48</code>:系统（就绪队列）负载，即任务队列的平均长度，其实就是排队的进程数量。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值。1s=10**9ns</p>
+<p>cpu里的运行速度  纳秒 –&gt;频率  0.5纳秒<br>内存里的速度 接近纳秒  –&gt;频率  1纳秒</p>
+<p>上下文切换  –》10ms –》差一亿倍</p>
+<p>当平均值为1的时候，说明cpu已经饱和了<br>当到达5的时候，说明cpu非常忙碌了</p>
+<p>1个核心的参考标准 1 饱和了  5 很忙了<br>4个核心    4<del>20<br>8个核心    8</del>40</p>
+<p>第二、三行为进程和CPU的信息。当有多个CPU时，这些内容可能会超过两行。内容如下：</p>
+<ul>
+<li><p>Tasks:</p>
+<p>  <code>total 进程总数</code><br>  <code>running 正在运行的进程数</code><br>  <code>sleeping 睡眠的进程数</code><br>  <code>stopped 停止的进程数</code><br>  <code>zombie 僵尸进程数</code></p>
+</li>
+<li><p>Cpu(s):<br>  <code>0.3% us 用户空间占用CPU百分比</code>user<br>  <code>1.0% sy 内核空间占用CPU百分比</code>system<br>  <code>0.0% ni 用户进程空间内改变过优先级的进程占用CPU百分比</code> nice<br>  <code>98.7% id 空闲CPU百分比</code> idle<br>  <code>0.0% wa 等待输入输出的CPU时间百分比</code><br>  <code>0.0%hi：硬件CPU中断占用百分比</code><br>  <code>0.0%si：软中断占用百分比</code><br>  <code>0.0%st：虚拟机占用百分比</code></p>
+</li>
+</ul>
+<p>按数字1 可以查看某个cpu核心的使用情况</p>
+<p>最后两行为内存信息。内容如下：</p>
+<ul>
+<li>Mem:<br>  <code>191272k total    物理内存总量</code><br>  <code>173656k used    使用的物理内存总量</code><br>  <code>17616k free    空闲内存总量</code><br>  <code>22052k buffers    用作内核缓存的内存量</code></li>
+<li>Swap:<br>  <code>192772k total    交换区总量</code><br>  <code>0k used    使用的交换区总量</code><br>  <code>192772k free    空闲交换区总量</code><br>  <code>123988k cached</code> 缓冲的交换区总量,内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚未被覆盖，该数值即为这些内容已存在于内存中的交换区的大小,相应的内存再次被换出时可不必再对交换区写入。</li>
+</ul>
+<h3 id="怎么看内存有多少空闲呢？"><a href="#怎么看内存有多少空闲呢？" class="headerlink" title="怎么看内存有多少空闲呢？"></a>怎么看内存有多少空闲呢？</h3><p>totalfree = free17616 + buffers22052 + cached123988</p>
+<p>进程信息区统计信息区域的下方显示了各个进程的详细信息。首先来认识一下各列的含义。<br>序号  列名    含义<br><code>a    PID     进程id</code><br><code>b    PPID    父进程id</code><br><code>c    RUSER   Real user name</code><br><code>d    UID     进程所有者的用户id</code><br><code>e    USER    进程所有者的用户名</code><br><code>f    GROUP   进程所有者的组名</code><br><code>g    TTY     启动进程的终端名。</code>不是从终端启动的进程则显示为 ?<br><code>h    PR      优先级</code><br><code>i    NI      nice值。</code>负值表示高优先级，正值表示低优先级<br><code>j    P       最后使用的CPU</code>仅在多CPU环境下有意义<br><code>k    %CPU    上次更新到现在的CPU时间占用百分比</code><br><code>l    TIME    进程使用的CPU时间总计，单位秒</code><br><code>m    TIME+   进程使用的CPU时间总计，单位1/100秒</code><br><code>n    %MEM    进程使用的物理内存百分比</code><br><code>o    VIRT    进程使用的虚拟内存总量</code>单位kb。VIRT=SWAP+RES<br><code>p    SWAP    进程使用的虚拟内存中，被换出的大小，单位kb。</code><br><code>q    RES     进程使用的、未被换出的物理内存大小，单位kb</code>。RES=CODE+DATA<br><code>r    CODE    可执行代码占用的物理内存大小，单位kb</code><br><code>s    DATA    可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb</code><br><code>t    SHR     共享内存大小，单位kb</code><br><code>u    nFLT    页面错误次数</code><br><code>v    nDRT    最后一次写入到现在，被修改过的页面数。</code><br><code>w    S       进程状态(D=不可中断的睡眠状态,R=运行,S=睡眠,T=跟踪/停止,Z=僵尸进程)</code><br><code>x    COMMAND 命令名/命令行</code><br><code>y    WCHAN   若该进程在睡眠，则显示睡眠中的系统函数名</code><br><code>z    Flags   任务标志，参考 sched.h</code></p>
+<p>默认情况下仅显示比较重要的 </p>
+<p>PID、USER、PR、NI、VIRT、RES、SHR、S、%CPU、%MEM、TIME+、COMMAND 列。可以通过下面的快捷键来更改显示内容。 </p>
+<p>更改显示内容通过 f 键可以选择显示的内容。按 f 键之后会显示列的列表，按 a-z 即可显示或隐藏对应的列，最后按回车键确定。<br>按 o 键可以改变列的显示顺序。按小写的 a-z 可以将相应的列向右移动，而大写的 A-Z 可以将相应的列向左移动。最后按回车键确定。<br>按大写的 F 或 O 键，然后按 a-z 可以将进程按照相应的列进行排序。而大写的 R 键可以将当前的排序倒转。</p>
+<h2 id="命令使用"><a href="#命令使用" class="headerlink" title="命令使用"></a>命令使用</h2><h3 id="ps-aux的使用"><a href="#ps-aux的使用" class="headerlink" title="ps aux的使用"></a>ps aux的使用</h3><p><img src="1566998024347.png" alt="1566998024347"></p>
+<h3 id="lsof的使用"><a href="#lsof的使用" class="headerlink" title="lsof的使用"></a>lsof的使用</h3><p><code>lsof -i:80</code>监控80端口的应用程序</p>
+<p><img src="1566998323887.png" alt="1566998323887"></p>
+<p><code>lsof -p 29298</code>监控29298(PID)的状况</p>
+<p><img src="1566998453357.png" alt="1566998453357"></p>
+<h3 id="top使用格式"><a href="#top使用格式" class="headerlink" title="top使用格式"></a>top使用格式</h3><p>top [-] [d] [p] [q] [c] [C] [S] [s]  [n]</p>
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ul>
+<li>d 指定每两次屏幕信息刷新之间的时间间隔。当然用户可以使用s交互命令来改变之。 </li>
+<li>p 通过指定监控进程ID来仅仅监控某个进程的状态。 </li>
+<li>q 该选项将使top没有任何延迟的进行刷新。如果调用程序有超级用户权限，那么top将以尽可能高的优先级运行。 </li>
+<li>S 指定累计模式 </li>
+<li>s 使top命令在安全模式中运行。这将去除交互命令所带来的潜在危险。 </li>
+<li>i 使top不显示任何闲置或者僵死进程。 </li>
+<li>c 显示整个命令行而不只是显示命令名 </li>
+</ul>
+<h4 id="其他实用命令"><a href="#其他实用命令" class="headerlink" title="其他实用命令"></a>其他实用命令</h4><p>下面介绍在top命令执行过程中可以使用的一些交互命令。从使用角度来看，熟练的掌握这些命令比掌握选项还重要一些。这些命令都是单字母的，如果在命令行选项中使用了s选项，则可能其中一些命令会被屏蔽掉。</p>
+<ul>
+<li>Ctrl+L 擦除并且重写屏幕。<br>  h或者? 显示帮助画面，给出一些简短的命令总结说明。 </li>
+<li>k   终止一个进程。系统将提示用户输入需要终止的进程PID，以及需要发送给该进程什么样的信号。一般的终止进程可以使用15信号；如果不能正常结束那就使用信号9强制结束该进程。默认值是信号15。在安全模式中此命令被屏蔽。 </li>
+<li>i 忽略闲置和僵死进程。这是一个开关式命令。 </li>
+<li>q 退出程序。 </li>
+<li>r 重新安排一个进程的优先级别。系统提示用户输入需要改变的进程PID以及需要设置的进程优先级值。输入一个正值将使优先级降低，反之则可以使该进程拥有更高的优先权。默认值是10。 </li>
+<li>S 切换到累计模式。 </li>
+<li>s 改变两次刷新之间的延迟时间。系统将提示用户输入新的时间，单位为s。如果有小数，就换算成m s。输入0值则系统将不断刷新，默认值是5 s。需要注意的是如果设置太小的时间，很可能会引起不断刷新，从而根本来不及看清显示的情况，而且系统负载也会大大增加。 </li>
+<li>f或者F 从当前显示中添加或者删除项目。 </li>
+<li>o或者O 改变显示项目的顺序。 </li>
+<li>l 切换显示平均负载和启动时间信息。 </li>
+<li>m 切换显示内存信息。 </li>
+<li>t 切换显示进程和CPU状态信息。 </li>
+<li>c 切换显示命令名称和完整命令行。 </li>
+<li>M 根据驻留内存大小进行排序。   –&gt;推荐使用</li>
+<li>P 根据CPU使用百分比大小进行排序。   —》默认</li>
+<li>T 根据时间/累计时间进行排序。 </li>
+<li>W 将当前设置写入~/.toprc文件中。这是写top配置文件的推荐方法。</li>
+<li>h 可以查看top里可以输入哪些字符</li>
+<li>&lt; 和 &gt; 移动排序的列    往左  往右</li>
+</ul>
+<h4 id="附常用操作"><a href="#附常用操作" class="headerlink" title="附常用操作:"></a>附常用操作:</h4><ul>
+<li><code>top</code>   //每隔5秒显式所有进程的资源占用情况</li>
+<li><code>top -d 2</code>//每隔2秒显式所有进程的资源占用情况</li>
+<li><code>top -c</code>  //每隔5秒显式进程的资源占用情况，并显示进程的命令行参数(默认只有进程名)</li>
+<li><code>top -p 12345 -p 6789</code> //每隔5秒显示pid是12345和pid是6789的两个进程的资源占用情况</li>
+<li><code>top -d 2 -c -p 123456</code>  //每隔2秒显示pid是12345的进程的资源使用情况，并显式该进程启动的命令行参数</li>
+</ul>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]<span class="comment"># top -n   1  让top命令刷新1次就退出</span></span><br><span class="line"></span><br><span class="line">top - 10:49:42 up<span class="number"> 46 </span>min, <span class="number"> 3 </span>users,  load average: 0.00, 0.01, 0.05</span><br><span class="line">Tasks:<span class="number"> 123 </span>total,  <span class="number"> 1 </span>running,<span class="number"> 122 </span>sleeping,  <span class="number"> 0 </span>stopped,  <span class="number"> 0 </span>zombie</span><br><span class="line">%Cpu(s):  0.0 us,  3.1 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st</span><br><span class="line">KiB Mem : <span class="number"> 1863252 </span>total, <span class="number"> 1158592 </span>free,  <span class="number"> 445940 </span>used,  <span class="number"> 258720 </span>buff/cache</span><br><span class="line">KiB Swap: <span class="number"> 2097148 </span>total, <span class="number"> 2097148 </span>free,       <span class="number"> 0 </span>used. <span class="number"> 1236384 </span>avail Mem </span><br><span class="line"></span><br><span class="line">   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                    </span><br><span class="line"> <span class="number"> 6299 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span><span class="number"> 301040 </span> <span class="number"> 6484 </span> <span class="number"> 5112 </span>S   6.2  0.3   0:05.66 vmtoolsd                                   </span><br><span class="line"><span class="number"> 17147 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span><span class="number"> 162020 </span> <span class="number"> 2188 </span> <span class="number"> 1576 </span>R   6.2  0.1   0:00.01 top                                        </span><br><span class="line">    <span class="number"> 1 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span><span class="number"> 125336 </span> <span class="number"> 3784 </span> <span class="number"> 2560 </span>S   0.0  0.2   0:02.10 systemd                                    </span><br><span class="line">    <span class="number"> 2 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.02 kthreadd                                   </span><br><span class="line">    <span class="number"> 3 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.53 ksoftirqd/0                                </span><br><span class="line">    <span class="number"> 5 </span>root      <span class="number"> 0 </span>-20      <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.00 kworker/0:0H                               </span><br><span class="line">    <span class="number"> 6 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.05 kworker/u256:0                             </span><br><span class="line">    <span class="number"> 7 </span>root      rt  <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.07 migration/0                                </span><br><span class="line">    <span class="number"> 8 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.00 rcu_bh                                     </span><br><span class="line">    <span class="number"> 9 </span>root     <span class="number"> 20 </span> <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:05.84 rcu_sched                                  </span><br><span class="line">   <span class="number"> 10 </span>root      <span class="number"> 0 </span>-20      <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.00 lru-add-drain                              </span><br><span class="line">   <span class="number"> 11 </span>root      rt  <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.15 watchdog/0                                 </span><br><span class="line">   <span class="number"> 12 </span>root      rt  <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.25 watchdog/1                                 </span><br><span class="line">   <span class="number"> 13 </span>root      rt  <span class="number"> 0 </span>     <span class="number"> 0 </span>    <span class="number"> 0 </span>    <span class="number"> 0 </span>S   0.0  0.0   0:00.06 migration/1                                </span><br><span class="line">[root@sanchuang ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>查看CPU的信息</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang ~]# cat /<span class="keyword">proc</span>/cpuinfo </span><br><span class="line">processor	: 0</span><br><span class="line">vendor_id	:<span class="title"> GenuineIntel</span></span><br><span class="line"><span class="title">cpu</span> family	: 6</span><br><span class="line">model		: 42</span><br><span class="line">model<span class="title"> name</span>	:<span class="title"> Intel(R)</span> Core(TM)<span class="title"> i3-2100</span> CPU @ 3.10GHz</span><br><span class="line">stepping	: 7</span><br><span class="line">microcode	: 0x25</span><br><span class="line">cpu<span class="title"> MHz</span>		: 3093.039</span><br><span class="line">cache<span class="title"> size</span>	: 3072<span class="title"> KB</span></span><br><span class="line"><span class="title">physical</span> id	: 0</span><br><span class="line">siblings	: 2</span><br><span class="line">core<span class="title"> id</span>		: 0</span><br><span class="line">cpu<span class="title"> cores</span>	: 2</span><br><span class="line">apicid		: 0</span><br><span class="line">initial<span class="title"> apicid</span>	: 0</span><br><span class="line">fpu		:<span class="title"> yes</span></span><br><span class="line"><span class="title">fpu_exception</span>	:<span class="title"> yes</span></span><br><span class="line"><span class="title">cpuid</span> level	: 13</span><br><span class="line">wp		:<span class="title"> yes</span></span><br><span class="line"><span class="title">flags</span>		:<span class="title"> fpu</span> vme<span class="title"> de</span> pse<span class="title"> tsc</span> msr<span class="title"> pae</span> mce<span class="title"> cx8</span> apic<span class="title"> sep</span> mtrr<span class="title"> pge</span> mca<span class="title"> cmov</span> pat<span class="title"> pse36</span> clflush<span class="title"> mmx</span> fxsr<span class="title"> sse</span> sse2<span class="title"> ss</span> ht<span class="title"> syscall</span> nx<span class="title"> rdtscp</span> lm<span class="title"> constant_tsc</span> arch_perfmon<span class="title"> nopl</span> xtopology<span class="title"> tsc_reliable</span> nonstop_tsc<span class="title"> eagerfpu</span> pni<span class="title"> pclmulqdq</span> ssse3<span class="title"> cx16</span> pcid<span class="title"> sse4_1</span> sse4_2<span class="title"> x2apic</span> popcnt<span class="title"> tsc_deadline_timer</span> xsave<span class="title"> avx</span> hypervisor<span class="title"> lahf_lm</span> tsc_adjust<span class="title"> arat</span></span><br><span class="line"><span class="title">bogomips</span>	: 6186.07</span><br><span class="line">clflush<span class="title"> size</span>	: 64</span><br><span class="line">cache_alignment	: 64</span><br><span class="line">address<span class="title"> sizes</span>	: 43<span class="title"> bits</span> physical, 48<span class="title"> bits</span> virtual</span><br><span class="line">power<span class="title"> management:</span></span><br><span class="line"><span class="title"></span></span><br><span class="line"><span class="title">processor</span>	: 1</span><br><span class="line">vendor_id	:<span class="title"> GenuineIntel</span></span><br><span class="line"><span class="title">cpu</span> family	: 6</span><br><span class="line">model		: 42</span><br><span class="line">model<span class="title"> name</span>	:<span class="title"> Intel(R)</span> Core(TM)<span class="title"> i3-2100</span> CPU @ 3.10GHz</span><br><span class="line">stepping	: 7</span><br><span class="line">microcode	: 0x25</span><br><span class="line">cpu<span class="title"> MHz</span>		: 3093.039</span><br><span class="line">cache<span class="title"> size</span>	: 3072<span class="title"> KB</span></span><br><span class="line"><span class="title">physical</span> id	: 0</span><br><span class="line">siblings	: 2</span><br><span class="line">core<span class="title"> id</span>		: 1</span><br><span class="line">cpu<span class="title"> cores</span>	: 2</span><br><span class="line">apicid		: 1</span><br><span class="line">initial<span class="title"> apicid</span>	: 1</span><br><span class="line">fpu		:<span class="title"> yes</span></span><br><span class="line"><span class="title">fpu_exception</span>	:<span class="title"> yes</span></span><br><span class="line"><span class="title">cpuid</span> level	: 13</span><br><span class="line">wp		:<span class="title"> yes</span></span><br><span class="line"><span class="title">flags</span>		:<span class="title"> fpu</span> vme<span class="title"> de</span> pse<span class="title"> tsc</span> msr<span class="title"> pae</span> mce<span class="title"> cx8</span> apic<span class="title"> sep</span> mtrr<span class="title"> pge</span> mca<span class="title"> cmov</span> pat<span class="title"> pse36</span> clflush<span class="title"> mmx</span> fxsr<span class="title"> sse</span> sse2<span class="title"> ss</span> ht<span class="title"> syscall</span> nx<span class="title"> rdtscp</span> lm<span class="title"> constant_tsc</span> arch_perfmon<span class="title"> nopl</span> xtopology<span class="title"> tsc_reliable</span> nonstop_tsc<span class="title"> eagerfpu</span> pni<span class="title"> pclmulqdq</span> ssse3<span class="title"> cx16</span> pcid<span class="title"> sse4_1</span> sse4_2<span class="title"> x2apic</span> popcnt<span class="title"> tsc_deadline_timer</span> xsave<span class="title"> avx</span> hypervisor<span class="title"> lahf_lm</span> tsc_adjust<span class="title"> arat</span></span><br><span class="line"><span class="title">bogomips</span>	: 6186.07</span><br><span class="line">clflush<span class="title"> size</span>	: 64</span><br><span class="line">cache_alignment	: 64</span><br><span class="line">address<span class="title"> sizes</span>	: 43<span class="title"> bits</span> physical, 48<span class="title"> bits</span> virtual</span><br><span class="line">power<span class="title"> management:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="dstat的基本使用："><a href="#dstat的基本使用：" class="headerlink" title="dstat的基本使用："></a>dstat的基本使用：</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># yum  install dstat -y</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="dstat的默认选项"><a href="#dstat的默认选项" class="headerlink" title="dstat的默认选项"></a>dstat的默认选项</h4><p>与许多命令一样，dstat命令有默认选项，执行dstat命令不加任何参数，它默认会收集-cpu-、-disk-、-net-、－paging-、-system-的数据，一秒钟收集一次。 默认输入 dstat 等于输入了dstat -cdngy 1或dstat -a 1。</p>
+<h4 id="dstat的常用选项："><a href="#dstat的常用选项：" class="headerlink" title="dstat的常用选项："></a>dstat的常用选项：</h4><p>dstat的用法如下：</p>
+<p>dstat [-afv] [options..] [delay [count]]</p>
+<p>使用 dstat -h查看全部选项，这里不逐一列举，下面简单介绍下常用选项</p>
+<p>常用选项如下：</p>
+<ul>
+<li><p>直接跟数字，表示#秒收集一次数据，默认为一秒；dstat 5表示5秒更新一次</p>
+</li>
+<li><p>-c,–cpu   统计CPU状态，包括 user, system, idle（空闲等待时间百分比）, wait（等待磁盘IO）, hardware interrupt（硬件中断）, software interrupt（软件中断）等；</p>
+</li>
+<li><p>-d, –disk 统计磁盘读写状态</p>
+</li>
+<li><p>-D total,sda 统计指定磁盘或汇总信息</p>
+</li>
+<li><p>-l, –load 统计系统负载情况，包括1分钟、5分钟、15分钟平均值</p>
+</li>
+<li><p>-m, –mem 统计系统物理内存使用情况，包括used, buffers, cache, free</p>
+</li>
+<li><p>-s, –swap 统计swap已使用和剩余量</p>
+</li>
+<li><p>-n, –net 统计网络使用情况，包括接收和发送数据</p>
+</li>
+<li><p>-N eth1,total  统计eth1接口汇总流量</p>
+</li>
+<li><p>-r, –io 统计I/O请求，包括读写请求</p>
+</li>
+<li><p>-p, –proc 统计进程信息，包括runnable、uninterruptible、new</p>
+</li>
+<li><p>-y, –sys 统计系统信息，包括中断、上下文切换</p>
+</li>
+<li><p>-t 显示统计时时间，对分析历史数据非常有用</p>
+</li>
+<li><p>–fs 统计文件打开数和inodes数</p>
+</li>
+</ul>
+<p>以上这些就是最常用的选项，而一般都组合使用，个人比较常用的是：</p>
+<h4 id="找出占用资源最高的进程和用户"><a href="#找出占用资源最高的进程和用户" class="headerlink" title="找出占用资源最高的进程和用户"></a>找出占用资源最高的进程和用户</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dstat</span> -cmsdnl -D sda9 -N lo,etho <span class="number">100</span> <span class="number">5</span></span><br><span class="line">[root<span class="variable">@sanchuang</span> yum.repos.d]<span class="comment"># dstat  -ma</span></span><br><span class="line">[root<span class="variable">@sanchuang</span> yum.repos.d]<span class="comment"># dstat  -N ens33,lo，ens37  #查看多块网卡的流量</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="找出占用资源最高的进程和用户-1"><a href="#找出占用资源最高的进程和用户-1" class="headerlink" title="找出占用资源最高的进程和用户"></a>找出占用资源最高的进程和用户</h3><p>–top-(io|bio|cpu|cputime|cputime-avg|mem) 通过这几个选项，可以看到具体是那个用户那个进程占用了相关系统资源，对系统调优非常有效。如查看当前占用I/O、cpu、内存等最高的进程信息可以使用dstat –top-mem –top-io –top-cpu：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># dstat --top-cpu</span></span><br><span class="line">-most-expensive-</span><br><span class="line">  cpu process   </span><br><span class="line">mysqld       <span class="number">0.2</span></span><br><span class="line">mysqld       <span class="number">0.5</span></span><br><span class="line">top          <span class="number">0.5</span></span><br><span class="line">ksoftirqd/<span class="number">1</span>  <span class="number">0.5</span></span><br><span class="line">mysqld       <span class="number">0.5</span></span><br><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># dstat --top-mem  </span></span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># dstat --top-io</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="netstat的使用"><a href="#netstat的使用" class="headerlink" title="netstat的使用"></a>netstat的使用</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install <span class="keyword">net</span>-tools -<span class="built_in">y</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看所有端口的应用程序"><a href="#查看所有端口的应用程序" class="headerlink" title="查看所有端口的应用程序"></a>查看所有端口的应用程序</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[root@sanchuang yum.repos.d]# netstat -anplut</span><br><span class="line">Active Internet connections (servers <span class="keyword">and</span> established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:<span class="number">80</span>              <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:*               LISTEN      <span class="number">7294</span>/nginx: master  </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:<span class="number">22</span>              <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:*               LISTEN      <span class="number">6650</span>/sshd           </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">22</span>        <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.180</span>:<span class="number">50502</span>     ESTABLISHED <span class="number">17068</span>/sshd: root@pt </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">33672</span>     <span class="number">103.130</span><span class="meta">.59</span><span class="meta">.22</span>:<span class="number">80</span>        TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">53544</span>     <span class="number">150.65</span><span class="meta">.7</span><span class="meta">.130</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">48634</span>     <span class="number">101.6</span><span class="meta">.8</span><span class="meta">.193</span>:<span class="number">80</span>          TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">60076</span>     <span class="number">202.90</span><span class="meta">.159</span><span class="meta">.172</span>:<span class="number">443</span>      TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>     <span class="number">36</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">22</span>        <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.180</span>:<span class="number">49523</span>     ESTABLISHED <span class="number">13663</span>/sshd: root@pt </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">45740</span>     <span class="number">103.212</span><span class="meta">.36</span><span class="meta">.188</span>:<span class="number">80</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">51692</span>     <span class="number">134.160</span><span class="meta">.38</span><span class="meta">.1</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">51648</span>     <span class="number">195.210</span><span class="meta">.46</span><span class="meta">.141</span>:<span class="number">443</span>      TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">53704</span>     <span class="number">118.174</span><span class="meta">.8</span><span class="meta">.44</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">58318</span>     <span class="number">103.48</span><span class="meta">.119</span><span class="meta">.119</span>:<span class="number">80</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">43960</span>     <span class="number">212.8</span><span class="meta">.231</span><span class="meta">.33</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">42572</span>     <span class="number">194.146</span><span class="meta">.42</span><span class="meta">.42</span>:<span class="number">443</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">59628</span>     <span class="number">133.24</span><span class="meta">.248</span><span class="meta">.19</span>:<span class="number">443</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">45132</span>     <span class="number">210.71</span><span class="meta">.189</span><span class="meta">.53</span>:<span class="number">80</span>        TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">53746</span>     <span class="number">103.63</span><span class="meta">.213</span><span class="meta">.228</span>:<span class="number">80</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">44186</span>     <span class="number">158.108</span><span class="meta">.8</span><span class="meta">.148</span>:<span class="number">80</span>        TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">44582</span>     <span class="number">103.77</span><span class="meta">.111</span><span class="meta">.8</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">48516</span>     <span class="number">109.205</span><span class="meta">.113</span><span class="meta">.85</span>:<span class="number">80</span>       TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">43982</span>     <span class="number">212.8</span><span class="meta">.231</span><span class="meta">.33</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.126</span>:<span class="number">60184</span>     <span class="number">140.113</span><span class="meta">.17</span><span class="meta">.5</span>:<span class="number">80</span>         TIME_WAIT   -                   </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> :::<span class="number">3306</span>                 :::*                    LISTEN      <span class="number">7328</span>/mysqld         </span><br><span class="line">tcp6       <span class="number">0</span>      <span class="number">0</span> :::<span class="number">22</span>                   :::*                    LISTEN      <span class="number">6650</span>/sshd           </span><br><span class="line">udp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:<span class="number">68</span>              <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:*                           <span class="number">6404</span>/dhclient       </span><br><span class="line">udp        <span class="number">0</span>      <span class="number">0</span> <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">323</span>           <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:*                           <span class="number">6316</span>/chronyd        </span><br><span class="line">udp6       <span class="number">0</span>      <span class="number">0</span> ::<span class="number">1</span>:<span class="number">323</span>                 :::*                                <span class="number">6316</span>/chronyd        </span><br><span class="line">[root@sanchuang yum.repos.d]#</span><br></pre></td></tr></table></figure>
+
+<h4 id="netstat-anplut"><a href="#netstat-anplut" class="headerlink" title="netstat  -anplut"></a>netstat  -anplut</h4><p>[–tcp|-t]    tcp方式</p>
+<p>[–udp|-u]    udp方式</p>
+<p>[–listening|-l]  监听的状态</p>
+<p>[–all|-a]   所有的 </p>
+<p>[–numeric|-n]   以数字显示 </p>
+<p>[–program|-p]   程序名字</p>
+<ul>
+<li>ESTABLISHED  表示已经建立连接，对方已经进入你的机器</li>
+<li>LISTEN  表示某个端口处于打开–》监听–》等着别人来访问</li>
+</ul>
+<h3 id="iptraf的使用"><a href="#iptraf的使用" class="headerlink" title="iptraf的使用"></a>iptraf的使用</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># yum install iptraf</span></span><br><span class="line">[root<span class="symbol">@sanchuang</span> yum.repos.d]<span class="meta"># iptraf-ng</span></span><br></pre></td></tr></table></figure>
+
+<p>iptraf可以实时地监视网卡流量，可以生成各种网络统计数据，包括TCP信息、UDP统计、ICMP和OSPF信息、以太网负载信息、节点统计、IP校验和错误和其它一些信息。</p>
+<h3 id="sysstat的使用"><a href="#sysstat的使用" class="headerlink" title="sysstat的使用"></a>sysstat的使用</h3><p>磁盘IO：就是对磁盘进行读写  input  output</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@sanchuang</span> ~]<span class="meta"># yum install sysstat -y</span></span><br></pre></td></tr></table></figure>
+
+<p>iostat用于输出CPU和磁盘I/O相关的统计信息</p>
+<h4 id="iostat语法"><a href="#iostat语法" class="headerlink" title="iostat语法"></a>iostat语法</h4><p>用法：iostat [ 选项 ] [ &lt;时间间隔&gt; [ &lt;次数&gt; ]]</p>
+<h4 id="常用选项说明："><a href="#常用选项说明：" class="headerlink" title="常用选项说明："></a>常用选项说明：</h4><ul>
+<li>-c：只显示系统CPU统计信息，即单独输出avg-cpu结果，不包括device结果</li>
+<li>-d：单独输出Device结果，不包括cpu结果</li>
+<li>-k/-m：输出结果以kB/mB为单位，而不是以扇区数为单位</li>
+<li>-x:输出更详细的io设备统计信息</li>
+<li>interval/count：每次输出间隔时间，count表示输出次数，不带count表示循环输出<br>  说明：更多选项使用使用man iostat查看</li>
+</ul>
+<h4 id="常用实例"><a href="#常用实例" class="headerlink" title="常用实例"></a>常用实例</h4><h5 id="iostat"><a href="#iostat" class="headerlink" title="iostat:"></a>iostat:</h5><p>结果为从系统开机到当前执行时刻的统计信息</p>
+<p><img src="1566995762357.png" alt="1566995762357"></p>
+<p>输出含义：</p>
+<ul>
+<li><p>avg-cpu: 总体cpu使用情况统计信息，对于多核cpu，这里为所有cpu的平均值。重点关注iowait值，表示CPU用于等待io请求的完成时间。</p>
+</li>
+<li><p>Device: 各磁盘设备的IO统计信息。各列含义如下：</p>
+<p>  Device: 以sdX形式显示的设备名称<br>  tps: 每秒进程下发的IO读、写请求数量  —-》每秒读写的次数 transfer  per  second<br>  KB_read/s: 每秒从驱动器读入的数据量，单位为K。<br>  KB_wrtn/s: 每秒从驱动器写入的数据量，单位为K。<br>  KB_read: 读入数据总量，单位为K。<br>  KB_wrtn: 写入数据总量，单位为K。</p>
+<p>  IOPS（Input/Output Operations Per Second）是一个用于计算机存储设备（如硬盘（HDD）、固态硬盘（SSD）或存储区域网络（SAN））性能测试的量测方式，可以视为是每秒的读写次数。</p>
+</li>
+</ul>
+<h5 id="iostat-x-k-d-1-2"><a href="#iostat-x-k-d-1-2" class="headerlink" title="iostat -x -k -d 1 2:"></a>iostat -x -k -d 1 2:</h5><p><img src="1566995845141.png" alt="1566995845141"></p>
+<p>每隔1S输出磁盘IO的详细详细，总共采样2次。</p>
+<p>以上各列的含义如下：<br>rrqm/s: 每秒对该设备的读请求被合并次数，文件系统会对读取同块(block)的请求进行合并<br>wrqm/s: 每秒对该设备的写请求被合并次数<br>r/s: 每秒完成的读次数<br>w/s: 每秒完成的写次数<br>rkB/s: 每秒读数据量(kB为单位)<br>wkB/s: 每秒写数据量(kB为单位)<br>avgrq-sz:平均每次IO操作的数据量(扇区数为单位)<br>avgqu-sz: 平均等待处理的IO请求队列长度  queue<br>await: 平均每次IO请求等待时间(包括等待时间和处理时间，毫秒为单位)<br>svctm: 平均每次IO请求的处理时间(毫秒为单位)  service time<br>%util: 采用周期内用于IO操作的时间比率，即IO队列非空的时间比率</p>
+<h5 id="重点关注参数"><a href="#重点关注参数" class="headerlink" title="重点关注参数"></a>重点关注参数</h5><p>1、iowait% 表示CPU等待IO时间占整个CPU周期的百分比，如果iowait值超过50%，或者明显大于%system、%user以及%idle，表示IO可能存在问题。</p>
+<p>2、avgqu-sz 表示磁盘IO队列长度，即IO等待个数。</p>
+<p>3、await 表示每次IO请求等待时间，包括等待时间和处理时间</p>
+<p>4、svctm 表示每次IO请求处理的时间</p>
+<p>5、%util 表示磁盘忙碌情况，一般该值超过80%表示该磁盘可能处于繁忙状态。  繁忙度—》最重要参数</p>
+<h5 id="dm-0-1-2是什么？怎么来的？"><a href="#dm-0-1-2是什么？怎么来的？" class="headerlink" title="dm-0/1/2是什么？怎么来的？"></a>dm-0/1/2是什么？怎么来的？</h5><p>dm-0、dm-1、dm-2的主设备号是253（是linux内核留给本地使用的设备号），次设备号分别是0、1、2，这类设备在/dev/mapper中</p>
+<p>看到dm-0、dm-1、dm-2的详细设备名后，知道这三个设备是属于centos逻辑卷组的lvm设备。</p>
+<h3 id="htop的使用"><a href="#htop的使用" class="headerlink" title="htop的使用"></a>htop的使用</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@sanchuang</span> ~]<span class="meta"># yum install htop -y</span></span><br></pre></td></tr></table></figure>
+
+<p>htop 是Linux系统中的一个互动的进程查看器，一个文本模式的应用程序(在控制台或者X终端中)，需要ncurses。</p>
+<p>与Linux传统的top相比，htop更加人性化。它可让用户交互式操作，支持颜色主题，可横向或纵向滚动浏览进程列表，并支持鼠标操作。</p>
+<p>与top相比，htop有以下优点：</p>
+<ul>
+<li>可以横向或纵向滚动浏览进程列表，以便看到所有的进程和完整的命令行。</li>
+<li>在启动上，比top 更快。</li>
+<li>杀进程时不需要输入进程号。</li>
+<li>htop 支持鼠标操作。</li>
+<li>top 已经很老了。</li>
+</ul>
+<p><a href="http://htop.sourceforge.net/" target="_blank" rel="noopener"> htop 官网 </a></p>
+<p>下面左上角显示CPU、内存、交换区的使用情况，右边显示任务、负载、开机时间，下面就是进程实时状况。</p>
+<p><img src="1566996423385.png" alt="1566996423385"></p>
+<p>下面是 F1~F10 的功能和对应的字母快捷键。</p>
+<table>
+<thead>
+<tr>
+<th><strong>Shortcut Key</strong></th>
+<th><strong>Function Key</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>中文说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h, ?</td>
+<td>F1</td>
+<td>Invoke htop Help</td>
+<td>查看htop使用说明</td>
+</tr>
+<tr>
+<td>S</td>
+<td>F2</td>
+<td>Htop Setup Menu</td>
+<td>htop 设定</td>
+</tr>
+<tr>
+<td>/</td>
+<td>F3</td>
+<td>Search for a Process</td>
+<td>搜索进程</td>
+</tr>
+<tr>
+<td>\</td>
+<td>F4</td>
+<td>Incremental process filtering</td>
+<td>增量进程过滤器</td>
+</tr>
+<tr>
+<td>t</td>
+<td>F5</td>
+<td>Tree View</td>
+<td>显示树形结构</td>
+</tr>
+<tr>
+<td>&lt;, &gt;</td>
+<td>F6</td>
+<td>Sort by a column</td>
+<td>选择排序方式</td>
+</tr>
+<tr>
+<td>[</td>
+<td>F7</td>
+<td>Nice - (change priority)</td>
+<td>可减少nice值，这样就可以提高对应进程的优先级</td>
+</tr>
+<tr>
+<td>]</td>
+<td>F8</td>
+<td>Nice + (change priority)</td>
+<td>可增加nice值，这样就可以降低对应进程的优先级</td>
+</tr>
+<tr>
+<td>k</td>
+<td>F9</td>
+<td>Kill a Process</td>
+<td>可对进程传递信号</td>
+</tr>
+<tr>
+<td>q</td>
+<td>F10</td>
+<td>Quit htop</td>
+<td>结束htop</td>
+</tr>
+</tbody></table>
+<h4 id="命令行选项（COMMAND-LINE-OPTIONS）"><a href="#命令行选项（COMMAND-LINE-OPTIONS）" class="headerlink" title="命令行选项（COMMAND-LINE OPTIONS）"></a>命令行选项（COMMAND-LINE OPTIONS）</h4><p>-C –no-color　　　　 　　 使用一个单色的配色方案</p>
+<p>-d –delay=DELAY　　　　 设置延迟更新时间，单位秒</p>
+<p>-h –help　　　　　　  　　 显示htop 命令帮助信息</p>
+<p>-u –user=USERNAME　　  只显示一个给定的用户的过程</p>
+<p>-p –pid=PID,PID…　　　    只显示给定的PIDs</p>
+<p>-s –sort-key COLUMN　    依此列来排序</p>
+<p>-v –version　　　　　　　   显示版本信息</p>
+<p><a href="https://www.cnblogs.com/lazyfang/p/7650010.html" target="_blank" rel="noopener"> 详解 </a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔试题/" rel="tag"><i class="fa fa-tag"></i>  笔试题</a>
+          
+            <a href="/tags/top/" rel="tag"><i class="fa fa-tag"></i>  top</a>
+          
+            <a href="/tags/dstat/" rel="tag"><i class="fa fa-tag"></i>  dstat</a>
+          
+            <a href="/tags/netstat/" rel="tag"><i class="fa fa-tag"></i>  netstat</a>
+          
+            <a href="/tags/sysstat/" rel="tag"><i class="fa fa-tag"></i>  sysstat</a>
+          
+            <a href="/tags/htop/" rel="tag"><i class="fa fa-tag"></i>  htop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/26/mysql/学习mysql的字段/" rel="next" title="数据类型">
+                <i class="fa fa-chevron-left"></i> 数据类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/28/linux/nginx的负载均衡/" rel="prev" title="nginx的负载均衡">
+                nginx的负载均衡 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xll</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenxl18/chenxl18.github.io" title="GitHub &rarr; https://github.com/chenxl18/chenxl18.github.io" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/#/user/home?id=594731641" title="CloudMusic &rarr; https://music.163.com/#/user/home?id=594731641" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>CloudMusic</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+          <embed src="//music.163.com/style/swf/widget.swf?sid=1347468523&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔试题"><span class="nav-number">1.</span> <span class="nav-text">笔试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统性能监控"><span class="nav-number">2.</span> <span class="nav-text">系统性能监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程查看命令"><span class="nav-number">2.1.</span> <span class="nav-text">进程查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看内存的大小"><span class="nav-number">2.2.</span> <span class="nav-text">查看内存的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buff-cache的区别"><span class="nav-number">2.3.</span> <span class="nav-text">buff/cache的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#free-与-available"><span class="nav-number">2.4.</span> <span class="nav-text">free 与 available</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换空间-swap-space"><span class="nav-number">2.5.</span> <span class="nav-text">交换空间(swap space)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态显示系统资源（cpu、内存、进程）"><span class="nav-number">2.7.</span> <span class="nav-text">动态显示系统资源（cpu、内存、进程）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数含义"><span class="nav-number">2.7.1.</span> <span class="nav-text">#### 参数含义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么看内存有多少空闲呢？"><span class="nav-number">2.8.</span> <span class="nav-text">怎么看内存有多少空闲呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令使用"><span class="nav-number">3.</span> <span class="nav-text">命令使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-aux的使用"><span class="nav-number">3.1.</span> <span class="nav-text">ps aux的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lsof的使用"><span class="nav-number">3.2.</span> <span class="nav-text">lsof的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#top使用格式"><span class="nav-number">3.3.</span> <span class="nav-text">top使用格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数说明"><span class="nav-number">3.3.1.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他实用命令"><span class="nav-number">3.3.2.</span> <span class="nav-text">其他实用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附常用操作"><span class="nav-number">3.3.3.</span> <span class="nav-text">附常用操作:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dstat的基本使用："><span class="nav-number">3.4.</span> <span class="nav-text">dstat的基本使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dstat的默认选项"><span class="nav-number">3.4.1.</span> <span class="nav-text">dstat的默认选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dstat的常用选项："><span class="nav-number">3.4.2.</span> <span class="nav-text">dstat的常用选项：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出占用资源最高的进程和用户"><span class="nav-number">3.4.3.</span> <span class="nav-text">找出占用资源最高的进程和用户</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找出占用资源最高的进程和用户-1"><span class="nav-number">3.5.</span> <span class="nav-text">找出占用资源最高的进程和用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#netstat的使用"><span class="nav-number">3.6.</span> <span class="nav-text">netstat的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看所有端口的应用程序"><span class="nav-number">3.6.1.</span> <span class="nav-text">查看所有端口的应用程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#netstat-anplut"><span class="nav-number">3.6.2.</span> <span class="nav-text">netstat  -anplut</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iptraf的使用"><span class="nav-number">3.7.</span> <span class="nav-text">iptraf的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sysstat的使用"><span class="nav-number">3.8.</span> <span class="nav-text">sysstat的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iostat语法"><span class="nav-number">3.8.1.</span> <span class="nav-text">iostat语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用选项说明："><span class="nav-number">3.8.2.</span> <span class="nav-text">常用选项说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用实例"><span class="nav-number">3.8.3.</span> <span class="nav-text">常用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#iostat"><span class="nav-number">3.8.3.1.</span> <span class="nav-text">iostat:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iostat-x-k-d-1-2"><span class="nav-number">3.8.3.2.</span> <span class="nav-text">iostat -x -k -d 1 2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重点关注参数"><span class="nav-number">3.8.3.3.</span> <span class="nav-text">重点关注参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dm-0-1-2是什么？怎么来的？"><span class="nav-number">3.8.3.4.</span> <span class="nav-text">dm-0/1/2是什么？怎么来的？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htop的使用"><span class="nav-number">3.9.</span> <span class="nav-text">htop的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行选项（COMMAND-LINE-OPTIONS）"><span class="nav-number">3.9.1.</span> <span class="nav-text">命令行选项（COMMAND-LINE OPTIONS）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xll</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="990" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
