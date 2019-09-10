@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx的详细配置]]></title>
+    <url>%2F2019%2F09%2F02%2Flinux%2Fnginx%E7%9A%84%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[笔试题rpm只能查文件（只能查rpm安装的软件），不能查路径 内核模块：kennel内核： 管理cpu调度 对进程进行管理 对内存进行分配 对文件系统管理 其他硬件（网络） 屏蔽hup信号的命令 trap 1trap 'echo i am busy' 2 1 nohup 1nohup bash while.sh &amp; 查看所有信号kill -l 1234515) SIGTERM --默认1) SIGHUP 父进程死了给所有的子进程发hup,内核会杀死所有的接受到的hup信号的进程2) SIGINT ctrl+c9) SIGKILL 不能被屏蔽的信号，内核强制杀死进程19) SIGSTOP ctrl+z cmd1 &amp;&amp; cmd2 前面的cmd1执行成功就执行cmd2 cmd1 || cmd2 前面的cmd1执行不成功就执行cmd2 cmd1 &amp;&amp; cmd2 || cmd3 前面的cmd1执行成功就执行cmd2，不成功就执行cmd3 cmd1 ; cmd2 前面的cmd1执行不管是否成功都会执行cmd2 ; 命令连接符号 nginx service network restart 和 service network reload的区别 restart 业务会中断，正在运行的业务，（旧业务）会终止，新的业务受影响，不能在stop的时候进入 start的时候，nginx进程会去读取 keepalived和NFC没有使用 后端的real-server如何知道前端的客户机的ip地址？ kill和killall的区别killall可以接进程名，批量杀死进程 高可用keepalived]]></content>
+      <categories>
+        <category>linux高级</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[shell脚本的基础命令]]></title>
+    <url>%2F2019%2F08%2F29%2Flinux%2Fshell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[CUT从文本文件或者文本流中提取文本列 cut -选项 提取范围 文本文件 常见选项 -c:从指定提取范围中提取字符（character） -f:从指定提取范围中提取字段（field） -d:指定分隔符(delimiter)，默认分隔符是tab键 提取范围 n:第n项 n-:第n项到行尾 -m:行首到第m项 n,m:第n项和第m项 n-m:第n项到第m项 注：tr -s &quot; &quot;压缩空格（去重）、tr -d &quot;%&quot;:删除% 得出根分区的使用率的数字和得出/boot分区的使用率的数字 tr 字符装换工具 只能对stdin操作，不能直接对文件操作 使用tr装换字符tr SET1 SET2 用SET2中的字符替换掉SET1中同一位置的字符 12[root@cxl lianxi]# echo 123456|tr 456 abc123abc 删除功能（-d） 压缩功能 管道“|”连接左右两个命令，将左侧的命令的标准输出(正确的输出)，作为右侧命令的标准输入，前面，命令的错误输出不会送到管道符号给后面命令作为输入，除非2&gt;&amp;1。 2&gt;&amp;1:错误的跟着正确的也传过去 格式cmd1 | cmd2 [...|cmdn] 用grep过滤输出 ls -l /etc/|grep pass 管道和标准错误 find /etc -name &quot;p*&quot;|grep passwd 查找出/etc目录所有的.conf结尾的文件，然后将文件的路径重定向到/lianxi/all_conf.txt 1find /etc |grep ".conf$" &gt;/lianxi/all_conf.txt xargs将前面命令的输出送给后面的命令作为参数使用 用途：将参数列表转换成小块分段传递给其他命令 读入stdin的数据装换为参数添加到命令行中 让一些不支持管道的命令可以使用管道 basename根据文件的路径截取文件名。 ； 命令连接符号 先执行cmd1，然后在执行cmd2，再执行cmd3，不管前面的命令执行是否成功都会执行后面的命令 cmd1 ; cmd2 ; cmd3 &lt;导入符号 将后面文件的内容导入到前面命令 catcat能够合并两个文件的内容，能查看文件里的内容 标准输出 seq用途打印出一串有序的数字 123456789101112131415161718192021222324252627282930[root@cxl lianxi]# seq 1012345678910[root@cxl lianxi]# seq 5 105678910[root@cxl lianxi]# seq 1 +2 10 #递增2得到单数 +2步长13579[root@cxl lianxi]# seq 10 -2 1 #递减2，得到双数108642 格式seq [选项] 数字范围 -s:指定分隔符(separator) 1234[root@cxl lianxi]# seq -s " " 2 +2 102 4 6 8 10[root@cxl lianxi]# seq -s "+" 2 +2 102+4+6+8+10 -w:指定同等宽带输出(equal-width) 1234567891011[root@cxl lianxi]# seq -w 1001020304050607080910 bclinux下的计算器 123[root@cxl lianxi]# seq -s "+" 100|bc5050yum install bc 1234567891011121314151617181920[root@cxl lianxi]# bash for.sh1,hello2,hello3,hello4,hello5,hello6,hello7,hello8,hello9,hello10,hello[root@cxl lianxi]# cat for.sh #!/bin/bashfor i in `seq 10`do echo "$i,hello"done[root@cxl lianxi]# 1234567891011121314151617181920[root@cxl lianxi]# bash for.shnum1:2num2:102,hello3,hello4,hello5,hello6,hello7,hello8,hello9,hello10,hello[root@cxl lianxi]# cat for.sh #!/bin/bashread -p "num1:" num1read -p "num2:" num2for i in `seq $num1 $num2`do echo "$i,hello"done tee将内容重定向到一个文件，并且在屏幕上输出 1234[root@cxl lianxi]# echo 123456|tee 123.txt123456[root@cxl lianxi]# cat 123.txt 123456 $() 和``$( )作用就是让命令在里面执行，得到这个命令执行的结果 $( )和``作用是一样 sort默认按每行的第一个字符排序 -n:按整数进行排序 -r:递减排序 指定排序键指定按哪一列数据进行排序 -k:指定哪一列为排序键 指定字段分割符-t：指定字段分割符（默认是空白）]]></content>
+      <categories>
+        <category>shell</category>
+      </categories>
+      <tags>
+        <tag>cut</tag>
+        <tag>awk</tag>
+        <tag>;命令连接符</tag>
+        <tag>管道</tag>
+        <tag>xargs</tag>
+        <tag>basename</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nginx的负载均衡]]></title>
     <url>%2F2019%2F08%2F28%2Flinux%2Fnginx%E7%9A%84%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%2F</url>
     <content type="text"><![CDATA[nginx也可以做负载均衡（load balancer） 集群：很多台电脑完成相同的工作，至少是2台以上的电脑 负载均衡器：分配访问任务的一个机器（软件） 应用场景：很多用户的情况下，很多机器提供相同服务，需要均匀的分配任务到不同的机器上，不让某台机器压力过大，导致用户访问不了 负载均衡算法upstrean支持4种负载均衡调度算法 轮询（默认）：每个请求按时间顺序逐一分配到不同的后端服务器; ip_hash：每个请求按访问IP的hash结果分配，同一个IP客户端固定访问一个后端服务器。可以保证来自同一ip的请求被打到固定的机器上，可以解决session问题。 url_hash：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器。后台服务器为缓存的时候效率。 fail：这是比上面两个更加智能的负载均衡算法。此种算法可以依据页面大小和加载时间长短智能地进行负载均衡，也就是根据后端服务器的响应时间来分配请求，响应时间短的优先分配。Nginx本身是不支持 fair的，如果需要使用这种调度算法，必须下载Nginx的 upstream_fair模块。 准备规划好ip地址和服务器的角色 4台 ： 1台 LB1 :192.168.1.126 real-server-1 ：192.168.1.178 real-server-2 ：192.168.1.163 NFS-SERVER ：192.168.1.139 让real-server的web服务正常运行 安装nginx 启动服务器 挂载NFS共享的网站内容 yum install nginx -y 访问网站 搭建好NFS服务 2台web服务器挂载nfs共享的目录，达到网页内容一致 搭建好负载均衡服务器 轮询算法12345678910111213141516[root@LB1 conf]# cd /usr/local/nginx/conf/[root@LB1 conf]# upstream sanchuang &#123; server 192.168.1.163:80 weight=1; #server-1 server 192.168.1.178:80 weight=1;&#125;server &#123; listen 80 default_server reuseport; server_name www.sanchuang.com; location / &#123; proxy_pass http://sanchuang; &#125; &#125; 基于ip-hash12345678910111213141516#设定负载均衡服务器列表upstream roundrobin &#123; #后端服务器访问规则 ip_hash; #添加参数支持哈希 server 192.168.1.115:8080 weight=1; #server1 server 192.168.1.131:8080 weight=1; #server1 server 192.168.1.94:8090 weight=1; #server3 &#125;server &#123; listen 80; server_name 192.168.1.131; location / &#123; proxy_pass http://roundrobin; &#125;&#125;]]></content>
